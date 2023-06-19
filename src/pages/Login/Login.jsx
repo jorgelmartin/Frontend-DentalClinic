@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./Login.css";
-import { ChangeView } from '../../common/ChangeView/ChangeView';
+// import { ChangeView } from '../../common/ChangeView/ChangeView';
 import { InputText } from "../../common/InputText/InputText";
 
 export const Login = () => {
@@ -30,10 +30,10 @@ export const Login = () => {
     <div className="loginDesign">
     {<pre>{JSON.stringify(credentials, null,2)}</pre>}
 
-      <div className="navLogin">
+      {/* <div className="navLogin">
         <ChangeView path={"/"} name={"Home"} />
         <ChangeView path={"/register"} name={"Register"} />
-      </div>
+      </div> */}
 
       <div className="loginForm">
         <InputText 
