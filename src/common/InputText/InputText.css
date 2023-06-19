@@ -1,0 +1,15 @@
+
+.InputText {
+
+    border-radius: 0.5em;
+    height: 1.5em;
+    background-color: white;
+
+    margin: 2em;
+}
+
+.InputTextError {
+
+    border: 0.2em solid red;
+    color: red;
+}

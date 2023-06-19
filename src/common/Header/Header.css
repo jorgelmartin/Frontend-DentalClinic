@@ -1,0 +1,39 @@
+
+.headerDesign {
+
+    height: 8vh;
+    width: 100vw;
+
+    background-color: #69819990;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+}
+
+.linksDesign {
+    /* margin-left: 5em; */
+    display: flex;
+    flex-direction: row;
+    padding: 0.5em;
+}
+
+.headerLink {
+
+    font-weight: bolder;
+    font-size: medium;
+    margin: 0.2em;
+    
+    /* color: white; */
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.headerLink:hover {
+
+    transition: 0.5s;
+    color: darkgrey;
+
+}
