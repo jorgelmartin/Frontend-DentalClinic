@@ -1,6 +1,8 @@
 
 .headerDesign {
-
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 8vh;
     width: 100vw;
 
@@ -21,19 +23,16 @@
 }
 
 .headerLink {
-
     font-weight: bolder;
-    font-size: medium;
+    font-size: large;
     margin: 0.2em;
-    
     /* color: white; */
     transition: 0.5s;
     cursor: pointer;
+    margin-bottom: 0.4em;
 }
 
 .headerLink:hover {
-
     transition: 0.5s;
     color: darkgrey;
-
 }
