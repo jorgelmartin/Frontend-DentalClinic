@@ -1,4 +1,12 @@
 
+.container{
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  
+}
 .registerDesign {
 
     height: 100vh;
@@ -10,5 +18,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+ 
 
 }
+.label{
+    margin: 0.5em;
+    align-items: end;
+ 
+    
+}
+.dataRegister{
+    margin: 0.5em;
+    justify-content: center;
+    
+}
+.input-inline {
+    display: inline-block;
+    justify-content: center;
+    width: 10em; /* Ajusta el ancho según tus necesidades */
+    margin-right: 22em; /* Espacio entre los inputs */
+  }

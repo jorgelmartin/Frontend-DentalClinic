@@ -1,28 +1,21 @@
+
 .homeDesign {
 
-    height: 100vh;
+    height: 85vh;
     width: 100vw;
-    background-color: rgba(193, 203, 238, 0.741);
+
+    background-color: #F7FFE5;
+
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: rgba(107, 143, 163, 0.559);
-    font-weight: bolder;
-    font-size: x-large;
-
+    /* flex-wrap: wrap; */
+    flex-direction: column;
 }
 
-/* .homeDesign {
+.services {
 
-    height: 100vh;
-    width: 100vw;
-
-    background-color: cadetblue;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-} */
+    display:flex;
+    flex-wrap: wrap;
+    margin-top: 1em;
+}

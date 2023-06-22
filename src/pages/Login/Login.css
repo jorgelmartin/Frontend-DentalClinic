@@ -13,8 +13,10 @@
 
 }
 .loginForm {
+    
     display: flex;
     flex-direction: column;
+    align-items: center; 
     
 }
 .InputText{
@@ -23,17 +25,16 @@
 }
 
 
-/* .errorText {
+.errorText {
     color: red;
-} */
-/* 
+}
+
 .botonLogin {
 
-    height: 3em;
     width: 7em;
 
-    background-color: orange;
-    color: white;
+    background-color: rgba(77, 90, 150, 0.763);
+    color: rgb(34, 4, 4);
 
     cursor: pointer;
     transition: 0.2s;
@@ -44,10 +45,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-} */
+}
 
 .botonLogin:hover {
 
     transition: 0.2s;
-    background-color: darkorange;
+    background-color: rgba(24, 35, 95, 0.312);
 }
