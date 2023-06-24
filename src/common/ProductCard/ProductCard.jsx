@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProductCard.css';
 
-export const ProductCard = ({image, name, price, id}) => {
+export const ProductCard = ({image, name, species, id}) => {
 
     // useEffect(()=>{
     //     console.log(image)
@@ -14,7 +14,7 @@ export const ProductCard = ({image, name, price, id}) => {
                 <img className="pictureDesign" src={image !== "" ? image : notFound} alt={id} />
             </div>
             <div className="cardText">{name}</div>
-            <div className="cardText">{price}</div>
+            <div className="cardText">{species}</div>
          </div>
      )
 }
