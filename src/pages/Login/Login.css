@@ -1,6 +1,5 @@
 
 .loginDesign {
-
     height: 100vh;
     width: 100vw;
 
@@ -9,15 +8,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-
 }
 .loginForm {
-    
     display: flex;
     flex-direction: column;
     align-items: center; 
-    
 }
 .InputText{
   margin-top: -1em;
