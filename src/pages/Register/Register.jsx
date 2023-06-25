@@ -2,7 +2,7 @@ import React from "react";
 import "./Register.css";
 import { InputText } from "../../common/InputText/InputText";
 // import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from 'react-bootstrap';
+import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 
 
 export const Register = () => {
@@ -10,74 +10,94 @@ export const Register = () => {
         { label: 'Nombre completo:', type: 'text', placeholder: 'Escribe tu nombre...', name: 'fullname' },
         { label: 'Email:', type: 'email', placeholder: 'Escribe tu email...', name: 'email' },
         // Agrega el resto de los inputs aquí
-      ];
+    ];
 
     return (
         <div className="registerDesign">
-            <Container>
-            <h2>Registro</h2>
-                <Row>
-                    <Col>
-                
-                <div className="dataRegister">
-                <span className="label">Nombre completo:</span>
-                <InputText
-                    type="text"
-                    placeholder="Escribe tu nombre..."
-                    name="fullname"
-                    className="input-inline"
-                />
-                </div>
-                <div className="dataRegister">
-                <span className="label">Email:</span>
-                <InputText
-                    type="email"
-                    placeholder="Escribe tu email..."
-                    name="email"
-                    className="input-inline"
-                />
-                </div>
-                <div className="dataRegister">
-                <span className="label">Contraseña:</span>
-                <InputText
-                    type="password"
-                    placeholder="Escribe tu password..."
-                    name="password"
-                />
-                </div>
-                <div className="dataRegister">
-                <span className="label">NIF:</span>
-                <InputText
-                    type="text"
-                    placeholder="Escribe tu nif..."
-                    name="nif"
-                />
-                </div>
-                <div className="dataRegister">
-                <span className="label">Dirección:</span>
-                <InputText
-                    type="text"
-                    placeholder="Escribe tu nif..."
-                    name="nif"
-                />
-                </div>
-                <div className="dataRegister">
-                <span className="label">Edad:</span>
-                <InputText
-                    type="text"
-                    placeholder="Escribe tu edad..."
-                    name="age"
-                />
-                </div>
-                <div className="dataRegister">
-                <span className="label">Teléfono:</span>
-                <InputText
-                    type="text"
-                    placeholder="Escribe tu teléfono..."
-                    name="age"
-                />
-                </div></Col>
-                </Row>
+            <Container className="d-flex justify-content-center align-items-center mt-4">
+                <Card>
+                    
+                    <Card.Body>
+                        <Card.Title className="text-center mb-3 display-5">Registro</Card.Title>
+                        <Form>
+                            <Form.Group as={Row} className="mb-2">
+                                <Form.Label column lg="4" sm="4">Nombre:</Form.Label>
+                                <Col lg="8" sm="7">
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Escribe tu nombre..."
+                                        name="fullname"
+                                    />
+                                </Col>
+                            </Form.Group>
+                            <Form.Group as={Row} className="mb-2">
+                                <Form.Label column lg="4" sm="4">Email:</Form.Label>
+                                <Col lg="8" sm="6">
+                                    <Form.Control
+                                        type="email"
+                                        placeholder="Escribe tu email..."
+                                        name="email"
+                                    />
+                                </Col>
+                            </Form.Group>
+                            <Form.Group as={Row} className="mb-2">
+                                <Form.Label column lg="4" sm="4">Contraseña:</Form.Label>
+                                <Col lg="8" sm="6">
+                                    <Form.Control
+                                        type="password"
+                                        placeholder="Escribe tu contraseña..."
+                                        name="password"
+                                    />
+                                </Col>
+                            </Form.Group>
+                            <Form.Group as={Row} className="mb-2">
+                                <Form.Label column lg="4" sm="4">DNI/NIE:</Form.Label>
+                                <Col lg="8" sm="6">
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Escribe tu DNI..."
+                                        name="nif"
+                                    />
+                                </Col>
+                            </Form.Group>
+                            {/* <Form.Group as={Row} className="mb-2">
+                                <Form.Label column lg="4" sm="4">Dirección:</Form.Label>
+                                <Col lg="8" sm="6">
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Escribe tu dirección..."
+                                        name="address"
+                                    />
+                                </Col>
+                            </Form.Group> */}
+                            <Form.Group as={Row} className="mb-2">
+                                <Form.Label column lg="4" sm="4">Edad:</Form.Label>
+                                <Col lg="8" sm="6">
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Escribe tu edad..."
+                                        name="age"
+                                    />
+                                </Col>
+                            </Form.Group>
+                            <Form.Group as={Row} className="mb-2">
+                                <Form.Label column lg="4" sm="4">Teléfono:</Form.Label>
+                                <Col lg="8" sm="6">
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Escribe tu teléfono..."
+                                        name="phone"
+                                    />
+                                </Col>
+                            </Form.Group>
+                            <div className="text-center">
+                <Button variant="primary" type="submit">
+                  Registro
+                </Button>
+              </div>
+                        </Form>
+                    </Card.Body>
+                </Card>
             </Container>
         </div>
     );
