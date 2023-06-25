@@ -1,14 +1,17 @@
 
-.InputText {
+.normalInput {
 
     border-radius: 0.5em;
-    height: 1.5em;
-    background-color: white;
+    border: 0.15em solid rgb(29, 115, 169);
+    width: 15em;
+    height: 2em;
 
+    margin-top: 0.5em;
 }
 
-.InputTextError {
+.errorInput {
 
-    border: 0.2em solid red;
-    color: red;
+    color: rgba(169, 40, 40, 0.9);
+    border: 0.2em solid rgba(182, 16, 16, 0.542);
+    
 }
