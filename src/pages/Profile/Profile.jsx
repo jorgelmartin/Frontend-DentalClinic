@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Col, Collapse, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import "./Profile.css";
 
 export const Profile = () => {
