@@ -1,0 +1,28 @@
+.userContainer {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(130, 162, 237, 0.436);
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.userCardTitle {
+    width: 10em;
+    margin: 3em;
+    height: 3em;
+    background-color: rgb(127, 163, 220);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2em;
+    cursor: pointer;
+}
+.userCardTitle:hover{
+    /* font-size:0.98em; */
+    background-color: rgba(33, 107, 227, 0.722);
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
