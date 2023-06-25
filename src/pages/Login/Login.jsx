@@ -11,9 +11,9 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login, userData } from "../userSlice";
 
-  export const Login = () => {
+export const Login = () => {
 
-    //Instancio Redux en modo lectura y escritura
+  //Instancio Redux en modo lectura y escritura
 
   //Dispatch escritura
   const dispatch = useDispatch();
@@ -21,22 +21,22 @@ import { login, userData } from "../userSlice";
   //useSelector es para el modo de lectura
   const credentialsRdx = useSelector(userData);
 
-    //Instanciamos useNavigate dentro de la constante navigate
-    const navigate = useNavigate();
-  
-    const [credentials, setCredentials] = useState(
+  //Instanciamos useNavigate dentro de la constante navigate
+  const navigate = useNavigate();
+
+  const [credentials, setCredentials] = useState(
     //   {
     //   email: "",
     //   password: "",
     // }
-    );
-  
-    const [credentialsError, setCredentialsError] = useState({
-      emailError: "",
-      passwordError: "",
-    });
-  
-    const [welcome, setWelcome] = useState("");
+  );
+
+  const [credentialsError, setCredentialsError] = useState({
+    // emailError: "",
+    // passwordError: "",
+  });
+
+  const [welcome, setWelcome] = useState("");
 
   const inputHandler = (e) => {
     //Ahora vamos a proceder a bindear o atar los inputs mediante
@@ -48,124 +48,82 @@ import { login, userData } from "../userSlice";
       [e.target.name]: e.target.value,
     }));
   };
-  
-    const inputCheck = (e) => {
-      let mensajeError = checkError(e.target.name, e.target.value);
-  
-      setCredentialsError((prevState) => ({
-        ...prevState,
-        [e.target.name + "Error"]: mensajeError,
-      }));
-      // checkError(e.target.name, e.target.value); ver que hace
-    };
-  
-    const logMe = () => {
-      loginMe(credentials)
-        .then((resultado) => {
-          let decodificado = jwt_decode(resultado.data.token);
-  
-          let datosBackend = {
-            token : resultado.data.token,
-            user: decodificado
-          }
-  
-          //Guardo en redux.....
-          dispatch(login({ credentials: datosBackend}))
-  
-          setTimeout(() => {
-            navigate("/");
-          }, 2000);
-  
-          setWelcome(`Bienvenid@ de nuevo ${decodificado.name}`);
-        })
-        .catch((error) => console.log(error));
-    };
 
-    return (
-      <div className="loginDesign">
-        {welcome !== "" ? (
-          <div>{welcome}</div>
-        ) : (
-          <div>
-            {/* La utilidad de la siguiente linea es renderizar un hook at tiempo real en el DOM */}
-            {<pre>{JSON.stringify(credentials, null, 2)}</pre>}
-  
-            <InputText
-              // type, design, placeholder, name, functionHandler, onBlurFunction
-              type={"email"}
-              design={
-                credentialsError.emailError === ""
-                  ? "normalInput"
-                  : "normalInput errorInput"
-              }
-              placeholder={"Email...."}
-              name={"email"}
-              functionHandler={inputHandler}
-              onBlurFunction={inputCheck}
-            />
-            <div className="errorText">{credentialsError.emailError}</div>
-            <InputText
-              // type, design, placeholder, name, functionHandler, onBlurFunction
-              type={"password"}
-              design={
-                credentialsError.passwordError === ""
-                  ? "normalInput"
-                  : "normalInput errorInput"
-              }
-              placeholder={"Password...."}
-              name={"password"}
-              functionHandler={inputHandler}
-              onBlurFunction={inputCheck}
-            />
-            <div className="errorText">{credentialsError.passwordError}</div>
-  
-            <div onClick={() => logMe()} className="botonLogin">
-              Iniciar Sesión
-            </div>
+  const inputCheck = (e) => {
+    let mensajeError = checkError(e.target.name, e.target.value);
+
+    setCredentialsError((prevState) => ({
+      ...prevState,
+      [e.target.name + "Error"]: mensajeError,
+    }));
+    // checkError(e.target.name, e.target.value); ver que hace
+  };
+
+  const logMe = () => {
+    loginMe(credentials)
+      .then((resultado) => {
+        let decodificado = jwt_decode(resultado.data.token);
+
+        let datosBackend = {
+          token: resultado.data.token,
+          user: decodificado
+        }
+
+        //Guardo en redux.....
+        dispatch(login({ credentials: datosBackend }))
+
+        setTimeout(() => {
+          navigate("/");
+        }, 3500);
+
+        setWelcome(`Bienvenid@ de nuevo ${decodificado.name}`);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  return (
+    <div className="loginDesign">
+      {welcome !== "" ? (
+        <div>{welcome}</div>
+      ) : (
+        <div>
+          {/* La utilidad de la siguiente linea es renderizar un hook at tiempo real en el DOM */}
+          {<pre>{JSON.stringify(credentials, null, 2)}</pre>}
+
+          <InputText
+            // type, design, placeholder, name, functionHandler, onBlurFunction
+            type={"email"}
+            design={
+              credentialsError.emailError === ""
+                ? "normalInput"
+                : "normalInput errorInput"
+            }
+            placeholder={"Email...."}
+            name={"email"}
+            functionHandler={inputHandler}
+            onBlurFunction={inputCheck}
+          />
+          <div className="errorText">{credentialsError.emailError}</div>
+          <InputText
+            // type, design, placeholder, name, functionHandler, onBlurFunction
+            type={"password"}
+            design={
+              credentialsError.passwordError === ""
+                ? "normalInput"
+                : "normalInput errorInput"
+            }
+            placeholder={"Password...."}
+            name={"password"}
+            functionHandler={inputHandler}
+            onBlurFunction={inputCheck}
+          />
+          <div className="errorText">{credentialsError.passwordError}</div>
+
+          <div onClick={() => logMe()} className="botonLogin">
+            Login me!
           </div>
-        )}
-      </div>
-    );
+        </div>
+      )}
+    </div>
+  );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   return (
-//     <div className="loginDesign">
-//     {<pre>{JSON.stringify(credentials, null,2)}</pre>}
-
-//       {/* <div className="navLogin">
-//         <ChangeView path={"/"} name={"Home"} />
-//         <ChangeView path={"/register"} name={"Register"} />
-//       </div> */}
-
-//       <div className="loginForm">
-//         <InputText 
-//             type={"email"}
-//             placeholder={"email..."}
-//             name={"email"}
-//             classDesign={"InputText"}
-//             functionHandler={InputHandler}
-//         />
-//         <InputText 
-//             type={"password"}
-//             placeholder={"password..."}
-//             name={"password"}
-//             classDesign={"InputText"}
-//             functionHandler={InputHandler}
-//         />
-//       </div>
-//     </div>
-//   );
-// };

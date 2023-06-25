@@ -2,32 +2,32 @@
 export const checkError = (name, value) => {
 
 
-    switch(name){
+    switch (name) {
 
         case "email":
         case "e-mail":
         case "correo":
 
-            if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)){
+            if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) {
                 return "El e-mail es incorrecto";
             }
 
-                return "";
+            return "";
 
         case "password":
         case "contraseña":
 
-            if(value.length < 8){
+            if (value.length < 8) {
                 return "El password debe de tener 8 caracteres minimo";
 
             }
-                return "";
+            return "";
 
 
         case "name":
-        
 
-        break;
+
+            break;
 
         default:
             console.log("Unknown format");
