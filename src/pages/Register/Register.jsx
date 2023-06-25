@@ -1,8 +1,9 @@
 import React from "react";
 import "./Register.css";
 import { InputText } from "../../common/InputText/InputText";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
+
 
 
 export const Register = () => {
@@ -21,8 +22,8 @@ export const Register = () => {
                         <Card.Title className="text-center mb-3 display-5">Registro</Card.Title>
                         <Form>
                             <Form.Group as={Row} className="mb-2">
-                                <Form.Label column lg="4" sm="4">Nombre:</Form.Label>
-                                <Col lg="8" sm="7">
+                                <Form.Label column>Nombre completo:</Form.Label>
+                                <Col>
                                     <Form.Control
                                         type="text"
                                         placeholder="Escribe tu nombre..."
@@ -31,8 +32,8 @@ export const Register = () => {
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
-                                <Form.Label column lg="4" sm="4">Email:</Form.Label>
-                                <Col lg="8" sm="6">
+                                <Form.Label column>Email:</Form.Label>
+                                <Col>
                                     <Form.Control
                                         type="email"
                                         placeholder="Escribe tu email..."
@@ -41,8 +42,8 @@ export const Register = () => {
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
-                                <Form.Label column lg="4" sm="4">Contraseña:</Form.Label>
-                                <Col lg="8" sm="6">
+                                <Form.Label column>Contraseña:</Form.Label>
+                                <Col>
                                     <Form.Control
                                         type="password"
                                         placeholder="Escribe tu contraseña..."
@@ -51,8 +52,8 @@ export const Register = () => {
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
-                                <Form.Label column lg="4" sm="4">DNI/NIE:</Form.Label>
-                                <Col lg="8" sm="6">
+                                <Form.Label column>DNI/NIE:</Form.Label>
+                                <Col>
                                     <Form.Control
                                         type="text"
                                         placeholder="Escribe tu DNI..."
@@ -60,19 +61,19 @@ export const Register = () => {
                                     />
                                 </Col>
                             </Form.Group>
-                            {/* <Form.Group as={Row} className="mb-2">
-                                <Form.Label column lg="4" sm="4">Dirección:</Form.Label>
-                                <Col lg="8" sm="6">
+                            <Form.Group as={Row} className="mb-2">
+                                <Form.Label column>Dirección:</Form.Label>
+                                <Col>
                                     <Form.Control
                                         type="text"
                                         placeholder="Escribe tu dirección..."
                                         name="address"
                                     />
                                 </Col>
-                            </Form.Group> */}
+                            </Form.Group>
                             <Form.Group as={Row} className="mb-2">
-                                <Form.Label column lg="4" sm="4">Edad:</Form.Label>
-                                <Col lg="8" sm="6">
+                                <Form.Label column>Edad:</Form.Label>
+                                <Col>
                                     <Form.Control
                                         type="text"
                                         placeholder="Escribe tu edad..."
@@ -81,8 +82,8 @@ export const Register = () => {
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
-                                <Form.Label column lg="4" sm="4">Teléfono:</Form.Label>
-                                <Col lg="8" sm="6">
+                                <Form.Label column>Teléfono:</Form.Label>
+                                <Col>
                                     <Form.Control
                                         type="text"
                                         placeholder="Escribe tu teléfono..."
@@ -91,7 +92,7 @@ export const Register = () => {
                                 </Col>
                             </Form.Group>
                             <div className="text-center">
-                <Button variant="primary" type="submit">
+                <Button style={{ backgroundColor: '#13326fba' }} className="w-50" type="submit">
                   Registro
                 </Button>
               </div>
