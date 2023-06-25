@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Collapse, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Collapse, Container, Row } from "react-bootstrap";
 import "./Profile.css";
 
 export const Profile = () => {
@@ -8,26 +8,31 @@ export const Profile = () => {
     return (
 
         <div className="userContainer">
-            <Container>
-                <Row className="row-cols-auto justify-content-center">
-                    <Col className="userCardTitle">
-                        <div>
-                            PERFIL
-                        </div>
+            <Container fluid>
+                <Row className="userCard gap-3">
+                    <Col xs={7} md={6} lg={3} >
+                        <Card style={{ backgroundColor: '#33468d58' }} border="dark" text="dark" className="adminCardTitle">
+                            <Card.Body >
+                                <Button style={{ backgroundColor: '#13326fba' }} className="w-100">PERFIL</Button>
+                            </Card.Body>
+                        </Card>
                     </Col>
-                    <Col className="userCardTitle">
-                        <div>
-                            PEDIR CITA
-                        </div>
+                    <Col xs={7} md={6} lg={3}>
+                        <Card style={{ backgroundColor: '#33468d58' }} border="dark" text="dark" className="adminCardTitle">
+                            <Card.Body>
+                                <Button style={{ backgroundColor: '#13326fba' }} className="w-100">PEDIR CITA</Button>
+                            </Card.Body>
+                        </Card>
                     </Col>
-                    <Col className="userCardTitle">
-                        <div>
-                            MIS CITAS
-                        </div>
+                    <Col xs={7} md={6} lg={3}>
+                        <Card style={{ backgroundColor: '#33468d58' }} border="dark" text="dark" className="adminCardTitle">
+                            <Card.Body>
+                                <Button style={{ backgroundColor: '#13326fba' }} className="w-100">MIS CITAS</Button>
+                            </Card.Body>
+                        </Card>
                     </Col>
                 </Row>
             </Container>
         </div>
     )
 }
-export default Profile;
