@@ -4,7 +4,7 @@ import "./Header.css";
 
 //Método de conexión en modo lectura y escritura a RDX.
 import { useSelector, useDispatch } from "react-redux";
-import { userData, userout } from "../../pages/userSlice";
+import { userData, logout } from "../../pages/userSlice";
 
 import { useNavigate } from 'react-router-dom';
  
@@ -35,7 +35,7 @@ export const Header = () => {
                 ? (
                     <div className="linksDesign">
                         <div className="headerLink" >{datosCredencialesRedux?.credentials?.user?.name}</div>
-                        <div className="headerLink" onClick={()=>dispatch(userout({ credentials: ""}))}>logout</div>
+                        <div className="headerLink" onClick={()=>dispatch(logout({ credentials: ""}))}>salir</div>
                     </div>
                 )
 
