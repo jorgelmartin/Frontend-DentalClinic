@@ -6,7 +6,7 @@ import "./index.css";
 
 //REDUX
 import { Provider } from "react-redux";
-import store from "./app/store";
+import{ store, persistor} from "./app/store.js"
 
 //REDUX PERSISTENCE....
 
@@ -15,13 +15,14 @@ import { persistStore } from "redux-persist";
 
 import { BrowserRouter } from "react-router-dom";
 
-const persistor = persistStore(store);
 
-//ENVUELVE TODO PARA PONER INTERACTUAR
+// const persistor = persistStore(store);
+
+//ENVUELVE TODO PARA PODER INTERACTUAR
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loa  ding={null} persistor={persistor}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
