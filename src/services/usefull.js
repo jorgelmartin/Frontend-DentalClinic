@@ -1,7 +1,23 @@
+export const inputHandler = ({ target }, state) => {
+    let { name, value } = target;
+    state((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  export const inputCheck = ({target}, state) =>{
+    let {name, value} = target
+    let errorMessage = checkError(name, value)
+
+    state(prevState => ({
+        ...prevState,
+        [name+"Error"]: errorMessage
+    }))
+  };
+
 
 export const checkError = (name, value) => {
-
-
     switch (name) {
 
         case "email":
@@ -17,8 +33,8 @@ export const checkError = (name, value) => {
         case "password":
         case "contraseña":
 
-            if (value.length < 8) {
-                return "El password debe de tener 8 caracteres minimo";
+            if (value.length < 6) {
+                return "El password debe de tener 6 caracteres minimo";
 
             }
             return "";
@@ -32,6 +48,4 @@ export const checkError = (name, value) => {
         default:
             console.log("Unknown format");
     }
-
-
 }
