@@ -2,13 +2,12 @@ import React, { useState } from "react"; 1
 import "./Register.css";
 import { InputText } from "../../common/InputText/InputText";
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
-import { checkError } from "../../services/usefull";
 import { useNavigate } from "react-router-dom";
 import { registerMe } from "../../services/ApiCalls";
 
 export const Register = () => {
 
-    const [credentials, setCredentials] = useState({
+    const [user, setUser] = useState({
         fullname: "",
         email: "",
         password: "",
@@ -18,7 +17,7 @@ export const Register = () => {
         phone: "",
     });
 
-    const [credentialsError, setCredentialsError] = useState({
+    const [userError, setUserError] = useState({
         fullname: "",
         email: "",
         password: "",
@@ -28,36 +27,43 @@ export const Register = () => {
         phone: "",
     });
 
-    const inputHandler = (e) => {
+    // const inputHandler = (e) => {
 
-        setCredentials((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value,
-        }));
+    //     setCredentials((prevState) => ({
+    //         ...prevState,
+    //         [e.target.name]: e.target.value,
+    //     }));
+    // };
+
+    // const inputCheck = (e) => {
+
+    //     let mensajeError = checkError(e.target.name, e.target.value);
+
+    //     setCredentialsError((prevState) => ({
+    //         ...prevState,
+    //         [e.target.name + "Error"]: mensajeError,
+    //     }));
+    // };
+
+    const navigate = useNavigate();
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+    
+            e.preventDefault();
+            registerMe(user)
+                .then(() => {
+// console.log(user);
+                    setTimeout(() => {
+                        navigate("/profile");
+                    }, 2000);
+
+                })
+                .catch((error) => console.log(error));
+        
     };
 
-    const inputCheck = (e) => {
 
-        let mensajeError = checkError(e.target.name, e.target.value);
-
-        setCredentialsError((prevState) => ({
-            ...prevState,
-            [e.target.name + "Error"]: mensajeError,
-        }));
-    };
-
-    const regMe = () => {
-
-        registerMe(credentials)
-            .then(() => {
-
-                setTimeout(() => {
-                    navigate("/profile");
-                }, 2000);
-
-            })
-            .catch((error) => console.log(error));
-    };
 
     return (
         <div className="registerDesign">
@@ -73,14 +79,14 @@ export const Register = () => {
                                     <InputText
                                         type={"text"}
                                         design={
-                                            credentialsError.fullnameError === ""
+                                            userError.fullNameError === ""
                                                 ? "normalInputRegister"
                                                 : "normalInputRegister errorInput"
                                         }
                                         placeholder={"Ingrese su nombre..."}
-                                        name={"fullname"}
-                                        functionHandler={inputHandler}
-                                        onBlurFunction={inputCheck}
+                                        name={"fullName"}
+                                        state={setUser}
+                                        errorState={setUserError}
                                     />
                                 </Col>
                             </Form.Group>
@@ -90,14 +96,14 @@ export const Register = () => {
                                     <InputText
                                         type={"email"}
                                         design={
-                                            credentialsError.emailError === ""
+                                            userError.emailError === ""
                                                 ? "normalInputRegister"
                                                 : "normalInputRegister errorInput"
                                         }
                                         placeholder={"Ingrese su email..."}
                                         name={"email"}
-                                        functionHandler={inputHandler}
-                                        onBlurFunction={inputCheck}
+                                        state={setUser}
+                                        errorState={setUserError}
                                     />
                                 </Col>
                             </Form.Group>
@@ -107,14 +113,14 @@ export const Register = () => {
                                     <InputText
                                         type={"password"}
                                         design={
-                                            credentialsError.passwordError === ""
+                                            userError.passwordError === ""
                                                 ? "normalInputRegister"
                                                 : "normalInputRegister errorInput"
                                         }
                                         placeholder={"Ingrese su contraseña..."}
                                         name={"password"}
-                                        functionHandler={inputHandler}
-                                        onBlurFunction={inputCheck}
+                                        state={setUser}
+                                        errorState={setUserError}
                                     />
                                 </Col>
                             </Form.Group>
@@ -124,14 +130,14 @@ export const Register = () => {
                                     <InputText
                                         type={"text"}
                                         design={
-                                            credentialsError.addressError === ""
-                                                    ? "normalInputRegister"
+                                            userError.dniError === ""
+                                                ? "normalInputRegister"
                                                 : "normalInputRegister errorInput"
                                         }
                                         placeholder={"Ingrese su dirección..."}
                                         name={"address"}
-                                        functionHandler={inputHandler}
-                                        onBlurFunction={inputCheck}
+                                        state={setUser}
+                                        errorState={setUserError}
                                     />
                                 </Col>
                             </Form.Group>
@@ -141,14 +147,14 @@ export const Register = () => {
                                     <InputText
                                         type={"text"}
                                         design={
-                                            credentialsError.dniError === ""
+                                            userError.addressError === ""
                                                 ? "normalInputRegister"
                                                 : "normalInputRegister errorInput"
                                         }
                                         placeholder={"Ingrese su dni..."}
                                         name={"dni"}
-                                        functionHandler={inputHandler}
-                                        onBlurFunction={inputCheck}
+                                        state={setUser}
+                                        errorState={setUserError}
                                     />
                                 </Col>
                             </Form.Group>
@@ -158,14 +164,14 @@ export const Register = () => {
                                     <InputText
                                         type={"text"}
                                         design={
-                                            credentialsError.ageError === ""
+                                            userError.ageError === ""
                                                 ? "normalInputRegister"
                                                 : "normalInputRegister errorInput"
                                         }
                                         placeholder={"Ingrese su edad..."}
                                         name={"age"}
-                                        functionHandler={inputHandler}
-                                        onBlurFunction={inputCheck}
+                                        state={setUser}
+                                        errorState={setUserError}
                                     />
                                 </Col>
                             </Form.Group>
@@ -175,22 +181,23 @@ export const Register = () => {
                                     <InputText
                                         type={"text"}
                                         design={
-                                            credentialsError.phoneError === ""
+                                            userError.phoneError === ""
                                                 ? "normalInputRegister"
                                                 : "normalInputRegister errorInput"
                                         }
                                         placeholder={"Ingrese su teléfono..."}
                                         name={"phone"}
-                                        functionHandler={inputHandler}
-                                        onBlurFunction={inputCheck}
+                                        state={setUser}
+                                        errorState={setUserError}
                                     />
                                 </Col>
                             </Form.Group>
                             <div className="text-center">
-                                <Button onClick={() => regMe()} style={{ backgroundColor: '#13326fba' }} className="w-50" type="submit">
-                                    Registro
+                                <Button onClick={(e) => {
+                                    submitHandler(e);
+                                }} style={{ backgroundColor: '#13326fba' }} className="w-50" type="submit">
+                                    Registrarme!
                                 </Button>
-                                
                             </div>
                         </Form>
                     </Card.Body>
