@@ -7,47 +7,47 @@ import { useSelector, useDispatch } from "react-redux";
 import { userData, logout } from "../../pages/userSlice";
 
 import { useNavigate } from 'react-router-dom';
- 
+
 export const Header = () => {
 
-     //Guardo los datos de REDUX en una constante para poder acceder a ellos en Header
-     const datosCredencialesRedux = useSelector(userData);
+    //Guardo los datos de REDUX en una constante para poder acceder a ellos en Header
+    const datosCredencialesRedux = useSelector(userData);
 
-     //Redux en modo escritura
-     const dispatch = useDispatch();
+    //Redux en modo escritura
+    const dispatch = useDispatch();
 
-     //Instancio navigate para poder moverme entre la SPA
-     const navigate = useNavigate();
+    //Instancio navigate para poder moverme entre la SPA
+    const navigate = useNavigate();
 
-     useEffect(()=>{
+    useEffect(() => {
 
-        if(!datosCredencialesRedux.credentials?.token){
+        if (!datosCredencialesRedux.credentials?.token) {
             navigate("/");
         }
-     },[]);
+    }, []);
 
 
-     return (
-         <div className='headerDesign'>
+    return (
+        <div className='headerDesign'>
 
-            {datosCredencialesRedux.credentials?.token 
+            {datosCredencialesRedux.credentials?.token
 
                 ? (
                     <div className="linksDesign">
                         <div className="headerLink" >{datosCredencialesRedux?.credentials?.user?.name}</div>
-                        <div className="headerLink" onClick={()=>dispatch(logout({ credentials: ""}))}>salir</div>
+                        <div className="headerLink" onClick={() => dispatch(logout({ credentials: "" }))}>Logout</div>
                     </div>
                 )
 
                 : (
                     <div className="linksDesign">
-                        <div className="headerLink" onClick={()=>navigate("/login")}>Login</div>
-                        <div className="headerLink" onClick={()=>navigate("/register")}>Register</div>
+                        <div className="headerLink" onClick={() => navigate("/login")}>Login</div>
+                        <div className="headerLink" onClick={() => navigate("/register")}>Register</div>
                     </div>
                 )
-                       
+
             }
 
-         </div>
-     )
+        </div>
+    )
 }

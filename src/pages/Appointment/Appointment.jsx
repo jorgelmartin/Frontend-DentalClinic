@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import "./Appointment.css";
 import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
+import { ProfileCard } from "../../common/ProfileCard/ProfileCard";
 // import { ProfileCard } from "../../common/ProfileCard/ProfileCard";
 // import { userData } from "../userSlice";
 
@@ -32,12 +33,11 @@ export const Appointment = () => {
                         </Card>
                         <div className="appointments">
                             <AppointmentCard></AppointmentCard>
+                      
                         </div>
                     </Col>
-
                 </Row>
             </Container>
-
         </div>
     )
 }

@@ -11,7 +11,7 @@ export const loginMe = async (credentials) => {
     //Esto es un ejemplo de como enviamos un body por axios en un protocolo POST
     return await axios.post(`${URL}/auth/login`, credentials);
 //Clase de Mara:
-// return res.data.token
+// return res.data
 }
 
 export const getProfile = async (token) => {
@@ -39,7 +39,7 @@ export const getProfile = async (token) => {
 
 export const registerMe = async () => {
 
-    return await axios.post(`${URL}/auth/register`);
+    return await axios.post(`${URL}/auth/register`, credentials);
 
 }
 

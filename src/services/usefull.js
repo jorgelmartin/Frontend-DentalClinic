@@ -1,20 +1,20 @@
-export const inputHandler = ({ target }, state) => {
-    let { name, value } = target;
-    state((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+// export const inputHandler = ({ target }, state) => {
+//     let { name, value } = target;
+//     state((prevState) => ({
+//         ...prevState,
+//         [name]: value,
+//     }));
+// };
 
-  export const inputCheck = ({target}, state) =>{
-    let {name, value} = target
-    let errorMessage = checkError(name, value)
+// export const inputCheck = ({ target }, state) => {
+//     let { name, value } = target
+//     let errorMessage = checkError(name, value)
 
-    state(prevState => ({
-        ...prevState,
-        [name+"Error"]: errorMessage
-    }))
-  };
+//     state(prevState => ({
+//         ...prevState,
+//         [name + "Error"]: errorMessage
+//     }))
+// };
 
 
 export const checkError = (name, value) => {
