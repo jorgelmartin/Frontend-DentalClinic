@@ -5,7 +5,8 @@ import "./ProfileCard.css";
 import { Card, Form, Button } from "react-bootstrap";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { userData } from "../../pages/userSlice";
-// import { inputHandler } from "../../services/usefull";
+import { InputText } from "../InputText/InputText";
+
 
 
 
@@ -14,6 +15,7 @@ export const ProfileCard = () => {
     const [user, setUser] = useState({});
     const [editing, setEditing] = useState(false);
     const [body, setBody] = useState({});
+    console.log(user)
 
     const datos = useSelector(userData);
     const token = datos?.credentials?.token;
@@ -25,8 +27,8 @@ export const ProfileCard = () => {
 
     useEffect(() => {
         if (!editing) {
-            getProfile(token).then((res) => {
-                setUser(res.data);
+            getProfile(token, datos.userId).then((data) => {
+                setUser(data);
             });
         }
     }, [editing]);
@@ -34,15 +36,29 @@ export const ProfileCard = () => {
         <Card style={{ width: '30rem' }}>
 
             <Card.Body>
-                <Card.Title>Cita:</Card.Title>
+                {/* <Card.Title>Cita:</Card.Title> */}
                 <Card.Text>
                     <Form>
-                        <Form.Group className="mb-3" controlId="formBasicLastName">
+                        <Form.Group className="mb-3" controlId="formBasicName">
+                          
                             <Form.Label>Nombre:</Form.Label>
                             {editing ? (
-                                <Form.Control
+                                <InputText
                                     type="text"
-                                    name="lastName"
+                                    name="name"
+                                    placeholder={user.name}
+                                    onChange={(e) => inputHandler(e, setBody)}
+                                />
+                            ) : (
+                                <div>{user.name}</div>
+                            )}
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicLastName">
+                            <Form.Label>Apellido:</Form.Label>
+                            {editing ? (
+                                <InputText
+                                    type="text"
+                                    name="lastname"
                                     placeholder={user.lastName}
                                     onChange={(e) => inputHandler(e, setBody)}
                                 />
@@ -50,24 +66,11 @@ export const ProfileCard = () => {
                                 <div>{user.lastName}</div>
                             )}
                         </Form.Group>
-                        {/* <Form.Group className="mb-3" controlId="formBasicLastName">
-                            <Form.Label>Apellido:</Form.Label>
-                            {editing ? (
-                                <Form.Control
-                                    type="text"
-                                    name="lastname"
-                                    placeholder={user.lastname}
-                                    onChange={(e) => inputHandler(e, setBody)}
-                                />
-                            ) : (
-                                <div>{user.lastname}</div>
-                            )}
-                        </Form.Group> */}
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email:</Form.Label>
                             {editing ? (
-                                <Form.Control
-                                    type="text"
+                                <InputText
+                                    type="email"
                                     name="email"
                                     placeholder={user.email}
                                     onChange={(e) => inputHandler(e, setBody)}
@@ -79,8 +82,8 @@ export const ProfileCard = () => {
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Contraseña:</Form.Label>
                             {editing ? (
-                                <Form.Control
-                                    type="text"
+                                <InputText
+                                    type="password"
                                     name="password"
                                     placeholder={user.password}
                                     onChange={(e) => inputHandler(e, setBody)}
@@ -92,7 +95,7 @@ export const ProfileCard = () => {
                         <Form.Group className="mb-3" controlId="formBasicDni">
                             <Form.Label>DNI/NIE:</Form.Label>
                             {editing ? (
-                                <Form.Control
+                                <InputText
                                     type="text"
                                     name="dni"
                                     placeholder={user.dni}
@@ -105,7 +108,7 @@ export const ProfileCard = () => {
                         <Form.Group className="mb-3" controlId="formBasicAddress">
                             <Form.Label>Dirección:</Form.Label>
                             {editing ? (
-                                <Form.Control
+                                <InputText
                                     type="text"
                                     name="address"
                                     placeholder={user.address}
@@ -118,7 +121,7 @@ export const ProfileCard = () => {
                         <Form.Group className="mb-3" controlId="formBasicAge">
                             <Form.Label>Edad:</Form.Label>
                             {editing ? (
-                                <Form.Control
+                                <InputText
                                     type="text"
                                     name="age"
                                     placeholder={user.age}
@@ -131,7 +134,7 @@ export const ProfileCard = () => {
                         <Form.Group className="mb-3" controlId="formBasicPhone">
                             <Form.Label>Teléfono:</Form.Label>
                             {editing ? (
-                                <Form.Control
+                                <InputText
                                     type="text"
                                     name="phone"
                                     placeholder={user.phone}
@@ -141,7 +144,6 @@ export const ProfileCard = () => {
                                 <div>{user.age}</div>
                             )}
                         </Form.Group>
-                        
                         {editing ? (
                             <Button
                                 onClick={() => {

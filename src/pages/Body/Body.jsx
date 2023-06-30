@@ -8,6 +8,8 @@ import { Register } from "../Register/Register";
 import { Admin } from "../Admin/Admin";
 import { Profile } from "../Profile/Profile";
 import { Appointment } from "../Appointment/Appointment"
+import { Home } from "../Home/Home";
+// import { Home } from "../Home/Home";
 
 export const Body = () => {
     return (
@@ -15,7 +17,7 @@ export const Body = () => {
             <Routes>
                 <Route path="*" element={<Navigate to="/"/>} />
                 <Route path="*" element={<Admin />} />
-                <Route path="/" element={<Register />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 {/* <Route path="/about" element={<About />} /> */}
