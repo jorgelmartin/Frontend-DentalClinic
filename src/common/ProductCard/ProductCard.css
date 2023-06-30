@@ -1,20 +1,28 @@
-.productCardDesign {
-
-    height: 11em;
-    width: 7em;
-
-    background-color: #C4D7B2;
-
-    border-radius: 1em;
-    margin: 1em;
-
-    cursor: pointer;
-    transition: 0.3s;
-
+.productCardContainer {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    /* Para que las tarjetas se ajusten automáticamente en la fila */
+    justify-content: space-between;
+    /* Para distribuir las tarjetas en el espacio disponible */
+}
+
+.productCardDesign {
+    width: 20em;
+    height: 20em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    padding: 1em;
+}
+
+.productCardDesign img {
+    width: 100%;
+    height: 12em;
+    object-fit: contain;
+}
+
+.productCardDesign h1 {
+    font-size: 1.2em;
+    margin-top: 0.5em;
 }
 
 .productCardDesign:hover {

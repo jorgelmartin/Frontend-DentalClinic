@@ -1,20 +1,32 @@
-import React from 'react';
-import './ProductCard.css';
+import { useFetchProducts } from '../../../hooks/useFetchProdutcs';
+import './ProductCard.css'
 
-export const ProductCard = ({ image, name, species, id }) => {
+export const ProductCard = () => {
+    const products = useFetchProducts();
 
-    // useEffect(()=>{
-    //     console.log(image)
-    // },[]);
 
-    const notFound = `https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png`;
+    // Verificar si products tiene datos válidos
+    if (!Array.isArray(products)) {
+        return <div>Loading...</div>;
+    }
+
+    // Opcional: Si deseas también verificar si el array está vacío
+    if (products.length === 0) {
+        return <div>No products available.</div>;
+    }
+
+
+
     return (
-        <div className='productCardDesign'>
-            <div className="imageDesign">
-                <img className="pictureDesign" src={image !== "" ? image : notFound} alt={id} />
-            </div>
-            <div className="cardText">{name}</div>
-            <div className="cardText">{species}</div>
+        <>
+            <div className="productCardContainer">
+            {products.map((product) => (
+                <div key={product.id} className="productCardDesign">
+                    <img src={product.image} alt={product.name} />
+                    <h1>{product.name}</h1>
+                </div>
+            ))}
         </div>
-    )
-}
+        </>
+    );
+};
