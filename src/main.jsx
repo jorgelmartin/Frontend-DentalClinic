@@ -6,7 +6,7 @@ import "./index.css";
 
 //REDUX
 import { Provider } from "react-redux";
-import{ store, persistor} from "./app/store.js"
+import{ store, persistor} from "./redux/store.js"
 
 //REDUX PERSISTENCE....
 
