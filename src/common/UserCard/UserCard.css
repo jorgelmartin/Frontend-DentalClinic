@@ -1,0 +1,11 @@
+.userCardsRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
+.userCardsRow .ucard {
+    flex: 0 0 calc(33.33% - 20px); /* 3 tarjetas por fila, con margen de 20px */
+    margin: 10px; /* Margen entre las tarjetas */
+}
+
