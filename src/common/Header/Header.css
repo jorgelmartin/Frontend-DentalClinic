@@ -10,11 +10,18 @@
 
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: flex-end;
 }
-
 .linksDesign {
+    /* margin-left: 5em; */
+    display: flex;
+    flex-direction: row;
+    padding: 0.5em;
+}
+
+
+.linksDesignToken {
     /* margin-left: 5em; */
     display: flex;
     flex-direction: row;
