@@ -1,14 +1,18 @@
-import React, { useState } from "react"; 1
+import React, { useState } from "react"; 
 import "./Register.css";
 import { InputText } from "../../common/InputText/InputText";
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { registerMe } from "../../services/ApiCalls";
 
+
 export const Register = () => {
 
+    const navigate = useNavigate();
+
     const [user, setUser] = useState({
-        fullname: "",
+        name: "",
+        lastname: "",
         email: "",
         password: "",
         dni: "",
@@ -16,10 +20,11 @@ export const Register = () => {
         age: "",
         phone: "",
     });
+    const [token, setToken] = useState("");
 
     const [userError, setUserError] = useState({
-        fullname: "",
-        email: "",
+        name: "",
+        lastname: "",
         password: "",
         dni: "",
         address: "",
@@ -45,10 +50,11 @@ export const Register = () => {
     //     }));
     // };
 
-    const navigate = useNavigate();
+    
 
-    const submitHandler = (e) => {
-        e.preventDefault();
+    const submitHandler = (e, user) => {
+     
+        
     
             e.preventDefault();
             registerMe(user)
@@ -57,10 +63,8 @@ export const Register = () => {
                     setTimeout(() => {
                         navigate("/profile");
                     }, 2000);
-
                 })
                 .catch((error) => console.log(error));
-        
     };
 
 
