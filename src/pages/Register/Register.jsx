@@ -1,4 +1,4 @@
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 import "./Register.css";
 import { InputText } from "../../common/InputText/InputText";
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
@@ -50,52 +50,68 @@ export const Register = () => {
     //     }));
     // };
 
-    
+
 
     const submitHandler = (e, user) => {
-     
-        
-    
-            e.preventDefault();
-            registerMe(user)
-                .then(() => {
-// console.log(user);
-                    setTimeout(() => {
-                        navigate("/profile");
-                    }, 2000);
-                })
-                .catch((error) => console.log(error));
+
+
+
+        e.preventDefault();
+        registerMe(user)
+            .then(() => {
+                // console.log(user);
+                setTimeout(() => {
+                    navigate("/login");
+                }, 2000);
+            })
+            .catch((error) => console.log(error));
     };
 
 
 
     return (
         <div className="registerDesign">
-            <Container className="d-flex justify-content-center align-items-center mt-4">
-                <Card>
-
+            <Container fluid className="d-flex justify-content-center align-items-center mt-4">
+                <Card className="registerCard">
                     <Card.Body>
                         <Card.Title className="text-center mb-3 display-5">Registro</Card.Title>
                         <Form>
                             <Form.Group as={Row} className="mb-2">
-                                <Form.Label column>Nombre completo:</Form.Label>
-                                <Col>
+                                <Form.Label column xs={4} md={4} lg={4}>Nombre:</Form.Label>
+                                <Col> {/* Ajusta el tamaño de la columna para que ocupen el espacio deseado */}
                                     <InputText
                                         type={"text"}
                                         design={
-                                            userError.fullNameError === ""
+                                            userError.nameError === ""
                                                 ? "normalInputRegister"
                                                 : "normalInputRegister errorInput"
                                         }
                                         placeholder={"Ingrese su nombre..."}
-                                        name={"fullName"}
+                                        name={"name"}
                                         state={setUser}
                                         errorState={setUserError}
                                     />
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
-                                <Form.Label column>Email:</Form.Label>
+                                <Form.Label column xs={4} md={4} lg={4}>Apellido:</Form.Label>
+                                <Col>
+                                    <InputText
+                                        type={"text"}
+                                        design={
+                                            userError.lastnameError === ""
+                                                ? "normalInputRegister"
+                                                : "normalInputRegister errorInput"
+                                        }
+                                        placeholder={"Ingrese su apellido..."}
+                                        name={"lastname"}
+                                        state={setUser}
+                                        errorState={setUserError}
+                                    />
+                                </Col>
+                            </Form.Group>
+                            <Form.Group as={Row} className="mb-2">
+                                <Form.Label column xs={4} md={4} lg={4}>Email:</Form.Label>
                                 <Col>
                                     <InputText
                                         type={"email"}
@@ -112,7 +128,7 @@ export const Register = () => {
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
-                                <Form.Label column>Contraseña:</Form.Label>
+                                <Form.Label column xs={4} md={4} lg={4}>Contraseña:</Form.Label>
                                 <Col>
                                     <InputText
                                         type={"password"}
@@ -129,7 +145,7 @@ export const Register = () => {
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
-                                <Form.Label column>DNI/NIE:</Form.Label>
+                                <Form.Label column xs={4} md={4} lg={4}>DNI/NIE:</Form.Label>
                                 <Col>
                                     <InputText
                                         type={"text"}
@@ -146,7 +162,7 @@ export const Register = () => {
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
-                                <Form.Label column>Dirección:</Form.Label>
+                                <Form.Label column xs={4} md={4} lg={4}>Dirección:</Form.Label>
                                 <Col>
                                     <InputText
                                         type={"text"}
@@ -163,7 +179,7 @@ export const Register = () => {
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
-                                <Form.Label column>Edad:</Form.Label>
+                                <Form.Label column xs={4} md={4} lg={4}>Edad:</Form.Label>
                                 <Col>
                                     <InputText
                                         type={"text"}
@@ -180,7 +196,7 @@ export const Register = () => {
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
-                                <Form.Label column>Teléfono:</Form.Label>
+                                <Form.Label column xs={4} md={4} lg={4}>Teléfono:</Form.Label>
                                 <Col>
                                     <InputText
                                         type={"text"}
