@@ -2,15 +2,18 @@
     display: flex;
     flex-wrap: wrap;
     /* Para que las tarjetas se ajusten automáticamente en la fila */
-    justify-content: space-between;
+    justify-content: space-around;
+    
+
     /* Para distribuir las tarjetas en el espacio disponible */
 }
 
 .productCardDesign {
-    width: 20em;
-    height: 20em;
+    width: 18em;
+    height: 18em;
+    margin: 2em;
     margin-bottom: 1em;
-    border: 1px solid #ccc;
+    border: 0.5em solid #ccc;
     padding: 1em;
 }
 
