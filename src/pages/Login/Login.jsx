@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { InputText } from "../../common/InputText/InputText";
-// import { checkError, inputHandler } from "../../services/usefull";
+// import { checkError, inputHandler } from "../../services/useful";
 import { loginMe } from "../../services/ApiCalls";
 import { Button, Card, Col, Container, Row, Form } from "react-bootstrap";
 
@@ -13,20 +13,11 @@ import { useNavigate } from "react-router-dom";
 //Importo métodos de Redux
 import { useDispatch, useSelector } from "react-redux";
 import { login, userData } from "../userSlice";
-// import { inputHandler } from "../../services/usefull";
+// import { inputHandler } from "../../services/useful";
 
 export const Login = () => {
 
-  //Instancio Redux en modo lectura y escritura
 
-  //Dispatch escritura
-  const dispatch = useDispatch();
-
-  //useSelector es para el modo de lectura
-  const credentialsRdx = useSelector(userData);
-
-  //Instanciamos useNavigate dentro de la constante navigate
-  const navigate = useNavigate();
 
 
   const [user, setUser] = useState({
@@ -38,7 +29,16 @@ export const Login = () => {
     credentials: "",
   });
 
+  //Instancio Redux en modo lectura y escritura
 
+  //Dispatch escritura
+  const dispatch = useDispatch();
+
+  //useSelector es para el modo de lectura
+  const credentialsRdx = useSelector(userData);
+
+  //Instanciamos useNavigate dentro de la constante navigate
+  const navigate = useNavigate();
 
   const [welcome, setWelcome] = useState("");
 

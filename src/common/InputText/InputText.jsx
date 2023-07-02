@@ -1,16 +1,26 @@
 
 import React from 'react';
 import './InputText.css';
-import { checkError } from '../../services/usefull';
+// import { inputHandler } from '../../services/useful';
+import { checkError } from '../../services/useful';
 
 export const InputText = ({ type, design, placeholder, name, state, errorState }) => {
 
+    console.log("Valor de body en el componente InputText:", state);
     const inputHandler = ({ target }, state) => {
         let { name, value } = target;
-        state((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
+        console.log("Target:", target);
+        console.log("Name:", name);
+        console.log("Value:", value);
+        console.log("state:", state);
+    
+        state((prevState) => {
+            console.log("Previous State:", prevState);
+            return {
+                ...prevState,
+                [name]: value,
+            };
+        });
     };
 
     const inputCheck = ({ target }, state) => {
@@ -26,12 +36,12 @@ export const InputText = ({ type, design, placeholder, name, state, errorState }
     return (
         <>
             <input
-                type={type}
+                type={type} 
                 className={design}
                 placeholder={placeholder}
                 name={name}
-                onChange={(e) => inputHandler(e, state)}
-                onBlur={(e) => inputCheck(e, errorState)}
+                onChange={(e)=>inputHandler(e, state)}
+                onBlur={(e)=>inputCheck(e, errorState)}
             />
         </>
     )

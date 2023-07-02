@@ -1,18 +1,23 @@
 import React from "react";
 import { useFetchAppointments } from "../../../hooks/useFetchAppointments";
+import { useFetchUserAppointments } from "../../../hooks/useFecthUserAppointment";
 import "./AppointmentCard.css";
 import { Col, Row, Container, Form, Card } from "react-bootstrap";
 
 export const AppointmentCard = () => {
 
     const appointments = useFetchAppointments();
-    if (!appointments) {
-        return <div>Loading...</div>;
+    const userAppointments = useFetchUserAppointments();
+  
+    if (!appointments || !userAppointments) {
+      return <div>Loading...</div>;
     }
+  
+    const allAppointments = [...appointments, ...userAppointments];
     return (
         <Container fluid className="mt-2">
             <div className="appointmentCardsRow">
-                {appointments.map((appointment) => (
+                {allAppointments.map((appointment) => (
                     <Card key={appointment.id} className="acard">
                         <Card.Body>
                             <Form>

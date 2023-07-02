@@ -1,11 +1,17 @@
 // export const inputHandler = ({ target }, state) => {
 //     let { name, value } = target;
-//     state((prevState) => ({
-//         ...prevState,
-//         [name]: value,
-//     }));
-// };
+//     console.log("Target:", target);
+//     console.log("Name:", name);
+//     console.log("Value:", value);
 
+//     state((prevState) => {
+//         console.log("Previous State:", prevState);
+//         return {
+//             ...prevState,
+//             [name]: value,
+//         };
+//     });
+// };
 // export const inputCheck = ({ target }, state) => {
 //     let { name, value } = target
 //     let errorMessage = checkError(name, value)
