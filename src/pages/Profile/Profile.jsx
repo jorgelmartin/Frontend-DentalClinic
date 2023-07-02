@@ -11,12 +11,12 @@ export const Profile = () => {
             <Container fluid>
                 <Row className="userCard gap-3">
                     <Col xs={7} md={6} lg={3} >
-                        <Card style={{ backgroundColor: '#33468d58' }} border="dark" text="dark" className="adminCardTitle">
+                        <Card style={{ backgroundColor: '#33468d58' }} border="dark" text="dark" className="userCardTitle">
                             <Card.Body >
                                 <Button style={{ backgroundColor: '#13326fba' }} className="w-100">PERFIL</Button>
                             </Card.Body>
                         </Card>
-                        <div className="appointments">
+                        <div className="userCard">
                             <ProfileCard></ProfileCard>
                         </div>
                     </Col>
