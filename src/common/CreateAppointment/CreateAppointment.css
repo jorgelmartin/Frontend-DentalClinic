@@ -1,6 +1,5 @@
-.ContainerCreate{
+.ContainerCreate {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -10,9 +9,12 @@
     justify-content: center;
 
     background-color: aqua;
-    height: 10em;
-    width: 30em;
+    /* Elimina el ancho fijo para que ocupe todo el ancho disponible */
+    /* width: 30em; */
+    /* height: 10em; */
 }
+
+/* Elimina el punto y coma al final de esta regla */
 .appointmentCardsRow .apcard {
     flex: 0 0 calc(33% - 1em); /* 3 tarjetas por fila, con margen de 20px */
     margin: 10px; /* Margen entre las tarjetas */

@@ -38,8 +38,8 @@ export const Header = () => {
     return (
         <div className='headerDesign'>
             <div className='linksDesign'>
-                <div className="headerLink" onClick={() => navigate("/about")}> :)SMILE(:</div>
-                <div className="headerLink" onClick={() => navigate("/home")}>Services</div>
+                {/* <div className="headerLink" onClick={() => navigate("/about")}> :)SMILE(:</div> */}
+                <div className="headerLink" onClick={() => navigate("/home")}>:(SMILE:)</div>
             </div>
             {datosCredencialesRedux.data ? (
                 <div className="linksDesignToken">
