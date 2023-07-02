@@ -28,6 +28,17 @@ export const registerMe = async (credentials) => {
 //   return await axios.get(`https://rickandmortyapi.com/api/character/?name=${criteria}`);
 // }
 
+export const searchAppointment = async (criteria) => {
+  try {
+    let res = await axios.get(`${URL}/${criteria}`);
+    return res.data;
+  } catch (error) {}
+};
+// export const searchCharacter = async (criteria) => {
+
+//   return await axios.get(`https://rickandmortyapi.com/api/character/?name=${criteria}`);
+// }
+
 export const getProfile = async (token) => {
     let config = {
       headers: {

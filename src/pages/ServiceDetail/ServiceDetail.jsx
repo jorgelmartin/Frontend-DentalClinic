@@ -34,10 +34,10 @@ import { useFetchProducts } from "../../../hooks/useFetchProdutcs";
                 {/* Si productDetail no es null, muestra la información */}
                 {productDetail ? (
                     <>
-                        <h2>{productDetail.name}</h2>
+                        <h2>Servicio: {productDetail.name}</h2>
                         <img src={productDetail.image} alt="" />
-                        <h4>{productDetail.duration}</h4>
-                        <h5>{productDetail.price}</h5>
+                        <h4>Duración: {productDetail.duration}</h4>
+                        <h5>Precio€: {productDetail.price}</h5>
                     </>
                 ) : (
                     <p>Producto no encontrado</p>
