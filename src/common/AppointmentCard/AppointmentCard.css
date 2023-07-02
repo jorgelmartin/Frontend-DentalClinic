@@ -1,0 +1,10 @@
+.appointmentCardsRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
+.appointmentCardsRow .acard {
+    flex: 0 0 calc(33% - 1em); /* 3 tarjetas por fila, con margen de 20px */
+    margin: 10px; /* Margen entre las tarjetas */
+}
