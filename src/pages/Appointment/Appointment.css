@@ -1,17 +1,61 @@
+
 .userContainer {
     width: 100vw;
-    height: 100vh; 
-flex-direction: column;
+    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+    background-color:rgba(120, 148, 170, 0.792);
+}
+
+.userCardTitle1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    height: 8.5em; 
+    width: 13em;
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    padding: 1em;
+
+    font-size: 1.2em; 
+    font-weight: bold; 
+    color: #333;
+
+    background-color: #f0f0f0; 
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.1); 
+
+    transition: transform 0.3s ease, font-size 0.2s ease, background-color 0.3s ease;
 
 }
-.userCardTitle{
+.userCardTitle {
     margin: 0.1em;
-    display: flex;
-    justify-content: center;
-    border-radius: 5em;
+    border-radius: 1em;
+    /* height: 6em;  */
+    width: 18em; 
     cursor: pointer;
+    padding: 1em; 
+    
 
+    font-size: 1.2em; 
+    font-weight: bold; 
+    color: #333;
+
+    background-color: #f0f0f0; 
+    box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.1); 
+
+    transition: transform 0.3s ease, font-size 0.2s ease, background-color 0.3s ease;
+}
+
+.userCardTitle:hover{
+    font-size: 1.25em;
+    background-color: #5f9ea0a4;
+    transform: scale(1.1);
+}
+
+.userCardTitle1:hover {
+    font-size: 1.25em;
+    background-color: #5f9ea0a4;
+    transform: scale(1.1);
 }

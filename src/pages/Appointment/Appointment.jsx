@@ -1,51 +1,49 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import "./Appointment.css";
-import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
-import { CreateAppointment } from "../../common/CreateAppointment/CreateAppointment";
-// import { ProfileCard } from "../../common/ProfileCard/ProfileCard";
+// import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
+// import { CreateAppointment } from "../../common/CreateAppointment/CreateAppointment";
+import { useNavigate } from 'react-router-dom';
 // import { ProfileCard } from "../../common/ProfileCard/ProfileCard";
 // import { userData } from "../userSlice";
 
 
 
 export const Appointment = () => {
-    const [activeTab, setActiveTab] = useState('pedirCita');
-    const handleTabClick = (tab) => {
-        setActiveTab(tab);
-    };
+    const navigate = useNavigate();
     return (
         <div className="userContainer">
-            <Container fluid>
-            <Row className="d-flex justify-content-center mt-5">
-                    <Col xs={7} md={6} lg={3}>
-                        <Card style={{ backgroundColor: '#33468d58' }} border="dark" text="dark" className="userCardTitle">
-                            <Card.Body>
-                                <Button style={{ backgroundColor: '#13326fba' }} className="w-100" onClick={() => handleTabClick('pedirCita')}>PEDIR CITA</Button>
-                            </Card.Body>
-                        </Card>
-
+            <Container>
+                <Row className="d-flex justify-content-center mt-5">
+                    <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
+                        <div className="userCardTitle1">
+                            <div>
+                                <Button
+                                    style={{ backgroundColor: "#13326fba" }}
+                                    className="w-100 userCardTitle"
+                                    onClick={() => navigate("/createappointment")}
+                                >
+                                    PEDIR CITA
+                                </Button>
+                            </div>
+                        </div>
                     </Col>
-                    <Col xs={7} md={6} lg={3} className="">
-                        <Card style={{ backgroundColor: '#33468d58' }} border="dark" text="dark" className="userCardTitle">
-                            <Card.Body>
-                                <Button style={{ backgroundColor: '#13326fba' }} className="w-100" onClick={() => handleTabClick('misCitas')}>MIS CITAS</Button>
-                            </Card.Body>
-                        </Card>
-
+                    <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
+                        <div className="userCardTitle1">
+                            <div>
+                                <Button
+                                    style={{ backgroundColor: "#13326fba" }}
+                                    className="w-100 userCardTitle"
+                                    onClick={() => navigate("/appointmentcard")}
+                                >
+                                    MIS CITAS
+                                </Button>
+                            </div>
+                        </div>
                     </Col>
                 </Row>
-                {activeTab === 'pedirCita' && (
-                    <div className="appointments">
-                        <CreateAppointment></CreateAppointment>
-                    </div>
-                )}
-                {activeTab === 'misCitas' && (
-                    <div className="appointments">
-                        <AppointmentCard></AppointmentCard>
-                    </div>
-                )}
             </Container>
         </div>
+
     );
 }

@@ -11,6 +11,9 @@ import { Appointment } from "../Appointment/Appointment"
 import { Home } from "../Home/Home";
 import { UserCard } from "../../common/userCard/userCard";
 import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
+import { CreateAppointment } from "../../common/CreateAppointment/CreateAppointment";
+import { ServiceDetail } from "../ServiceDetail/ServiceDetail";
+
 // import { Home } from "../Home/Home";
 
 export const Body = () => {
@@ -28,6 +31,8 @@ export const Body = () => {
                 <Route path="/Appointment" element={<Appointment />} />
                 <Route path="/usercard" element={<UserCard />} />
                 <Route path="/appointmentcard" element={<AppointmentCard />} />
+                <Route path="/createappointment" element={<CreateAppointment/>} />
+                <Route path="/servicedetail/:id" element={<ServiceDetail/>} />
             </Routes>
         </>
     );
