@@ -17,7 +17,7 @@ export const Appointment = () => {
     return (
         <div className="userContainer">
             <Container fluid>
-                <Row className="userCard gap-3">
+            <Row className="d-flex justify-content-center mt-5">
                     <Col xs={7} md={6} lg={3}>
                         <Card style={{ backgroundColor: '#33468d58' }} border="dark" text="dark" className="userCardTitle">
                             <Card.Body>

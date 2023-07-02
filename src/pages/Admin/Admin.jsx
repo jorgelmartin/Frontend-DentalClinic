@@ -1,67 +1,79 @@
 import React, { useState } from "react";
-import { Button, Col, Card, Collapse, Container, Row } from "react-bootstrap";
-import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
-
+import { Button, Col , Container, Row } from "react-bootstrap";
+// import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
+import { useNavigate } from 'react-router-dom';
 import "./Admin.css";
-import { UserCard } from "../../common/userCard/userCard";
+// import { UserCard } from "../../common/userCard/userCard";
 
 
 
 
 export const Admin = () => {
-    const [activeTab, setActiveTab] = useState('');
-
-    const handleTabClick = (tab) => {
-        setActiveTab(tab);
-    };
+    const navigate = useNavigate();
 
     return (
-
-        <Container fluid className="adminContainer" style={{ backgroundColor: 'dark' }}>
-            <Row className="d-flex justify-content-center mt-5">
-                <Col xs={7} md={6} lg={3} className="d-flex">
-                    <Card style={{ backgroundColor: '#33468d58' }} border={'dark'} text={'dark'} className="adminCardTitle mt-3">
-                        <Card.Body>
-                            <Button style={{ backgroundColor: '#13326fba' }} className="w-100" onClick={() => handleTabClick('usuarios')}>USUARIOS</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col xs={7} md={6} lg={3} className="d-flex">
-                    <Card style={{ backgroundColor: '#33468d58' }} border={'dark'} text={'dark'} className="adminCardTitle">
-                        <Card.Body>
-                            <Button style={{ backgroundColor: '#13326fba' }} className="w-100" onClick={() => handleTabClick('citas')}>CITAS</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col xs={7} md={6} lg={3} className="d-flex">
-                    <Card style={{ backgroundColor: '#33468d58' }} border={'dark'} text={'dark'} className="adminCardTitle">
-                        <Card.Body>
-                            <Button style={{ backgroundColor: '#13326fba' }} className="w-100" onClick={() => handleTabClick('misCitas')}>MIS CITAS</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-
-            {activeTab === 'usuarios' && (
-                <div className="usersCards">
-                <Row className="">
-                    <Col xs={12}>
-                        <UserCard />
+        <div className="adminContainer">
+            <Container>
+                <Row className="d-flex justify-content-center mt-5">
+                    <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
+                    <div className="adminCardTitle1">
+                            <div>
+                                <Button
+                                    style={{ backgroundColor: "#13326fba" }}
+                                    className="w-100 adminCardTitle"
+                                    onClick={() => navigate("/usercard")}
+                                >
+                                    USUARIOS
+                                </Button>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
+                        <div className="adminCardTitle1">
+                            <div>
+                                <Button
+                                    style={{ backgroundColor: "#13326fba" }}
+                                    className="w-100 adminCardTitle"
+                                    onClick={() => navigate("/appointmentcard")}
+                                >
+                                    CITAS
+                                </Button>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
+                        <div className="adminCardTitle1">
+                            <div>
+                                <Button
+                                    style={{ backgroundColor: "#13326fba" }}
+                                    className="w-100 adminCardTitle"
+                                    onClick={() => handleTabClick("/")}
+                                >
+                                    MIS CITAS
+                                </Button>
+                            </div>
+                        </div>
                     </Col>
                 </Row>
-                </div>
-            )}
-            {activeTab === 'citas' && (
-                <Row className="d-flex flex-row justify-content-center">
-                    <Col xs={12}>
-                        <AppointmentCard />
-                    </Col>
-                </Row>
-            )}
-        </Container>
+            </Container>
+        </div>
     );
-}
+};
 
+
+//NAVBAR
+// <Navbar bg="light" expand="lg" fixed="top">
+//       <Navbar.Brand href="/">Mi Sitio Web</Navbar.Brand>
+//       <Navbar.Toggle aria-controls="basic-navbar-nav" />
+//       <Navbar.Collapse id="basic-navbar-nav">
+//         <Nav className="ml-auto">
+//           {/* Aquí colocarías los enlaces de la navegación */}
+//           <Nav.Link href="/">Inicio</Nav.Link>
+//           <Nav.Link href="/about">Acerca de</Nav.Link>
+//           <Nav.Link href="/contact">Contacto</Nav.Link>
+//         </Nav>
+//       </Navbar.Collapse>
+//     </Navbar>
 
 
 // <Container fluid style={{ backgroundColor:'dark' }}>
@@ -88,3 +100,98 @@ export const Admin = () => {
 //         </Card>
 //     </Col>
 // </Row>
+
+
+{/* <Container fluid style={{ backgroundColor: 'dark' }}>
+            <Row className="d-flex justify-content-center mt-5">
+                <Col xs={7} md={6} lg={3} className="d-flex">
+                    <div className="adminCardTitle mt-3">
+                        <div>
+                            <Button style={{ backgroundColor: '#13326fba' }} className="w-100" onClick={() => handleTabClick('usuarios')}>USUARIOS</Button>
+                        </div>
+                    </div>
+                </Col>
+                <Col xs={7} md={6} lg={3} className="d-flex">
+                <div className="adminCardTitle">
+                        <div>
+                            <Button style={{ backgroundColor: '#13326fba' }} className="w-100" onClick={() => handleTabClick('citas')}>CITAS</Button>
+                            </div>
+                    </div>
+                </Col>
+                <Col xs={7} md={6} lg={3} className="d-flex">
+                <div className="adminCardTitle">
+                        <div>
+                            <Button style={{ backgroundColor: '#13326fba' }} className="w-100" onClick={() => handleTabClick('misCitas')}>MIS CITAS</Button>
+                        </div>
+                    </div>
+                </Col>
+            </Row>
+
+            {activeTab === 'usuarios' && (
+                <div className="usersCards">
+                <Row className="">
+                    <Col xs={12}>
+                        <UserCard />
+                    </Col>
+                </Row>
+                </div>
+            )}
+            {activeTab === 'citas' && (
+                <Row className="d-flex flex-row justify-content-center">
+                    <Col xs={12}>
+                        <AppointmentCard />
+                    </Col>
+                </Row>
+            )}
+        </Container> */}
+
+
+//         import React, { useState } from "react";
+// import { Button, Col, Card, Collapse, Container, Row, Nav, Navbar } from "react-bootstrap";
+// import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
+
+// import "./Admin.css";
+// import { UserCard } from "../../common/userCard/userCard";
+
+
+
+
+// export const Admin = () => {
+//     const [activeTab, setActiveTab] = useState('');
+
+//     const handleTabClick = (tab) => {
+//         setActiveTab(tab);
+//     };
+
+//     return (
+// <div className="adminContainer">
+
+//         <Container fluid style={{ backgroundColor: 'dark' }}>
+//             <Row className="d-flex justify-content-center mt-5">
+//                 <Col xs={7} md={6} lg={3} className="d-flex">
+//                     <div className="adminCardTitle mt-3">
+//                         <div>
+//                             <Button style={{ backgroundColor: '#13326fba' }} className="w-100" onClick={() => handleTabClick('usuarios')}>USUARIOS</Button>
+//                         </div>
+//                     </div>
+//                 </Col>
+//                 <Col xs={7} md={6} lg={3} className="d-flex">
+//                 <div className="adminCardTitle">
+//                         <div>
+//                             <Button style={{ backgroundColor: '#13326fba' }} className="w-100" onClick={() => handleTabClick('citas')}>CITAS</Button>
+//                             </div>
+//                     </div>
+//                 </Col>
+//                 <Col xs={7} md={6} lg={3} className="d-flex">
+//                 <div className="adminCardTitle">
+//                         <div>
+//                             <Button style={{ backgroundColor: '#13326fba' }} className="w-100" onClick={() => handleTabClick('misCitas')}>MIS CITAS</Button>
+//                         </div>
+//                     </div>
+//                 </Col>
+//             </Row>
+
+            
+//         </Container></div>
+//     );
+// }

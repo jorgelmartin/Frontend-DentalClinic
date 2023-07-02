@@ -9,6 +9,8 @@ import { Admin } from "../Admin/Admin";
 import { Profile } from "../Profile/Profile";
 import { Appointment } from "../Appointment/Appointment"
 import { Home } from "../Home/Home";
+import { UserCard } from "../../common/userCard/userCard";
+import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
 // import { Home } from "../Home/Home";
 
 export const Body = () => {
@@ -24,6 +26,8 @@ export const Body = () => {
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/Appointment" element={<Appointment />} />
+                <Route path="/usercard" element={<UserCard />} />
+                <Route path="/appointmentcard" element={<AppointmentCard />} />
             </Routes>
         </>
     );
