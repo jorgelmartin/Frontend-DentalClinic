@@ -7,15 +7,8 @@ flex-direction: column;
     justify-content: center;
     align-items: center; 
 
-} 
-.adminCard{
-    /* margin-bottom: 15em; */
-    /* margin-top: 5em;
-    display: flex;
-    justify-content: center;
-    background-color: rgba(21, 64, 163, 0.436); */
-}
 
+} 
 .adminCardTitle{
     margin: 0.1em;
     display: flex;
@@ -24,6 +17,13 @@ flex-direction: column;
     cursor: pointer;
 
 }
+.usersCards{
+    margin-top: 10em;
+    justify-content: center;
+    background-color: rgba(21, 64, 163, 0.436); 
+}
+
+
 .adminCardTitle:hover{
     /* font-size:0.98em; */
     /* background-color: rgba(45, 79, 134, 0.722);

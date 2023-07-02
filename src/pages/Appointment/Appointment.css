@@ -1,0 +1,17 @@
+.userContainer {
+    width: 100vw;
+    height: 100vh; 
+flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+}
+.userCardTitle{
+    margin: 0.1em;
+    display: flex;
+    justify-content: center;
+    border-radius: 5em;
+    cursor: pointer;
+
+}

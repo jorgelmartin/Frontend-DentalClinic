@@ -16,58 +16,40 @@ export const Admin = () => {
     };
 
     return (
+
         <Container fluid className="adminContainer" style={{ backgroundColor: 'dark' }}>
             <Row className="d-flex justify-content-center mt-5">
                 <Col xs={7} md={6} lg={3} className="d-flex">
                     <Card style={{ backgroundColor: '#33468d58' }} border={'dark'} text={'dark'} className="adminCardTitle mt-3">
                         <Card.Body>
-                            <Button
-                                style={{ backgroundColor: '#13326fba' }}
-                                className="w-100"
-                                onClick={() => handleTabClick('usuarios')}
-                                active={activeTab === 'usuarios'} // Set the active prop based on the activeTab state
-                            >
-                                USUARIOS
-                            </Button>
+                            <Button style={{ backgroundColor: '#13326fba' }} className="w-100" onClick={() => handleTabClick('usuarios')}>USUARIOS</Button>
                         </Card.Body>
                     </Card>
                 </Col>
                 <Col xs={7} md={6} lg={3} className="d-flex">
                     <Card style={{ backgroundColor: '#33468d58' }} border={'dark'} text={'dark'} className="adminCardTitle">
                         <Card.Body>
-                            <Button
-                                style={{ backgroundColor: '#13326fba' }}
-                                className="w-100"
-                                onClick={() => handleTabClick('citas')}
-                                active={activeTab === 'citas'} // Set the active prop based on the activeTab state
-                            >
-                                CITAS
-                            </Button>
+                            <Button style={{ backgroundColor: '#13326fba' }} className="w-100" onClick={() => handleTabClick('citas')}>CITAS</Button>
                         </Card.Body>
                     </Card>
                 </Col>
                 <Col xs={7} md={6} lg={3} className="d-flex">
                     <Card style={{ backgroundColor: '#33468d58' }} border={'dark'} text={'dark'} className="adminCardTitle">
                         <Card.Body>
-                            <Button
-                                style={{ backgroundColor: '#13326fba' }}
-                                className="w-100"
-                                onClick={() => handleTabClick('misCitas')}
-                                active={activeTab === 'misCitas'} // Set the active prop based on the activeTab state
-                            >
-                                MIS CITAS
-                            </Button>
+                            <Button style={{ backgroundColor: '#13326fba' }} className="w-100" onClick={() => handleTabClick('misCitas')}>MIS CITAS</Button>
                         </Card.Body>
                     </Card>
                 </Col>
             </Row>
 
             {activeTab === 'usuarios' && (
+                <div className="usersCards">
                 <Row className="">
                     <Col xs={12}>
                         <UserCard />
                     </Col>
                 </Row>
+                </div>
             )}
             {activeTab === 'citas' && (
                 <Row className="d-flex flex-row justify-content-center">

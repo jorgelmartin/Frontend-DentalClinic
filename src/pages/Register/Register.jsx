@@ -177,24 +177,7 @@ export const Register = () => {
                                         errorState={setUserError}
                                     />
                                 </Col>
-                            </Form.Group>
-                            <Form.Group as={Row} className="mb-2">
-                                <Form.Label column xs={4} md={4} lg={4}>Edad:</Form.Label>
-                                <Col>
-                                    <InputText
-                                        type={"text"}
-                                        design={
-                                            userError.ageError === ""
-                                                ? "normalInputRegister"
-                                                : "normalInputRegister errorInput"
-                                        }
-                                        placeholder={"Ingrese su edad..."}
-                                        name={"age"}
-                                        state={setUser}
-                                        errorState={setUserError}
-                                    />
-                                </Col>
-                            </Form.Group>
+                            </Form.Group>                          
                             <Form.Group as={Row} className="mb-2">
                                 <Form.Label column xs={4} md={4} lg={4}>Teléfono:</Form.Label>
                                 <Col>
