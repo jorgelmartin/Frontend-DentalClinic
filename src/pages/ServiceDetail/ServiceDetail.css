@@ -1,0 +1,12 @@
+.DetailService {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ajustar el tamaño del contenedor */
+    width: 100%; /* O un tamaño apropiado para tu diseño */
+    height: 100vh; /* O un tamaño apropiado para tu diseño */
+    /* Estilos adicionales si es necesario */
+}
+.DetailService1{
+
+}
