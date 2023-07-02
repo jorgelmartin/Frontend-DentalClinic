@@ -1,10 +1,11 @@
 
 .homeDesign {
 
-    height: 85vh;
+    height: 100vh;
     width: 100vw;
+    margin-top: 2em;
 
-    background-color: #F7FFE5;
+    background-color:rgb(120, 148, 170);
 
     display: flex;
     justify-content: center;
@@ -13,9 +14,9 @@
     flex-direction: column;
 }
 
-.services {
+/* .services {
 
     display:flex;
     flex-wrap: wrap;
     margin-top: 1em;
-}
+} */

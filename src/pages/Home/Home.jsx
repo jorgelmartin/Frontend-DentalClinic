@@ -11,20 +11,3 @@ export const Home = () => {
         </div>
     );
 };   
-
-
-
-
-// const [products, setProducts] = useState([]);
-// // const [criteria, setCriteria] = useState("");
-
-// useEffect(() => {
-//     bringProducts()
-//         .then(resultados => {
-//             setProducts(resultados.data.results);
-//         })
-//         .catch(error => {
-//             console.log(error);
-//         });
-// }, []);
-

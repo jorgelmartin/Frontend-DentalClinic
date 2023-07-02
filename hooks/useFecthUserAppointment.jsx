@@ -3,10 +3,10 @@ import { useAuthToken } from "./useAuthToken";
 
 export const useFetchUserAppointments = () => {
     const [userAppointments, setUserAppointments] = useState(null);
-
+    const token = useAuthToken(); 
     useEffect(() => {
-        const token = useAuthToken(); // Reemplaza 'aquí_tu_token' con el token real que tienes
-console.log("soy el toooke",token);
+        // Reemplaza 'aquí_tu_token' con el token real que tienes
+        console.log("soy el toooke",token);
         console.log("Fetching user appointments...");
         fetch('http://localhost:4000/user/getAll', {
             headers: {
