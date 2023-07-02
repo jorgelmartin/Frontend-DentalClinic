@@ -10,13 +10,12 @@ import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
 
-
     const datosCredencialesRedux = useSelector(userData);
-    console.log(datosCredencialesRedux.name);
+    console.log(datosCredencialesRedux.data);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     //Guardo los datos de REDUX en una constante para poder acceder a ellos en Header
-    console.log("datosCredencialesRedux:", datosCredencialesRedux.credentials?.name);
+    console.log("datosCredencialesRedux:", datosCredencialesRedux.credentials?.token);
 
     useEffect(() => {
 
@@ -25,31 +24,53 @@ export const Header = () => {
         }
     }, []);
 
+    const handleLogout = () => {
+        // Agregar aquí la lógica de logout o limpiar los datos de autenticación, si es necesario.
+        // Por ejemplo, si utilizas Redux, aquí podrías despachar una acción para limpiar los datos de autenticación.
+        dispatch(logout({ credentials: "" }));
+
+        // Luego, redirecciona a la página de inicio (Home) después de logout.
+        navigate("/login");
+    };
+
+
 
     return (
         <div className='headerDesign'>
             <div className='linksDesign'>
-                <div className="headerLink" onClick={() => navigate("/about")}>(: SMILE :)</div>
+                <div className="headerLink" onClick={() => navigate("/about")}> :)SMILE(:</div>
                 <div className="headerLink" onClick={() => navigate("/home")}>Services</div>
             </div>
-            {datosCredencialesRedux.credentials?.token ? (
+            {datosCredencialesRedux.data ? (
                 <div className="linksDesignToken">
-                    <div className="headerLink" onClick={() => navigate("/profile")}>Perfil</div>
-                    {datosCredencialesRedux.credentials?.role === 3 && ( // Condición para roleId igual a 1
-                        <div className="headerLink" onClick={() => navigate("/appointment")}>Citas</div>
+                    {datosCredencialesRedux.data.role === 3 ? ( // Condición para roleId igual a 3
+                        <>
+                            <div className="headerLink" onClick={() => navigate("/profile")}>Perfil</div>
+                            <div className="headerLink" onClick={() => navigate("/appointment")}>PideTuCita</div>
+                            <div className="headerLink" onClick={handleLogout}>Logout</div>
+                        </>
+                    ) : datosCredencialesRedux.data.role === 2 ? ( // Condición para roleId igual a 2
+                        <>
+                            <div className="headerLink" onClick={() => navigate("/profile")}>Perfil</div>
+                            <div className="headerLink" onClick={() => navigate("/admin")}>Admin</div>
+                            <div className="headerLink" onClick={handleLogout}>Logout</div>
+                        </>
+                    ) : (
+                        <>
+                            <div className="headerLink" onClick={() => navigate("/login")}>Login</div>
+                            <div className="headerLink" onClick={() => navigate("/register")}>Register</div>
+                        </>
                     )}
-                    {datosCredencialesRedux.credentials?.role === 2 && ( // Condición para roleId igual a 2
-                        <div className="headerLink" onClick={() => navigate("/admin")}>Admin</div>
-                    )}
-                    <div className="headerLink">{datosCredencialesRedux?.credentials?.user?.name}</div>
-                    <div className="headerLink" onClick={() => dispatch(logout({ credentials: "" }))}>Logout</div>
+
                 </div>
             ) : (
-                <div className="linksDesign">
-                    <div className="headerLink" onClick={() => navigate("/login")}>Login</div>
-                    <div className="headerLink" onClick={() => navigate("/register")}>Register</div>
-                </div>
+                <>
+                    {/* Renderizar el contenido si no se cumple la condición datosCredencialesRedux.data */}
+                </>
             )}
         </div>
     );
-}
+
+};
+
+// why dont show Citas and Admin?
