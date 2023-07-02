@@ -1,8 +1,17 @@
+.ContainerCreate{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .CreateAppointmentCard {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 1rem;
+    justify-content: center;
+
+    background-color: aqua;
+    height: 10em;
+    width: 30em;
 }
 .appointmentCardsRow .apcard {
     flex: 0 0 calc(33% - 1em); /* 3 tarjetas por fila, con margen de 20px */
