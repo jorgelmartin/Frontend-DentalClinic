@@ -8,11 +8,14 @@ export const AppointmentCard = () => {
 
     const appointments = useFetchAppointments();
     const userAppointments = useFetchUserAppointments();
-  
+
     if (!appointments || !userAppointments) {
-      return <div>Loading...</div>;
+        return <div>Loading...</div>;
     }
-  
+
+    console.log("All Appointments:", appointments);
+    console.log("User Appointments:", userAppointments);
+
     const allAppointments = [...appointments, ...userAppointments];
     return (
         <Container fluid className="mt-2">
@@ -62,6 +65,7 @@ export const AppointmentCard = () => {
                     </Card>
                 ))}
             </div>
+            <Button onClick={handleGoToAppointments} style={{ backgroundColor: '#13326fba' }} className="w-50">Volver!</Button>
         </Container>
     );
 }

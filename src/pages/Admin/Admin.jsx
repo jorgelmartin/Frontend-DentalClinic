@@ -11,9 +11,13 @@ import "./Admin.css";
 export const Admin = () => {
     const navigate = useNavigate();
 
+    const handleTabClick = (path) => {
+        navigate(path);
+    };
+
     return (
         <div className="adminContainer">
-            <Container>
+            <Container> {/* Utiliza la clase "bg-dark" para el color de fondo */}
                 <Row className="d-flex justify-content-center mt-5">
                     <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
                     <div className="adminCardTitle1">
