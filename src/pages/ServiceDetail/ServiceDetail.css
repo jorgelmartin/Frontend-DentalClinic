@@ -9,5 +9,7 @@
     height: 100vh; 
 
 }
-/* .DetailService1{
-} */
+.DetailService1{
+   
+   border-radius: 2em; background-color:rgba(120, 148, 170, 0.627);
+}

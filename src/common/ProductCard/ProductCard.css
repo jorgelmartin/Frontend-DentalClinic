@@ -18,10 +18,17 @@
     border-radius: 2em;
 }
 
+.productImgDesign{
+    
+}
+
 .productCardDesign img {
     width: 100%;
     height: 12em;
+    width: 13em;
     object-fit: contain;
+    /* border: 0.1em solid #2e3c5a79; */
+    border-radius: 2em;
 }
 
 .productCardDesign h1 {
