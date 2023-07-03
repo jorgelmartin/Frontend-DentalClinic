@@ -1,6 +1,7 @@
 .ContainerCreate {
     display: flex;
     justify-content: center;
+    /* background-color:rgba(120, 148, 170, 0.627); */
 }
 
 .CreateAppointmentCard {
@@ -8,7 +9,7 @@
     flex-wrap: wrap;
     justify-content: center;
 
-    background-color: aqua;
+    /* background-color:rgba(120, 148, 170, 0.627); */
     /* Elimina el ancho fijo para que ocupe todo el ancho disponible */
     /* width: 30em; */
     /* height: 10em; */

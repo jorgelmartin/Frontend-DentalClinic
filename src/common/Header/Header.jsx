@@ -50,19 +50,19 @@ export const Header = () => {
                     {datosCredencialesRedux.data.role === 3 ? (
                         <>
                             <div className="headerLink" onClick={() => navigate("/profile")}>Perfil</div>
-                            <div className="headerLink" onClick={() => navigate("/appointment")}>PideTuCita</div>
-                            <div className="headerLink" onClick={handleLogout}>Logout</div>
+                            <div className="headerLink" onClick={() => navigate("/appointment")}>Citas</div>
+                            <div className="headerLink" onClick={handleLogout}>Salir</div>
                         </>
                     ) : datosCredencialesRedux.data.role === 2 ? (
                         <>
                             <div className="headerLink" onClick={() => navigate("/profile")}>Perfil</div>
                             <div className="headerLink" onClick={() => navigate("/admin")}>Admin</div>
-                            <div className="headerLink" onClick={handleLogout}>Logout</div>
+                            <div className="headerLink" onClick={handleLogout}>Salir</div>
                         </>
                     ) : (
                         <>
-                            <div className="headerLink" onClick={() => navigate("/login")}>Login</div>
-                            <div className="headerLink" onClick={() => navigate("/register")}>Register</div>
+                            <div className="headerLink" onClick={() => navigate("/login")}>Entrar</div>
+                            <div className="headerLink" onClick={() => navigate("/register")}>Regístrate</div>
                         </>
                     )}
                 </div>

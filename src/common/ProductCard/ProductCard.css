@@ -13,7 +13,7 @@
     height: 18em;
     margin: 2em;
     margin-bottom: 1em;
-    border: 0.2em solid #ccc;
+    border: 0.1em solid #2e3c5a79;
     padding: 1em;
     border-radius: 2em;
 }
@@ -31,7 +31,7 @@
 
 .productCardDesign:hover {
 
-    background-color: #36439b5f;
+    background-color: #36439b4b;
     transition: 0.3s;
 
 }

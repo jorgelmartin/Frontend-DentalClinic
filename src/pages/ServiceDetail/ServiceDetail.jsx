@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFetchProducts } from "../../../hooks/useFetchProdutcs";
-
+import "./ServiceDetail.css";
 
     export const ServiceDetail = () => {
         let { id } = useParams();

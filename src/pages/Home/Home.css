@@ -5,7 +5,7 @@
     width: 100vw;
     margin-top: 2em;
 
-    background-color:rgb(120, 148, 170);
+    background-color:rgba(120, 148, 170, 0.627);
 
     display: flex;
     justify-content: center;

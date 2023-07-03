@@ -6,7 +6,7 @@
     height: 8vh;
     width: 100vw;
 
-    background-color: #698199;
+    background-color: #598295;
 
     display: flex;
     flex-direction: row;
@@ -36,6 +36,7 @@
     transition: 0.5s;
     cursor: pointer;
     margin-bottom: 0.4em;
+    margin-right: 1em;
 }
 
 .headerLink:hover {

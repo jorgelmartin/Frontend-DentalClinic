@@ -236,7 +236,7 @@ console.log('Apellido del perfil actualizado:', data.data[0].lastname);// Imprim
                                 SEND
                             </Button>
                         ) : (
-                            <Button
+                            <Button style={{ backgroundColor: '#13326fba' }}
                                 onClick={() => {
                                     setEditing(true);
 
