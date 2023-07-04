@@ -1,8 +1,15 @@
+.appointmentCardsRow1 {
+  
+    background-color:rgba(120, 148, 170, 0.627);
+}
+
 .appointmentCardsRow {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    /* flex-wrap: wrap; */
+    justify-content: center;
     gap: 1rem;
+    margin-top: 10em;
+    background-color:rgba(120, 148, 170, 0.627);
 }
 .appointmentCardsRow .acard {
     flex: 0 0 calc(33% - 1em); /* 3 tarjetas por fila, con margen de 20px */
