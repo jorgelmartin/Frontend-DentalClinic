@@ -14,7 +14,9 @@ export const loginMe = async (credentials) => {
 }
 export const registerMe = async (credentials) => {
 
-  return await axios.post(`${URL}/auth/register`, credentials);
+  let res = await axios.post(`${URL}/auth/register`, credentials);
+  return res.data;
+  // console.log("soy la data", data);
 
 }
 
@@ -57,6 +59,7 @@ export const getProfile = async (token) => {
         Authorization: `Bearer ${token}`,
       },
     };
+    console.log("soy el body api",body);
   
     let res = await axios.put(`${URL}/user/update`, body, config);
     

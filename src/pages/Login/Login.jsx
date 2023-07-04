@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { InputText } from "../../common/InputText/InputText";
 // import { checkError, inputHandler } from "../../services/useful";
-import { loginMe } from "../../services/ApiCalls";
+import { loginMe } from "../../services/apiCalls";
 import { Button, Card, Col, Container, Row, Form } from "react-bootstrap";
 
 
@@ -16,9 +16,6 @@ import { login, userData } from "../userSlice";
 // import { inputHandler } from "../../services/useful";
 
 export const Login = () => {
-
-
-
 
   const [user, setUser] = useState({
     email: "",
@@ -42,13 +39,14 @@ export const Login = () => {
 
   const [welcome, setWelcome] = useState("");
 
-
+  const [userLogin, setuserLogin] = useState({ });
 
   const submitHandler = (e, body) => {
     e.preventDefault();
     loginMe(body)
       .then((res) => {
         setToken(res.data.token);
+        setuserLogin(res.data.user);
         console.log(body);
       })
       
@@ -65,14 +63,14 @@ export const Login = () => {
       dispatch(
         login({
           token: token,
-          name: decoded.name,
+          name: userLogin.name,
           role: decoded.roleId,
           userId: decoded.userId
         })
       );
       navigate("/");
     }
-  }, [token]);
+  }, [token, userLogin]);
 
 
   return (
@@ -84,7 +82,7 @@ export const Login = () => {
           {/* La utilidad de la siguiente linea es renderizar un hook at tiempo real en el DOM */}
           {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
       <Container className="d-flex justify-content-center align-items-center mt-4">
-        <Card>
+        <Card style={{ backgroundColor: '#3c709a61' }}>
           <Card.Body>
         <Row className="justify-content-center align-items-center">
           <Col xs={10} md={6}>

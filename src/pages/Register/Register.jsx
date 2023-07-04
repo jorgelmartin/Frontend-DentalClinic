@@ -3,7 +3,7 @@ import "./Register.css";
 import { InputText } from "../../common/InputText/InputText";
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-import { registerMe } from "../../services/ApiCalls";
+import { registerMe } from "../../services/apiCalls";
 
 
 export const Register = () => {
@@ -11,14 +11,14 @@ export const Register = () => {
     const navigate = useNavigate();
 
     const [user, setUser] = useState({
-        name: "",
-        lastname: "",
-        email: "",
-        password: "",
-        dni: "",
-        address: "",
-        age: "",
-        phone: "",
+        name: "Jorge",
+        lastname: "Martin",
+        email: "jorge@jorge.com",
+        password: "123456",
+        dni: "35435341y",
+        address: "dslihgsld",
+        age: "28",
+        phone: "600297521",
     });
     const [token, setToken] = useState("");
 
@@ -52,19 +52,17 @@ export const Register = () => {
 
 
 
-    const submitHandler = (e, user) => {
-
-
-
+    const submitHandler = (e, body) => {
+        console.log("submithandler", body);
         e.preventDefault();
-        registerMe(user)
+        registerMe(body)
             .then(() => {
-                // console.log(user);
-                setTimeout(() => {
-                    navigate("/login");
-                }, 2000);
+                navigate("/login");
             })
-            .catch((error) => console.log(error));
+
+            .catch((error) => {
+                setUserError({ credentials: error.response.data.message });
+            });
     };
 
 
@@ -72,8 +70,8 @@ export const Register = () => {
     return (
         <div className="registerDesign">
             <Container fluid className="d-flex justify-content-center align-items-center mt-4">
-                <Card className="registerCard">
-                    <Card.Body>
+                <Card className="registerCard" style={{ backgroundColor: '#3c709a61' }}>
+                    <Card.Body >
                         <Card.Title className="text-center mb-3 display-5">Registro</Card.Title>
                         <Form>
                             <Form.Group as={Row} className="mb-2">
@@ -177,7 +175,7 @@ export const Register = () => {
                                         errorState={setUserError}
                                     />
                                 </Col>
-                            </Form.Group>                          
+                            </Form.Group>
                             <Form.Group as={Row} className="mb-2">
                                 <Form.Label column xs={4} md={4} lg={4}>Teléfono:</Form.Label>
                                 <Col>
@@ -195,10 +193,15 @@ export const Register = () => {
                                     />
                                 </Col>
                             </Form.Group>
+                            {userError?.credentials ? (
+                                <div>{userError.credentials}</div>
+                            ) : (
+                                <div></div>
+                            )}
                             <div className="text-center">
-                                <Button onClick={(e) => {
-                                    submitHandler(e);
-                                }} style={{ backgroundColor: '#13326fba' }} className="w-50" type="submit">
+                                <Button onClick={(e) =>
+                                    submitHandler(e, user)
+                                } style={{ backgroundColor: '#13326fba' }} className="w-50" type="submit">
                                     Registrarme!
                                 </Button>
                             </div>
