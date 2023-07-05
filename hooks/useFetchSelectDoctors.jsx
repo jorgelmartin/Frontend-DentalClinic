@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const SelectDoctors = () => {
+export const SelectDoctors = ({handleChange}) => {
     const [selectedDoctor, setSelectedDoctor] = useState("");
     const [doctors, setDoctors] = useState([]);
 
@@ -15,16 +15,13 @@ export const SelectDoctors = () => {
             .catch((error) => console.log(error));
     }, []);
 
-    const handleChange = (event) => {
-        setSelectedDoctor(event.target.value);
-    };
-
+  
     return (
         <>
-            <select value={selectedDoctor} onChange={handleChange}>
+            <select value={selectedDoctor} onChange={(e) => {handleChange(e.target.value); setSelectedDoctor(e.target.value)}}>
                 <option value="">Select Doctors</option>
                 {doctors.map((doctor) => (
-                    <option key={doctor.id} value={doctor.name}>
+                    <option key={doctor.id} value={doctor.id}>
                         {`${doctor.name} ${doctor.lastname}`}
                     </option>
                 ))}

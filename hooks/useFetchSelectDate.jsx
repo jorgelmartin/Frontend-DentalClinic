@@ -3,13 +3,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { addDays, isWeekend } from "date-fns";
 
-export const SelectDate = () => {
-    const [selectedDate, setSelectedDate] = useState(null);
+export const SelectDate = ({handleChange}) => {
+    const [selectedDate, setSelectedDate] = useState("");
 
     const handleDateChange = (date) => {
         // Verificar si la fecha seleccionada es un fin de semana
         if (!isWeekend(date)) {
             setSelectedDate(date);
+            handleChange(date)
         }
     };
 

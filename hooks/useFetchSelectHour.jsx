@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const SelectHour = () => {
+export const SelectHour = ({handleChange}) => {
     const [selectedHour, setSelectedHour] = useState("");
     const [hours, setHours] = useState([]);
     useEffect(() => {
@@ -12,12 +12,13 @@ export const SelectHour = () => {
             })
             .catch((error) => console.log(error));
     }, []);
-    const handleChange = (event) => {
-        setSelectedHour(event.target.value);
-    };
+
+    // const handleChange = (event) => {
+    //     setSelectedHour(event.target.value);
+    // };
     return (
         <>
-            <select value={selectedHour} onChange={handleChange}>
+            <select value={selectedHour} onChange={(e) => {handleChange(e.target.value); setSelectedHour(e.target.value)}}>
                 <option value="">Select Hour</option>
                 {hours.map((hour) => (
                     <option key={hour.id} value={hour.hour}>
