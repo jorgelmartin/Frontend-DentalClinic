@@ -13,13 +13,13 @@
 
 ### Descripción general del proyecto 
 
-Diseño y desarrollo de un FRONTEND para una APP funcional de una clínica dental.
+Diseño y desarrollo FRONTEND de una aplicación funcional para una clínica dental.
 
 Cuenta con 2 tipos de usuarios:
 
-Pacientes: (role por defecto) una vez registrados podrán editar su perfil, crear la cita de interés teniendo la oportunidad de escoger fecha, hora, servicio y dentista. También podrán ver el historial de sus citas, al igual que modificarla. Se permitirá una cita por usuario para evitar spam.
+Pacientes: (role por defecto) una vez registrados podrán editar su perfil, crear la cita de interés, teniendo la oportunidad de escoger fecha, hora, servicio y dentista. También podrán ver el historial de sus citas, al igual que modificarla. Se permitirá una cita por usuario para evitar spam.
 
-Admin: todo aquel usuario con role de Admin podrá ver todos los usuarios y citas en la app, para la facilidad del mismo, se añade una barra de busqueda, que acepta Nombres de pacientes o dentistas y fecha. (Si desea buscar por nombre, no olvidar mayúsculas).
+Admin: podrá ver todos los usuarios y citas en la aplicación, para la facilidad del mismo, se añade una barra de búsqueda, que acepta nombres de pacientes o dentistas y fecha. (Si desea buscar por nombre, no olvidar mayúsculas).
 
 ### REGISTRO
 
@@ -31,19 +31,19 @@ El primer paso será registrarse, para poder acceder a todos los beneficios de l
 
 !['login'](./img/login.png)
 
-Una vez registrados, se redigirá a la página del login para que ingrese el email y contraseña.
+Una vez registrados, se enviará a la página del login para que ingrese el email y contraseña.
 
 ### HOME
 
 !['home'](./img/home.png)
 
-La única página que estará disponibles para todos será la del Home, para que puedan ver los servicios.
+La única página que estará disponible para todos será la del Home, para que puedan ver los servicios.
 
 ### VISTA DETALLE
 
 !['detail'](./img/detail.png)
 
-Si se hace clic en la imagen se redigirá a una vista detalle para que pueda ver mas información del mismo incluyendo el precio y duración.
+Al hacer clic en la imagen, aparecerá a una vista detalle para que pueda ver más información del mismo, incluyendo el precio y duración.
 
 ### PERFIL
 
@@ -67,11 +67,11 @@ El Admin será capaz de ver todos los usuarios registrados en el sistema.
 
 !['citas'](./img/citas.png)
 
-En caso de que los doctores/admin deseen buscar todas sus citas, dispondrán de un panel de búsqueda que filtará por nombre y fecha.
+En caso de que los doctores/admin deseen buscar todas sus citas, dispondrán de un panel de búsqueda que filtrará por nombre y fecha.
 
 ### PACIENTES
 
-!['patient'](./img/patient.png)
+!['patients'](./img/patients.png)
 
 Los pacientes contarán con una vista privada para solicitar la cita de su interés e incluso modificarla en caso de necesitarlo.
 
