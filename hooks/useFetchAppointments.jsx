@@ -1,10 +1,18 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { userData } from "../src/pages/userSlice";
 
 export const useFetchAppointments = () => {
     const [appointments, setAppointments] = useState(null);
+    const datosCredencialesRedux = useSelector(userData);
 
     useEffect(() => {
-        fetch('http://localhost:4000/appointment/getAll')
+        let config = {
+            headers: {
+                Authorization: `Bearer ${datosCredencialesRedux.credentials?.token}`,
+            },
+        }
+        fetch('http://localhost:4000/appointment/getAll', config)
             .then(res => res.json())
             .then(res => {
                 console.log("Response from API:", res);
