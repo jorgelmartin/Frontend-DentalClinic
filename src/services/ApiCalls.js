@@ -59,11 +59,8 @@ export const getProfile = async (token) => {
         Authorization: `Bearer ${token}`,
       },
     };
-    console.log("soy el body api",body);
   
     let res = await axios.put(`${URL}/user/update`, body, config);
-    
-    console.log(res); // Colocado antes del return para ver la respuesta en la consola
 
     return res.data;
   };

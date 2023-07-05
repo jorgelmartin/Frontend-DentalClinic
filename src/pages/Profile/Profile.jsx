@@ -12,7 +12,7 @@ export const Profile = () => {
                 <Row className="userCard gap-3">
                     <Col xs={7} md={6} lg={3}>
                         <div className="profileHeader">
-                            <h3>PERFIL</h3>
+                            <h1>PERFIL</h1>
                         </div>
 
                         <div className="userCard">
