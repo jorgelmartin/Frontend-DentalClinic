@@ -1,4 +1,6 @@
-.userCardsRow {
+/* .userCardsRow {
+    height: 100vh;
+    width: 100vw;
     display: flex;
     flex-wrap: wrap;
 
@@ -7,7 +9,36 @@
     background-color:rgba(120, 148, 170, 0.627);
 }
 .userCardsRow .ucard {
-    flex: 0 0 calc(33.33%); /* 3 tarjetas por fila, con margen de 20px */
-    margin: 0.5em; /* Margen entre las tarjetas */
+    flex: 0 0 calc(33.33%); 
+    margin: 0.5em; 
+} */
+
+
+
+
+
+.buttonDelete {
+    background-color: rgba(173, 10, 10, 0.462);
+    color: white;
+    width: 4em;
+    height: 3em;
+
+    border: 0.01em solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    /* font-size:0.9em; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.buttonDelete:hover {
+    background-color: rgb(115, 26, 1);
+}
+
+.buttonsAppointments {
+    overflow-y:scroll;
+}
+.searchAppointment{
+    margin-top: 2em;
+}

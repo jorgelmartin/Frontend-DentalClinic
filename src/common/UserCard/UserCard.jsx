@@ -15,53 +15,40 @@ export const UserCard = () => {
     return (
 
 
-        <Container fluid className="mt-2">
-            <div className="userCardsRow">
+      
+            <Container className="mt-2">
+              <div className="userCardsRow mt-3">
                 {users.map((user) => (
-                    <Card key={user.id} className="ucard">
-                        <Card.Body>
-                            <Form>
-                                <Form.Group as={Row}>
-                                    <Form.Label column xs={5} sm={5}>Nombre:</Form.Label>
-                                    <Col xs={7} sm={7}>
-                                        <div>{user.name}</div>
-                                    </Col>
-                                </Form.Group>
-                                <Form.Group as={Row}>
-                                    <Form.Label column xs={5} sm={5}>Apellidos:</Form.Label>
-                                    <Col xs={7} sm={7}>
-                                        <div>{user.lastname}</div>
-                                    </Col>
-                                </Form.Group>
-                                <Form.Group as={Row}>
-                                    <Form.Label column xs={5} sm={5}>Email:</Form.Label>
-                                    <Col xs={7} sm={7}>
-                                        <div>{user.email}</div>
-                                    </Col>
-                                </Form.Group>
-                                <Form.Group as={Row}>
-                                    <Form.Label column xs={5} sm={5}>DNI/NIE:</Form.Label>
-                                    <Col xs={7} sm={7}>
-                                        <div>{user.dni}</div>
-                                    </Col>
-                                </Form.Group>
-                                <Form.Group as={Row}>
-                                    <Form.Label column xs={5} sm={5}>Dirección:</Form.Label>
-                                    <Col xs={7} sm={7}>
-                                        <div>{user.address}</div>
-                                    </Col>
-                                </Form.Group>
-                                <Form.Group as={Row}>
-                                    <Form.Label column xs={5} sm={5}>Teléfono:</Form.Label>
-                                    <Col xs={7} sm={7}>
-                                        <div>{user.phone}</div>
-                                    </Col>
-                                </Form.Group>
-                            </Form>
-                        </Card.Body>
-                    </Card>
+                  <Card key={user.id} className="ucard mt-5" style={{ backgroundColor: '#3c709a61' }}>
+                    <Card.Body>
+                      <Form className="d-flex">
+                        <Form.Label className="flex-grow-1">
+                          Nombre: <div className="ml-auto">{user.name}</div>
+                        </Form.Label>
+                        <Form.Label className="flex-grow-1">
+                          Apellidos: <div className="ml-auto">{user.lastname}</div>
+                        </Form.Label>
+                        <Form.Label className="flex-grow-1">
+                          Email: <div className="ml-auto">{user.email}</div>
+                        </Form.Label>
+                        <Form.Label className="flex-grow-1">
+                          DNI/NIE: <div className="ml-auto">{user.dni}</div>
+                        </Form.Label>
+                        <Form.Label className="flex-grow-1">
+                          Dirección: <div className="ml-auto">{user.address}</div>
+                        </Form.Label>
+                        <Form.Label className="flex-grow-1">
+                          Teléfono: <div className="ml-auto">{user.phone}</div>
+                        </Form.Label>
+                        <div className="d-flex justify-content-center buttonsAppointments"> {/* Use d-flex and justify-content-between to display buttons side by side */}
+                  
+                          <button className="buttonDelete">borrar</button>
+                        </div>
+                      </Form>
+                    </Card.Body>
+                  </Card>
                 ))}
-            </div>
-        </Container>
+              </div>
+            </Container>
     );
 }

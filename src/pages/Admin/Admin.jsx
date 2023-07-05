@@ -19,8 +19,8 @@ export const Admin = () => {
         <div className="adminContainer">
             <Container> {/* Utiliza la clase "bg-dark" para el color de fondo */}
                 <Row className="d-flex justify-content-center mt-5">
-                    <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
-                    <div className="adminCardTitle1">
+                    <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1" >
+                    <div className="adminCardTitle1" style={{ backgroundColor: '#3c709a61' }}   >
                             <div>
                                 <Button
                                     style={{ backgroundColor: "#13326fba" }}
@@ -33,7 +33,7 @@ export const Admin = () => {
                         </div>
                     </Col>
                     <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
-                        <div className="adminCardTitle1">
+                        <div className="adminCardTitle1" style={{ backgroundColor: '#3c709a61' }}>
                             <div>
                                 <Button
                                     style={{ backgroundColor: "#13326fba" }}
@@ -45,7 +45,7 @@ export const Admin = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
+                    {/* <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
                         <div className="adminCardTitle1">
                             <div>
                                 <Button
@@ -57,7 +57,7 @@ export const Admin = () => {
                                 </Button>
                             </div>
                         </div>
-                    </Col>
+                    </Col> */}
                 </Row>
             </Container>
         </div>
