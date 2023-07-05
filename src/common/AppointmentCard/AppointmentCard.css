@@ -57,5 +57,6 @@
     overflow-y:scroll;
 }
 .searchAppointment{
+    background-color:rgba(132, 172, 203, 0.299);
     margin-top: 2em;
 }

@@ -3,64 +3,82 @@ import { useFetchAppointments } from "../../../hooks/useFetchAppointments";
 import { Col, Row, Container, Form, Card, Button } from "react-bootstrap";
 import "./AppointmentCard.css"
 import { InputText } from "../InputText/InputText";
+import { useNavigate } from "react-router-dom";
+import { inputHandler } from "../../services/useful";
 
 export const AppointmentCard = () => {
-    const appointments = useFetchAppointments();
+  const appointments = useFetchAppointments();
+  const navigate = useNavigate();
+  if (!appointments) {
+    return <div>Loading...</div>;
+  }
 
-    if (!appointments) {
-        return <div>Loading...</div>;
-    }
-
-    console.log("All Appointments:", appointments);
-
-    return (
-       
+  console.log("All Appointments:", appointments);
+  const inputHandler = ({ target }, state) => {
+    const { name, value } = target;
 
 
-<Container className="mt-5">
-<div className="searchAppointment">
-                <InputText
-                placeholder={"Buscar cita..."}
-                ></InputText>
-            </div>
-  {appointments.map((appointment) => (
-    <Card key={appointment.id} className="acard mt-2" style={{ backgroundColor: '#3c709a61'}}>
-      <Card.Body>
-        <Form className="d-flex">
-          <Form.Label className="flex-grow-1">
-            Cita: <div className="ml-auto">{appointment.id}</div>
-          </Form.Label>
+    state((prevState) => ({
+        // console.log("Previous State:", prevState);
 
-          <Form.Label className="flex-grow-1">
-            Paciente: <div className="ml-auto">{appointment.patient_id}</div>
-          </Form.Label>
+        ...prevState,
+        [name]: value,
 
-          <Form.Label className="flex-grow-1">
-            Dentista: <div className="ml-auto">{appointment.dentist_id}</div>
-          </Form.Label>
+    }));
+};
+  return (
 
-          <Form.Label className="flex-grow-1">
-            Servicio: <div className="ml-auto">{appointment.service_id}</div>
-          </Form.Label>
 
-          <Form.Label className="flex-grow-1">
-            Día: <div className="ml-auto">{appointment.date}</div>
-          </Form.Label>
 
-          <Form.Label className="flex-grow-1">
-            Hora: <div className="ml-auto">{appointment.hour}</div>
-          </Form.Label>
-          <div className="d-flex justify-content-center buttonsAppointments"> {/* Use d-flex and justify-content-between to display buttons side by side */}
-          <button className="buttonUpdate">Cambiar</button>
-          <button className="buttonDelete">borrar</button>
-        </div>
-        </Form>
-        
-      </Card.Body>
-    </Card>
-  ))}
-</Container>
-    );
+    <Container className="mt-5">
+      <div className="searchAppointment">
+        <InputText
+        type={"text"}
+        design={"normalInput"}
+        placeholder={""}
+        name={"criteria"}
+        // functionHandler={inputHandler}
+        // onBlurFunction={() => {}}
+      />
+      </div>
+      {appointments.map((appointment) => (
+        <Card key={appointment.id} className="acard mt-2" style={{ backgroundColor: '#3c709a61' }}>
+          <Card.Body>
+            <Form className="d-flex">
+              <Form.Label className="flex-grow-1">
+                Cita: <div className="ml-auto">{appointment.id}</div>
+              </Form.Label>
+
+              <Form.Label className="flex-grow-1">
+                Paciente: <div className="ml-auto">{appointment.patient.name} {appointment.patient.lastname}</div>
+              </Form.Label>
+
+              <Form.Label className="flex-grow-1">
+                Dentista: <div className="ml-auto">{appointment.dentist.name} {appointment.dentist.lastname}</div>
+              </Form.Label>
+
+              <Form.Label className="flex-grow-1">
+                Servicio: <div className="ml-auto">{appointment.Service.name}</div>
+              </Form.Label>
+
+              <Form.Label className="flex-grow-1">
+                Día: <div className="ml-auto">{appointment.date}</div>
+              </Form.Label>
+
+              <Form.Label className="flex-grow-1">
+                Hora: <div className="ml-auto">{appointment.hour}</div>
+              </Form.Label>
+              <div className="d-flex justify-content-center buttonsAppointments"> {/* Use d-flex and justify-content-between to display buttons side by side */}
+                <button className="buttonUpdate" onClick={() => navigate(`/appointmentdetail/${appointment.id}`)}>Ver en detalle</button>
+                <button className="buttonDelete">borrar</button>
+              </div>
+            </Form>
+
+          </Card.Body>
+        </Card>
+      ))}
+    </Container>
+  );
 };
 
 

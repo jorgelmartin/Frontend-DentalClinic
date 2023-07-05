@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-export const SelectServices = ({handleChange}) => {
-    const [selectedService, setSelectedService] = useState("");
+export const SelectServices = ({handleChange, value}) => {
+    const [selectedService, setSelectedService] = useState(value);
     const [services, setServices] = useState([]);
 
     useEffect(() => {
