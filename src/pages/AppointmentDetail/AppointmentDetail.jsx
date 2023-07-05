@@ -10,11 +10,7 @@ export const AppointmentDetail = () => {
     const parsedId = parseInt(id);
     const appointments = useFetchAppointments();
     const [appointmentDetail, setAppointmentDetail] = useState(null);
-
     const [editing, setEditing] = useState(false);
-
-
-
 
     useEffect(() => {
         if (appointments && Array.isArray(appointments)) {
@@ -39,19 +35,21 @@ export const AppointmentDetail = () => {
                             <h5>Día: {appointmentDetail.date}</h5>
                             <h5>Hora: {appointmentDetail.hour}</h5>
                         </>
-                    </div>
-                </div>
-                ) : (
-                <CreateAppointment isUpdate={true} updateData={appointmentDetail}></CreateAppointment>
-                )
-            }
-            <Button style={{ backgroundColor: '#13326fba' }}
+                        <Button style={{ backgroundColor: '#13326fba' }}
                 onClick={() => {
                     setEditing(!editing);
                 }}
             >
                 EDITAR
             </Button>
+                    </div>
+                </div>
+                
+                ) : (
+                <CreateAppointment isUpdate={true} updateData={appointmentDetail}></CreateAppointment>
+                )
+            }
+            
         </>
     );
 };

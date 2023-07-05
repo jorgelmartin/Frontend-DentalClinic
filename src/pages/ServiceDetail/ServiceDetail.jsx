@@ -6,15 +6,12 @@ import "./ServiceDetail.css";
     export const ServiceDetail = () => {
         let { id } = useParams();
         const parsedId = parseInt(id); 
-    
         const products = useFetchProducts();
-    
         const [productDetail, setProductDetail] = useState(null);
     
         useEffect(() => {
             // FOUND THE PRODUCT WITH THE ID GET IT FROM THE ARRAY
             const foundProduct = products.find((item) => item.id === parsedId);
-    
             if (foundProduct) {
                 setProductDetail(foundProduct);
             } else {
@@ -22,6 +19,8 @@ import "./ServiceDetail.css";
             }
         }, [parsedId, products]);
 
+
+        //SHOW THE DETAIL SERVICE
     return (
         <div className="DetailService">
             <div className="DetailService1">
