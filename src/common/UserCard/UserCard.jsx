@@ -12,8 +12,9 @@ export const UserCard = () => {
     }
 
     return (
-            <Container className="mt-2">
-              <div className="userCardsRow"></div>
+      <div className="userCardsRow">
+            <Container className="mt-5">
+              
                 {users.map((user) => (
                   <Card key={user.id} className="ucard mt-2" style={{ backgroundColor: '#3c709a61' }}>
                     <Card.Body>
@@ -36,13 +37,13 @@ export const UserCard = () => {
                         <Form.Label className="flex-grow-1">
                           Teléfono: <div className="ml-auto">{user.phone}</div>
                         </Form.Label>
-                        <div className="d-flex justify-content-center buttonsAppointments"> 
+                        {/* <div className="d-flex justify-content-center buttonsAppointments"> 
                           <button className="buttonDelete">borrar</button>
-                        </div>
+                        </div> */}
                       </Form>
                     </Card.Body>
                   </Card>
                 ))}
-            </Container>
+            </Container></div>
           );
         }

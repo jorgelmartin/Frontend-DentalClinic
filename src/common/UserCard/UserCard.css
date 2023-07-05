@@ -1,22 +1,8 @@
-/* .userCardsRow {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-
-    justify-content: space-around;
-    gap: 1rem;
-    background-color:rgba(120, 148, 170, 0.627);
-}
-.userCardsRow .ucard {
-    flex: 0 0 calc(33.33%); 
-    margin: 0.5em; 
-} */
-
-
 
 .userCardsRow{
-    margin-top: 4em;
+    height: 100vh;
+    width: 100vw;
+    margin-top: 1em;
     background-color:rgba(132, 172, 203, 0.299);
 }
 
@@ -44,4 +30,8 @@
 }
 .searchAppointment{
     margin-top: 2em;
+}
+
+.container-max-height {
+    max-height: 25em;
 }
