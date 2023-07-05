@@ -170,7 +170,7 @@ export const ProfileCard = () => {
                             </Row>
                         </Form.Group>
                         <Form.Group>
-                            <Row>
+                            {/* <Row>
                                 <Col>
                                     <Form.Label>Edad:</Form.Label>
                                 </Col>
@@ -188,7 +188,7 @@ export const ProfileCard = () => {
                                         <div>{user.age}</div>
                                     </Col>
                                 )}
-                            </Row>
+                            </Row> */}
                         </Form.Group>
                         <Form.Group>
                             <Row>
@@ -215,7 +215,6 @@ export const ProfileCard = () => {
                             <Button
                                 onClick={() => {
                                     editHandler(body, token);
-                                    console.log("soy el body:", body);
                                 }}
                             >
                                 SEND

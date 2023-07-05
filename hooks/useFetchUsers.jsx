@@ -12,6 +12,5 @@ export const useFetchUsers = () => {
             })
             .catch(error => console.log("Error fetching users:", error))
     }, []);
-    console.log("Users:", users);
     return users;
 };

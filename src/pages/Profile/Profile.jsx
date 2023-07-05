@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import "./Profile.css";
 import { ProfileCard } from "../../common/ProfileCard/ProfileCard";
 
@@ -14,7 +14,6 @@ export const Profile = () => {
                         <div className="profileHeader">
                             <h1>PERFIL</h1>
                         </div>
-
                         <div className="userCard">
                             <ProfileCard></ProfileCard>
                         </div>

@@ -8,15 +8,10 @@ export const SelectServices = ({handleChange, value}) => {
         fetch("http://localhost:4000/service/getAll")
             .then((res) => res.json())
             .then((res) => {
-                console.log("Response from API:", res);
                 setServices(res.data);
             })
             .catch((error) => console.log(error));
     }, []);
-
-    // const handleChange = (event) => {
-    //     setSelectedService(event.target.value);
-    // };
 
     return (
         <>

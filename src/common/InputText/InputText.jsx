@@ -8,13 +8,9 @@ export const InputText = ({ type, design, placeholder, name, state, errorState }
 
     const inputHandler = ({ target }, state) => {
         const { name, value } = target;
-
-
         state((prevState) => ({
-       
-                ...prevState,
-                [name]: value,
-         
+            ...prevState,
+            [name]: value,
         }));
     };
 

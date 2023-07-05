@@ -15,13 +15,10 @@ export const useFetchAppointments = () => {
         fetch('http://localhost:4000/appointment/getAll', config)
             .then(res => res.json())
             .then(res => {
-                console.log("Response from API:", res);
                 setAppointments(res.data);
             })
             .catch(error => console.log("Error fetching appointments:", error))
     }, []);
-
-    console.log("appointments:", appointments);
 
     return appointments;
 };

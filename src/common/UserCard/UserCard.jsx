@@ -1,9 +1,8 @@
 
 import React from "react";
 import { useFetchUsers } from "../../../hooks/useFetchUsers";
-import { Col, Row, Container, Form, Card } from "react-bootstrap";
+import { Container, Form, Card } from "react-bootstrap";
 import "./UserCard.css"
-// import { getAllUsers } from "../../services/ApiCalls";
 
 export const UserCard = () => {
 
@@ -13,9 +12,6 @@ export const UserCard = () => {
     }
 
     return (
-
-
-      
             <Container className="mt-2">
               <div className="userCardsRow"></div>
                 {users.map((user) => (
@@ -40,15 +36,13 @@ export const UserCard = () => {
                         <Form.Label className="flex-grow-1">
                           Teléfono: <div className="ml-auto">{user.phone}</div>
                         </Form.Label>
-                        <div className="d-flex justify-content-center buttonsAppointments"> {/* Use d-flex and justify-content-between to display buttons side by side */}
-                  
+                        <div className="d-flex justify-content-center buttonsAppointments"> 
                           <button className="buttonDelete">borrar</button>
                         </div>
                       </Form>
                     </Card.Body>
                   </Card>
                 ))}
-              
             </Container>
-    );
-}
+          );
+        }

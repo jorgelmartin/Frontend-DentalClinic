@@ -8,7 +8,6 @@ export const SelectDoctors = ({handleChange, value}) => {
         fetch("http://localhost:4000/user/getAllUsers")
             .then((res) => res.json())
             .then((res) => {
-                console.log("Response from API:", res);
                 const filteredDoctors = res.data.filter((user) => user.role_id === 2);
                 setDoctors(filteredDoctors);
             })

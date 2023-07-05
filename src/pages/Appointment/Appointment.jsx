@@ -1,16 +1,11 @@
 import React from 'react';
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import "./Appointment.css";
-// import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
-// import { CreateAppointment } from "../../common/CreateAppointment/CreateAppointment";
 import { useNavigate } from 'react-router-dom';
-// import { ProfileCard } from "../../common/ProfileCard/ProfileCard";
-// import { userData } from "../userSlice";
-
-
 
 export const Appointment = () => {
     const navigate = useNavigate();
+
     return (
         <div className="userContainer">
             <Container>
@@ -44,6 +39,5 @@ export const Appointment = () => {
                 </Row>
             </Container>
         </div>
-
     );
 }

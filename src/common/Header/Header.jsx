@@ -11,11 +11,9 @@ import { useNavigate } from 'react-router-dom';
 export const Header = () => {
 
     const datosCredencialesRedux = useSelector(userData);
-    console.log(datosCredencialesRedux.data);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     //Guardo los datos de REDUX en una constante para poder acceder a ellos en Header
-    console.log("datosCredencialesRedux:", datosCredencialesRedux.credentials?.token);
 
     useEffect(() => {
 
@@ -25,12 +23,8 @@ export const Header = () => {
     }, []);
 
     const handleLogout = () => {
-        // Agregar aquí la lógica de logout o limpiar los datos de autenticación, si es necesario.
-        // Por ejemplo, si utilizas Redux, aquí podrías despachar una acción para limpiar los datos de autenticación.
         dispatch(logout({ credentials: "" }));
-
-        // Luego, redirecciona a la página de inicio (Home) después de logout.
-        navigate("/login");
+        navigate("/home");
     };
 
 

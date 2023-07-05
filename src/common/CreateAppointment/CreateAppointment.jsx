@@ -13,16 +13,15 @@ import { createAppointment, updateAppointment } from "../../services/apiCalls";
 
 export const CreateAppointment = ({ isUpdate, updateData }) => {
 
-    console.log(updateData)
     const navigate = useNavigate();
     const datos = useSelector(userData);
     const token = datos?.credentials?.token;
     const [appointmentData, setAppointmentData] = useState({patient_id: datos.data.userId, ...updateData});
-    console.log(appointmentData)
+
     const createApp = () => {
-        console.log(appointmentData, datos);
         isUpdate ? updateAppointment(token, appointmentData.id, appointmentData).then(() =>  navigate("/")) : createAppointment(appointmentData, token).then(() =>  navigate("/"));
     };
+
     return (
         <div className="ContainerCreate1">
             <div className="ContainerCreate">
@@ -109,59 +108,3 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
         </div>
     )
 };
-
-
-
-
-
-
-
-// import React from "react";
-// import "./CreateAppointment.css";
-// import { Col, Row, Container, Form, Card } from "react-bootstrap";
-
-// export const CreateAppointment = () => {
-
-//     return(
-//         <><div className="ContainerCreate">
-//         <Container>
-//             <div className="">
-//                 {/* {allAppointments.map((appointment) => ( */}
-//                     {/* <Card key={appointment.id} className="apcard"> */}
-//                         <Card.Body>
-//                             <Form>
-//                                 <Form.Group as={Row}>
-//                                     <Form.Label column xs={5} sm={6}>Denista:</Form.Label>
-//                                     <Col xs={7} sm={6}>
-//                                         {/* <div>{appointment.dentist_id}</div> */}
-//                                     </Col>
-//                                 </Form.Group>
-//                                 <Form.Group as={Row}>
-//                                     <Form.Label column xs={5} sm={6}>Servicio:</Form.Label>
-//                                     <Col xs={7} sm={6}>
-//                                         {/* <div>{appointment.service_id}</div> */}
-//                                     </Col>
-//                                 </Form.Group>
-//                                 <Form.Group as={Row}>
-//                                     <Form.Label column xs={5} sm={6}>Día:</Form.Label>
-//                                     <Col xs={7} sm={6}>
-//                                         {/* <div>{appointment.date}</div> */}
-//                                     </Col>
-//                                 </Form.Group>
-//                                 <Form.Group as={Row}>
-//                                     <Form.Label column xs={5} sm={6}>Hora:</Form.Label>
-//                                     <Col xs={7} sm={6}>
-//                                         {/* <div>{appointment.hour}</div> */}
-//                                     </Col>
-//                                 </Form.Group>
-//                             </Form>
-//                         </Card.Body>
-//                     {/* </Card> */}
-//                 {/* ))} */}
-//             </div>
-//         </Container>
-//         </div>
-//         </>
-//     )
-
-// }

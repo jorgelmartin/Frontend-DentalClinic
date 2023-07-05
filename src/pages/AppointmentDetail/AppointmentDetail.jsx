@@ -16,15 +16,9 @@ export const AppointmentDetail = () => {
 
 
 
-
     useEffect(() => {
-        // Si hay datos en appointments y no es null o undefined
         if (appointments && Array.isArray(appointments)) {
-            // Encuentra el producto correspondiente al id en el array de productos obtenido del hook.
             const foundAppointment = appointments.find((item) => item.id === parsedId);
-
-            // Si se encuentra el producto, actualiza el estado productDetail con el producto correspondiente.
-            // Si no se encuentra, el estado productDetail se establece en null.
             if (foundAppointment) {
                 setAppointmentDetail(foundAppointment);
             } else {
@@ -33,14 +27,11 @@ export const AppointmentDetail = () => {
         }
     }, [parsedId, appointments]);
 
-
-
     return (
         <>
             { appointmentDetail && !editing ? (
                 <div className="appointmentDetail">
                     <div className="DetailAppointment1">
-                        {/* Si appointmentDetail no es null, muestra la información */}
                         <>
                             <h2>Paciente: {appointmentDetail.patient.name} {appointmentDetail.patient.lastname}</h2>
                             <h4>Servicio: {appointmentDetail.Service.name}</h4>
@@ -50,7 +41,6 @@ export const AppointmentDetail = () => {
                         </>
                     </div>
                 </div>
-
                 ) : (
                 <CreateAppointment isUpdate={true} updateData={appointmentDetail}></CreateAppointment>
                 )
@@ -58,7 +48,6 @@ export const AppointmentDetail = () => {
             <Button style={{ backgroundColor: '#13326fba' }}
                 onClick={() => {
                     setEditing(!editing);
-
                 }}
             >
                 EDITAR

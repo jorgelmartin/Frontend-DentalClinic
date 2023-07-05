@@ -4,11 +4,8 @@ import { InputText } from "../../common/InputText/InputText";
 // import { checkError, inputHandler } from "../../services/useful";
 import { loginMe } from "../../services/apiCalls";
 import { Button, Card, Col, Container, Row, Form } from "react-bootstrap";
-
-
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
-
 //RDX
 //Importo métodos de Redux
 import { useDispatch, useSelector } from "react-redux";
@@ -25,8 +22,6 @@ export const Login = () => {
   const [userError, setUserError] = useState({
     credentials: "",
   });
-
-  //Instancio Redux en modo lectura y escritura
 
   //Dispatch escritura
   const dispatch = useDispatch();
@@ -47,11 +42,9 @@ export const Login = () => {
       .then((res) => {
         setToken(res.data.token);
         setuserLogin(res.data.user);
-        console.log(body);
       })
       
       .catch((error) => {
-        console.log(error)
         setUserError({ credentials: error.response.data.message });
       });
   };
@@ -59,7 +52,6 @@ export const Login = () => {
   useEffect(() => {
     if (token) {
       let decoded = jwtDecode(token);
-      console.log(decoded)
       dispatch(
         login({
           token: token,
@@ -100,14 +92,9 @@ export const Login = () => {
                     errorState={setUserError}
                   />
                 </Col>
-            
             </Form.Group>
-
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              
-                
                   <Form.Label>Password:</Form.Label>
-              
                 <Col>
                   <InputText
                     type={"password"}
@@ -143,115 +130,3 @@ export const Login = () => {
     
   );
 };
-
-
-
-//BUSCAR ERRORES
-
-// import axios from 'axios';
-// try {
-//   const response = await axios.get('http://localhost:4000/user/getUser');
-//   // Manejar la respuesta exitosa aquí
-// } catch (error) {
-//   if (error.response) {
-//     // El servidor respondió con un código de error (por ejemplo, 404)
-//     console.log(error.response.data);
-//     console.log(error.response.status);
-//     console.log(error.response.headers);
-//   } else if (error.request) {
-//     // No se recibió ninguna respuesta del servidor
-//     console.log(error.request);
-//   } else {
-//     // Ocurrió un error al realizar la solicitud
-//     console.log('Error', error.message);
-//   }
-// };
-
-  // const logMe = () => {
-  //   loginMe(credentials)
-  //     .then((resultado) => {
-  //       let decodificado = jwt_decode(resultado.data.token);
-  //       console.log(decodificado);
-  
-  //       // Dividir el token en sus partes: encabezado, carga útil y firma
-  //       const parts = resultado.data.token.split('.');
-  //       const encodedPayload = parts[1];
-  
-  //       // Decodificar la carga útil
-  //       const decodedPayload = atob(encodedPayload);
-  //       const payload = JSON.parse(decodedPayload);
-  
-  //       let datosBackend = {
-  //         token: resultado.data.token,
-  //         user: payload
-  //       };
-  
-  //       console.log(datosBackend);
-  //       // Guardo en redux.....
-  //       dispatch(login({ credentials: datosBackend }));
-  
-  //       setTimeout(() => {
-  //         navigate("/");
-  //       }, 1700);
-  
-  //       setWelcome(`Bienvenid@ de nuevo ${payload.fullname}`);
-  //     })
-  //     .catch((error) => console.log(error));
-  // };
-
-
-    // const inputHandler = (e) => {
-  //   // Ahora vamos a proceder a bindear o atar los inputs mediante
-  //   // la presente función handler a sus correspondientes estados en el hook, que
-  //   // ahora se llama credentials.
-
-  //   // Mara
-  //   const { name, value } = e.target;
-  //   setCredentials((prevState) => ({
-  //     ...prevState,
-  //     [name]: value
-  //   }));
-
-  //   // David :
-  //   // setCredentials((prevState) => ({
-  //   //   ...prevState,
-  //   //   [e.target.name]: e.target.value,
-  //   // }));
-  // };
-
-  // const inputCheck = (e) => {
-  //   let mensajeError = checkError(e.target.name, e.target.value);
-
-  //   setCredentialsError((prevState) => ({
-  //     ...prevState,
-  //     [e.target.name + "Error"]: mensajeError,
-  //   }));
-  //   // checkError(e.target.name, e.target.value); ver que hace
-  // };
-
-
-
-  // DAVID way to do
-  // const logMe = () => {
-  //   loginMe(credentials)
-  //     .then((resultado) => {
-  //       let decodificado = jwt_decode(resultado.data.token);
-
-  //       let datosBackend = {
-  //         token: resultado.data.token,
-  //         user: decodificado
-  //       }
-
-  //       //Guardo en redux.....
-  //       dispatch(login({ credentials: datosBackend }))
-
-  //       setTimeout(() => {
-  //         navigate("/");
-  //       }, 2000);
-
-  //       setWelcome(`Bienvenid@ de nuevo ${decodificado.name}`);
-  //     })
-  //     .catch((error) => console.log(error));
-  // };
-
-  //Mara way to do

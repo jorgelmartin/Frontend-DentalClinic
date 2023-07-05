@@ -17,7 +17,6 @@ const reducers = combineReducers({
     // detail: detailSlice
 })
 
-
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({

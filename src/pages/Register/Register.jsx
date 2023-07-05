@@ -11,25 +11,10 @@ export const Register = () => {
     const navigate = useNavigate();
 
     const [user, setUser] = useState({
-        name: "Jorge",
-        lastname: "Martin",
-        email: "jorge@jorge.com",
-        password: "123456",
-        dni: "35435341y",
-        address: "dslihgsld",
-        age: "28",
-        phone: "600297521",
     });
     const [token, setToken] = useState("");
 
     const [userError, setUserError] = useState({
-        name: "",
-        lastname: "",
-        password: "",
-        dni: "",
-        address: "",
-        age: "",
-        phone: "",
     });
 
     // const inputHandler = (e) => {
@@ -53,13 +38,11 @@ export const Register = () => {
 
 
     const submitHandler = (e, body) => {
-        console.log("submithandler", body);
         e.preventDefault();
         registerMe(body)
             .then(() => {
                 navigate("/login");
             })
-
             .catch((error) => {
                 setUserError({ credentials: error.response.data.message });
             });
@@ -212,35 +195,3 @@ export const Register = () => {
         </div>
     );
 };
-
-
-// import React from 'react';
-
-// const RegisterForm = () => {
-//   const inputFields = [
-//     { label: 'Nombre completo:', type: 'text', placeholder: 'Escribe tu nombre...', name: 'fullname' },
-//     { label: 'Email:', type: 'email', placeholder: 'Escribe tu email...', name: 'email' },
-//     // Agrega el resto de los inputs aquí
-//   ];
-
-//   return (
-//     <div className="registerDesign">
-//       <div className="container">
-//         <h2>Registro</h2>
-//         {inputFields.map((input, index) => (
-//           <div className="dataRegister" key={index}>
-//             <span className="label">{input.label}</span>
-//             <input
-//               type={input.type}
-//               placeholder={input.placeholder}
-//               name={input.name}
-//               className="input-inline"
-//             />
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default RegisterForm;

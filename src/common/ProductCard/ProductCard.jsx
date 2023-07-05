@@ -1,7 +1,6 @@
 import React from "react";
 import { useFetchProducts } from '../../../hooks/useFetchProdutcs';
 import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
 import './ProductCard.css'
 
 export const ProductCard = () => {
