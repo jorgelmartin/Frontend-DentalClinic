@@ -17,7 +17,7 @@ export const SelectDoctors = ({handleChange, value}) => {
   
     return (
         <>
-            <select value={selectedDoctor} onChange={(e) => {handleChange(e.target.value); setSelectedDoctor(e.target.value)}}>
+            <select className="inputAppointment" value={selectedDoctor} onChange={(e) => {handleChange(e.target.value); setSelectedDoctor(e.target.value)}}>
                 <option value="">Select Doctors</option>
                 {doctors.map((doctor) => (
                     <option key={doctor.id} value={doctor.id}>
@@ -25,8 +25,6 @@ export const SelectDoctors = ({handleChange, value}) => {
                     </option>
                 ))}
             </select>
-
-            {/* <div>{selectedService && `Selected service: ${selectedService}`}</div> */}
         </>
     );
 };

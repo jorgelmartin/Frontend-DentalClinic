@@ -15,7 +15,7 @@ export const SelectServices = ({handleChange, value}) => {
 
     return (
         <>
-            <select className="width:20px" value={selectedService} onChange={(e) => {handleChange(e.target.value); setSelectedService(e.target.value)}}>
+            <select className="inputAppointment" value={selectedService} onChange={(e) => {handleChange(e.target.value); setSelectedService(e.target.value)}}>
                 <option value="">Select Service</option>
                 {services.map((service) => (
                     <option key={service.id} value={service.id}>

@@ -34,7 +34,7 @@ export const Login = () => {
 
   const [welcome, setWelcome] = useState("");
 
-  const [userLogin, setuserLogin] = useState({ });
+  const [userLogin, setuserLogin] = useState({});
 
   const submitHandler = (e, body) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ export const Login = () => {
         setToken(res.data.token);
         setuserLogin(res.data.user);
       })
-      
+
       .catch((error) => {
         setUserError({ credentials: error.response.data.message });
       });
@@ -70,63 +70,62 @@ export const Login = () => {
       {/* {welcome !== "" ? (
         <div>{welcome}</div>
       ) : ( */}
-        
-          {/* La utilidad de la siguiente linea es renderizar un hook at tiempo real en el DOM */}
-          {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
+      {/* La utilidad de la siguiente linea es renderizar un hook at tiempo real en el DOM */}
+      {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
       <Container className="d-flex justify-content-center align-items-center mt-4">
         <Card style={{ backgroundColor: '#3c709a61' }}>
+          <Card.Title className="text-center mb-3 display-5">Iniciar sesión</Card.Title>
           <Card.Body>
-        <Row className="justify-content-center align-items-center">
-          <Col xs={10} md={6}>
-            <Form as={Row}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              
-                  <Form.Label>Email:</Form.Label>
-                <Col>
-                  <InputText
-                    type={"email"}
-                    design={userError.emailError ? "errorInput" : ""}
-                    name={"email"}
-                    placeholder={"Enter email"}
-                    state={setUser}
-                    errorState={setUserError}
-                  />
-                </Col>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Password:</Form.Label>
-                <Col>
-                  <InputText
-                    type={"password"}
-                    design={userError.passwordError ? "errorInput" : ""}
-                    name={"password"}
-                    placeholder={"Password"}
-                    state={setUser}
-                    errorState={setUserError}
-                  />
-                </Col>
-                        </Form.Group>
-              {userError?.credentials ? (
-                <div>{userError.credentials}</div>
-              ) : (
-                <div></div>
-              )}
-              <Button
-                style={{ backgroundColor: '#13326fba' }}
-                type="submit"
-                onClick={(e) => {
-                  submitHandler(e, user);
-                }}
-              >
-                Iniciar sesión!
-              </Button>
-            </Form>
-          </Col>
-        </Row>
-        </Card.Body>
+            <Row className="justify-content-center align-items-center">
+              <Col xs={10} md={6}>
+                <Form as={Row}>
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email:</Form.Label>
+                    <Col>
+                      <InputText
+                        type={"email"}
+                        design={userError.emailError ? "errorInput" : ""}
+                        name={"email"}
+                        placeholder={"Enter email"}
+                        state={setUser}
+                        errorState={setUserError}
+                      />
+                    </Col>
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password:</Form.Label>
+                    <Col>
+                      <InputText
+                        type={"password"}
+                        design={userError.passwordError ? "errorInput" : ""}
+                        name={"password"}
+                        placeholder={"Password"}
+                        state={setUser}
+                        errorState={setUserError}
+                      />
+                    </Col>
+                  </Form.Group>
+                  {userError?.credentials ? (
+                    <div>{userError.credentials}</div>
+                  ) : (
+                    <div></div>
+                  )}
+                  <Button
+                    style={{ backgroundColor: '#13326fba' }}
+                    type="submit"
+                    onClick={(e) => {
+                      submitHandler(e, user);
+                    }}
+                  >
+                    Aceptar
+                  </Button>
+                </Form>
+              </Col>
+            </Row>
+          </Card.Body>
         </Card>
       </Container>
-      </div>
-    
+    </div>
+
   );
 };

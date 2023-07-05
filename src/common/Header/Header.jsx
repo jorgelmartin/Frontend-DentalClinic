@@ -32,12 +32,7 @@ export const Header = () => {
     return (
         <div className='headerDesign'>
             <div className='linksDesign'>
-                {/* <div className="headerLink" onClick={() => navigate("/about")}> :)SMILE(:</div> */}
                 <div className="headerLink" onClick={() => navigate("/home")}>:(SMILE:)</div>
-            </div>
-            {/* Add Bootstrap classes to center the InputText */}
-            <div className="inputWrapper d-flex justify-content-center mb-3 d-none d-md-block">
-                <InputText></InputText>
             </div>
             {datosCredencialesRedux.data ? (
                 <div className="linksDesignToken">

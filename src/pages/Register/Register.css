@@ -1,45 +1,14 @@
 .registerDesign {
-
     height: 100vh;
     width: 100vw;
-
     background-color:rgba(132, 172, 203, 0.299);
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
- 
-
 }
 
 .registerCard{
     height: 33em;
     width: 26em;
 }
-/* .container{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-  
-} */
-
-/* .label{
-    margin: 0.5em;
-    align-items: end;
- 
-    
-}
-.dataRegister{
-    margin: 0.5em;
-    justify-content: center;
-    
-}
-.input-inline {
-    display: inline-block;
-    justify-content: center;
-
-  } */  

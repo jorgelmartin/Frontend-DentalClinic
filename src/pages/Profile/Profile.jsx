@@ -8,12 +8,9 @@ export const Profile = () => {
 
     return (
         <div className="userContainer">
-            <Container fluid>
+            <Container className="container-max-width">
                 <Row className="userCard gap-3">
-                    <Col xs={7} md={6} lg={3}>
-                        <div className="profileHeader">
-                            <h1>PERFIL</h1>
-                        </div>
+                    <Col>
                         <div className="userCard">
                             <ProfileCard></ProfileCard>
                         </div>

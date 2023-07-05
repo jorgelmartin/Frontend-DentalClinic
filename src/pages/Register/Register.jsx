@@ -184,7 +184,7 @@ export const Register = () => {
                             <div className="text-center">
                                 <Button onClick={(e) =>
                                     submitHandler(e, user)
-                                } style={{ backgroundColor: '#13326fba' }} className="w-50" type="submit">
+                                } style={{ backgroundColor: '#13326fba' }} className="w-50 mt-4" type="submit">
                                     Registrarme!
                                 </Button>
                             </div>

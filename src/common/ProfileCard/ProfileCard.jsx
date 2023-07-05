@@ -42,10 +42,10 @@ export const ProfileCard = () => {
     //Para ignorar el autocomplete
     {/* eslint-disable-next-line jsx-a11y/autocomplete-ignore */ }
     return (
-
-        <Container fluid className="mt-2">
+        <Container className="mt-2">
             <Card style={{ backgroundColor: '#3c709a61' }}>
                 <Card.Body>
+                <Card.Title className="text-center mb-3 display-5">Perfil</Card.Title>
                     <Form>
                         <Form.Group>
                             <Row>
@@ -217,7 +217,7 @@ export const ProfileCard = () => {
                                     editHandler(body, token);
                                 }}
                             >
-                                SEND
+                                Guardar
                             </Button>
                         ) : (
                             <Button style={{ backgroundColor: '#13326fba' }}
@@ -226,7 +226,7 @@ export const ProfileCard = () => {
 
                                 }}
                             >
-                                EDIT
+                                Editar
                             </Button>
                         )}
                     </Form>

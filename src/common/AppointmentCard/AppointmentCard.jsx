@@ -32,17 +32,19 @@ export const AppointmentCard = () => {
     return <div>Loading...</div>;
   }
 
-  return (
-
+  return (<div className="searchAppointment">
     <Container className="mt-5">
-      <div className="searchAppointment">
+
+      {/* INPUT SEARCH */}
+      
       <input
+          className="InputSearch"
           type={"text"}
           name={"text"}
-          placeholder={"Buscar"}
+          placeholder={"Buscar cita..."}
           onChange={(e) => inputHandler(e, setSearchText)}
       />
-      </div>
+      
       {filteredAppointments.map((appointment) => (
         <Card key={appointment.id} className="acard mt-2" style={{ backgroundColor: '#3c709a61' }}>
           <Card.Body>
@@ -50,35 +52,29 @@ export const AppointmentCard = () => {
               <Form.Label className="flex-grow-1">
                 Cita: <div className="ml-auto">{appointment.id}</div>
               </Form.Label>
-
               <Form.Label className="flex-grow-1">
                 Paciente: <div className="ml-auto">{appointment.patient.name} {appointment.patient.lastname}</div>
               </Form.Label>
-
               <Form.Label className="flex-grow-1">
                 Dentista: <div className="ml-auto">{appointment.dentist.name} {appointment.dentist.lastname}</div>
               </Form.Label>
-
               <Form.Label className="flex-grow-1">
                 Servicio: <div className="ml-auto">{appointment.Service.name}</div>
               </Form.Label>
-
               <Form.Label className="flex-grow-1">
                 Día: <div className="ml-auto">{appointment.date}</div>
               </Form.Label>
-
               <Form.Label className="flex-grow-1">
                 Hora: <div className="ml-auto">{appointment.hour}</div>
               </Form.Label>
               <div className="d-flex justify-content-center buttonsAppointments"> {/* Use d-flex and justify-content-between to display buttons side by side */}
-                <button className="buttonUpdate" onClick={() => navigate(`/appointmentdetail/${appointment.id}`)}>Ver en detalle</button>
+                <button className="buttonUpdate" onClick={() => navigate(`/appointmentdetail/${appointment.id}`)}>Detalle</button>
                 <button className="buttonDelete">borrar</button>
               </div>
             </Form>
-
           </Card.Body>
         </Card>
       ))}
-    </Container>
+    </Container></div>
   );
 };

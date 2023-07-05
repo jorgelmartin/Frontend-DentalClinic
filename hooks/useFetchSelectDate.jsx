@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { addDays, isWeekend } from "date-fns";
 
+
 export const SelectDate = ({handleChange, value}) => {
     const [selectedDate, setSelectedDate] = useState(value ? new Date(value): null);
 
@@ -16,7 +17,7 @@ export const SelectDate = ({handleChange, value}) => {
 
     return (
         <>
-            <DatePicker
+            <DatePicker className="inputAppointment"
                 selected={selectedDate}
                 onChange={handleDateChange}
                 dateFormat="dd/MM/yyyy"

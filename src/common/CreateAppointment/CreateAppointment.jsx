@@ -30,6 +30,7 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
                         <Col xs={12} sm={12} md={12}>
                             <Card style={{ backgroundColor: '#3c709a61' }}>
                                 <Card.Body>
+                                <Card.Title className="text-center mb-3 display-5">Crea tu cita</Card.Title>
                                     <Form>
                                         <Form.Group as={Row}>
                                             <Form.Label column xs={4} sm={5}>Denista:</Form.Label>
@@ -45,7 +46,6 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
                                                         }) }
                                                     }
                                                 >
-
                                                 </SelectDoctors>
                                             </Col>
                                         </Form.Group>
@@ -98,7 +98,7 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
                                             </Col>
                                         </Form.Group>
                                     </Form>
-                                    <Button onClick={createApp} style={{ backgroundColor: '#13326fba' }} className="w-50">Crear cita!</Button>
+                                    <Button onClick={createApp} style={{ backgroundColor: '#13326fba' }} className="w-50">Aceptar!</Button>
                                 </Card.Body>
                             </Card>
                         </Col>

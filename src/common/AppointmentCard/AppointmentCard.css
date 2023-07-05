@@ -1,17 +1,8 @@
-
-
-/* .appointmentCardsRow {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 10em;
-    background-color: rgba(120, 148, 170, 0.627);
-} */
-
-/* .appointmentCardsRow .acard {
-    flex: 0 0 calc(33% - 1em);
-} */
-
+.searchAppointment{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(132, 172, 203, 0.299);
+}
 .buttonUpdate {
     background-color: rgba(6, 6, 235, 0.608);
     color: white;
@@ -27,19 +18,15 @@
     justify-content: center;
 }
 
-
-/* Cambiar el cursor cuando se pasa por encima del botón */
 .buttonUpdate:hover {
     background-color: rgb(3, 3, 140);
 }
-
 
 .buttonDelete {
     background-color: rgba(173, 10, 10, 0.462);
     color: white;
     width: 4em;
     height: 3em;
-
     border: 0.01em solid black;
     border-radius: 50%;
     cursor: pointer;
@@ -56,7 +43,15 @@
 .buttonsAppointments {
     overflow-y:scroll;
 }
-.searchAppointment{
+/* .searchAppointment{
     background-color:rgba(132, 172, 203, 0.299);
     margin-top: 2em;
+} */
+
+.InputSearch {
+    text-align: center;
+    background-color: rgba(83, 215, 248, 0.244);
+    width: 12em;
+    height: 2em;
+    border-radius: 2em;
 }
