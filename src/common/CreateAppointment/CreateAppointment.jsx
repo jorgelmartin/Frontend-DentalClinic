@@ -13,14 +13,15 @@ export const CreateAppointment = () => {
     const navigate = useNavigate(); 
 
     const handleGoToAppointments = () => {
-        navigate("/appointment"); 
+        navigate("/home"); 
     };
     return (
+        <div className="ContainerCreate1">
         <div className="ContainerCreate">
             <Container>
                 <Row className="CreateAppointmentCard">
                     <Col xs={12} sm={12} md={12}>
-                        <Card>
+                        <Card style={{ backgroundColor: '#3c709a61' }}>
                             <Card.Body>
                                 <Form>
                                     <Form.Group as={Row}>
@@ -48,12 +49,13 @@ export const CreateAppointment = () => {
                                         </Col>
                                     </Form.Group>
                                 </Form>
-                                <Button onClick={handleGoToAppointments} style={{ backgroundColor: '#13326fba' }} className="w-50">Volver!</Button>
+                                <Button onClick={handleGoToAppointments} style={{ backgroundColor: '#13326fba' }} className="w-50">Crear cita!</Button>
                             </Card.Body>
                         </Card>
                     </Col>
                 </Row>
             </Container>
+        </div>
         </div>
     )
 };
