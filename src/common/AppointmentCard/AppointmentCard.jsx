@@ -1,47 +1,52 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useFetchAppointments } from "../../../hooks/useFetchAppointments";
 import { Col, Row, Container, Form, Card, Button } from "react-bootstrap";
 import "./AppointmentCard.css"
-import { InputText } from "../InputText/InputText";
 import { useNavigate } from "react-router-dom";
 import { inputHandler } from "../../services/useful";
 
 export const AppointmentCard = () => {
+  const [searchText, setSearchText] = useState("");
   const appointments = useFetchAppointments();
+
+  const [filteredAppointments, setfilteredAppointments] = useState([]);
+
+  useEffect(() => {setfilteredAppointments(appointments)}, [appointments])
+
+  useEffect(() => {
+    const searchAppointment = (text) => {
+      let filtered = appointments;
+      
+      if(text && appointments) {
+        filtered = (appointments.filter((appointment) => appointment.dentist.name.includes(text) || appointment.patient.name.includes(text) || appointment.date.includes(text)))
+      }
+
+      setfilteredAppointments(filtered);
+      console.log(filtered, text)
+    }
+    const timeOutId = setTimeout(() => searchAppointment(searchText.text), 500);
+    return () => clearTimeout(timeOutId);
+  }, [searchText, appointments]);
+
   const navigate = useNavigate();
-  if (!appointments) {
+  if (!filteredAppointments) {
     return <div>Loading...</div>;
   }
 
-  console.log("All Appointments:", appointments);
-  const inputHandler = ({ target }, state) => {
-    const { name, value } = target;
 
 
-    state((prevState) => ({
-        // console.log("Previous State:", prevState);
-
-        ...prevState,
-        [name]: value,
-
-    }));
-};
   return (
-
-
 
     <Container className="mt-5">
       <div className="searchAppointment">
-        <InputText
-        type={"text"}
-        design={"normalInput"}
-        placeholder={""}
-        name={"criteria"}
-        // functionHandler={inputHandler}
-        // onBlurFunction={() => {}}
+      <input
+          type={"text"}
+          name={"text"}
+          placeholder={"Buscar"}
+          onChange={(e) => inputHandler(e, setSearchText)}
       />
       </div>
-      {appointments.map((appointment) => (
+      {filteredAppointments.map((appointment) => (
         <Card key={appointment.id} className="acard mt-2" style={{ backgroundColor: '#3c709a61' }}>
           <Card.Body>
             <Form className="d-flex">

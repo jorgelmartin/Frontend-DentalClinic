@@ -1,52 +1,37 @@
 
 import React, { useState, useEffect } from "react";
-import { getProfile, updateProfile } from "../../services/ApiCalls";
+import { getProfile,updateProfile } from "../../services/apiCalls";
 import "./ProfileCard.css";
 import { Card, Form, Button, Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { userData } from "../../pages/userSlice";
-import { InputText } from "../InputText/InputText";
+import { inputHandler } from "../../services/useful";
 
 export const ProfileCard = () => {
 
     const [user, setUser] = useState({});
     const [editing, setEditing] = useState(false);
-    const [body, setBody] = useState({
-        // name: "",
-        // lastname: "",
-        // email: "",
-        // password: "",
-        // dni: "",
-        // address: "",
-        // age: "",
-        // phone: "",
-    });
-    // console.log(user)
-
+    const [body, setBody] = useState({});
+ 
     const datos = useSelector(userData);
     const token = datos.credentials.token;
     
-
     const editHandler = (body, token) => {
-        console.log('Body recibido:', body);
-  console.log('Token recibido:', token);
         updateProfile(body, token)
-            .then((data) => {
-                console.log('Nombre del perfil actualizado:', data.data[0].name);
-console.log('Apellido del perfil actualizado:', data.data[0].lastname);// Imprime la respuesta del servidor en caso de éxito
+            .then(() => {
                 setEditing(false);
             })
             .catch((error) => {
-                console.error('Error al actualizar el perfil:', error); // Imprime el error en caso de falla
+                console.error('Error al actualizar el perfil:', error);
             });
     };
 
     useEffect(() => {
         if (!editing) {
             getProfile(token)
-                .then((data) => {
-                    console.log('Perfil obtenido:', data);
-                    setUser(data);
+                .then((res) => {
+                    // console.log('Perfil obtenido:', data);
+                    setUser(res);
                 })
                 .catch((error) => {
                     console.error('Error al obtener el perfil:', error);
@@ -59,7 +44,7 @@ console.log('Apellido del perfil actualizado:', data.data[0].lastname);// Imprim
     return (
 
         <Container fluid className="mt-2">
-            <Card>
+            <Card style={{ backgroundColor: '#3c709a61' }}>
                 <Card.Body>
                     <Form>
                         <Form.Group>
@@ -69,7 +54,7 @@ console.log('Apellido del perfil actualizado:', data.data[0].lastname);// Imprim
                                 </Col>
                                 {editing ? (
                                     <Col>
-                                        <InputText
+                                        <input
                                             type={"text"}
                                             name={"name"}
                                             placeholder={user.name}
@@ -90,7 +75,7 @@ console.log('Apellido del perfil actualizado:', data.data[0].lastname);// Imprim
                                 </Col>
                                 {editing ? (
                                     <Col>
-                                        <InputText
+                                        <input
                                             type={"text"}
                                             name={"lastname"}
                                             placeholder={user.lastname}
@@ -111,7 +96,7 @@ console.log('Apellido del perfil actualizado:', data.data[0].lastname);// Imprim
                                 </Col>
                                 {editing ? (
                                     <Col>
-                                        <InputText
+                                        <input
                                             type={"text"}
                                             name={"email"}
                                             placeholder={user.email}
@@ -132,7 +117,7 @@ console.log('Apellido del perfil actualizado:', data.data[0].lastname);// Imprim
                                         <Form.Label>Contraseña:</Form.Label>
                                     </Col>
                                     <Col>
-                                        <InputText
+                                        <input
                                             type={"password"}
                                             name={"password"}
                                             placeholder={user.password}
@@ -149,7 +134,7 @@ console.log('Apellido del perfil actualizado:', data.data[0].lastname);// Imprim
                                 </Col>
                                 {editing ? (
                                     <Col>
-                                        <InputText
+                                        <input
                                             type={"text"}
                                             name={"dni"}
                                             placeholder={user.dni}
@@ -170,7 +155,7 @@ console.log('Apellido del perfil actualizado:', data.data[0].lastname);// Imprim
                                 </Col>
                                 {editing ? (
                                     <Col>
-                                        <InputText
+                                        <input
                                             type={"text"}
                                             name={"address"}
                                             placeholder={user.address}
@@ -191,7 +176,7 @@ console.log('Apellido del perfil actualizado:', data.data[0].lastname);// Imprim
                                 </Col>
                                 {editing ? (
                                     <Col>
-                                        <InputText
+                                        <input
                                             type={"text"}
                                             name={"age"}
                                             placeholder={user.age}
@@ -212,7 +197,7 @@ console.log('Apellido del perfil actualizado:', data.data[0].lastname);// Imprim
                                 </Col>
                                 {editing ? (
                                     <Col>
-                                        <InputText
+                                        <input
                                             type={"text"}
                                             name={"phone"}
                                             placeholder={user.phone}

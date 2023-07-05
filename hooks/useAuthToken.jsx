@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-export const useAuthToken = () => {
-    const [token, setToken] = useState(null);
+// export const useAuthToken = () => {
+//     const [token, setToken] = useState(null);
 
-    useEffect(() => {
+//     useEffect(() => {
 
-        const storedToken = localStorage.getItem("persist:root/user/token");
-        setToken(storedToken);
+//         const storedToken = localStorage.getItem("persist:root/user/token");
+//         setToken(storedToken);
 
-    }, []);
+//     }, []);
 
-    return token;
-};
+//     return token;
+// };

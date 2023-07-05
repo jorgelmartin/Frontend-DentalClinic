@@ -30,12 +30,6 @@ export const registerMe = async (credentials) => {
 //   return await axios.get(`https://rickandmortyapi.com/api/character/?name=${criteria}`);
 // }
 
-export const searchAppointment = async (criteria) => {
-  try {
-    let res = await axios.get(`${URL}/${criteria}`);
-    return res.data;
-  } catch (error) {}
-};
 // export const searchCharacter = async (criteria) => {
 
 //   return await axios.get(`https://rickandmortyapi.com/api/character/?name=${criteria}`);
@@ -74,4 +68,36 @@ export const getProfile = async (token) => {
 //     return await axios.get(`${URL}/user/getAllUsers`, config);
 // }
 
+// export const deleteUser = async (body, token) => {
+//   const config = {
+//     headers: { Authorization: `Bearer ${token}` },
+//   };
+//   const bodyParameters = {
+//     email: body.email,
+//   };
+//   try {
+//     let res = await axios.patch(`${URL}/users/delete`, bodyParameters, config);
+//     return res;
+//   } catch (error) {}
+// };
+
+export const updateAppointment = async (token, id, bodyApp) => {
+  let config = {
+      headers: {
+          Authorization: `Bearer ${token}`,
+      },
+  }
+  let res = await axios.put(`${URL}/appointment/update/${id}`, bodyApp, config)
+  return res
+}
+
+export const createAppointment = async (body, token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+    let res =  await axios.post(`${URL}/appointment/createAppointment`, body, config)
+    return res.data;
+  }
 

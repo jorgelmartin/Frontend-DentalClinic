@@ -40,7 +40,7 @@
 }
 
 .buttonsAppointments {
-    overflow-y:scroll;
+    overflow-y:hidden;
 }
 .searchAppointment{
     margin-top: 2em;

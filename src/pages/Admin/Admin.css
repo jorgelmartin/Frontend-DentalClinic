@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:rgba(120, 148, 170, 0.627);
+    background-color:rgba(132, 172, 203, 0.299);
 }
 
 .adminCardTitle1{
@@ -39,8 +39,8 @@
     
 
     font-size: 1.2em; 
-    font-weight: bold; 
-    color: #333;
+    font-weight:bold; 
+    color: #cecece;
 
     background-color: #f0f0f0; 
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.1); 

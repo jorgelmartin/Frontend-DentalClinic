@@ -2,7 +2,7 @@
 .userContainer {
     width: 100vw;
     height: 100vh;
-    background-color:rgba(120, 148, 170, 0.627);
+    background-color:rgba(132, 172, 203, 0.299);
     margin-bottom: 0;
     display: flex;
     justify-content: center;
@@ -34,12 +34,13 @@
 
 }
 .profileHeader {
+    color: rgb(52, 56, 82);
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 1em;
   }
   
   .profileHeader h3 {
-    font-size: 24px;
+    font-size: 2em;
     font-weight: bold;
     color: #333;
     text-transform: uppercase;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-export const SelectDoctors = ({handleChange}) => {
-    const [selectedDoctor, setSelectedDoctor] = useState("");
+export const SelectDoctors = ({handleChange, value}) => {
+    const [selectedDoctor, setSelectedDoctor] = useState(value);
     const [doctors, setDoctors] = useState([]);
 
     useEffect(() => {

@@ -6,13 +6,11 @@ import { checkError } from '../../services/useful';
 
 export const InputText = ({ type, design, placeholder, name, state, errorState }) => {
 
-    // console.log("Valor de body en el componente InputText:", state);
     const inputHandler = ({ target }, state) => {
         const { name, value } = target;
 
 
         state((prevState) => ({
-            // console.log("Previous State:", prevState);
        
                 ...prevState,
                 [name]: value,
