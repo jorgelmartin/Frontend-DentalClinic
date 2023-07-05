@@ -15,7 +15,10 @@
 
 
 
-
+.userCardsRow{
+    margin-top: 4em;
+    background-color:rgba(132, 172, 203, 0.299);
+}
 
 .buttonDelete {
     background-color: rgba(173, 10, 10, 0.462);

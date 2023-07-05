@@ -17,9 +17,9 @@ export const UserCard = () => {
 
       
             <Container className="mt-2">
-              <div className="userCardsRow mt-3">
+              <div className="userCardsRow"></div>
                 {users.map((user) => (
-                  <Card key={user.id} className="ucard mt-5" style={{ backgroundColor: '#3c709a61' }}>
+                  <Card key={user.id} className="ucard mt-2" style={{ backgroundColor: '#3c709a61' }}>
                     <Card.Body>
                       <Form className="d-flex">
                         <Form.Label className="flex-grow-1">
@@ -48,7 +48,7 @@ export const UserCard = () => {
                     </Card.Body>
                   </Card>
                 ))}
-              </div>
+              
             </Container>
     );
 }
