@@ -4,7 +4,7 @@
     background-color: rgba(132, 172, 203, 0.299);
 }
 .buttonUpdate {
-    background-color: rgba(6, 6, 235, 0.608);
+    background-color: rgba(89, 89, 209, 0.608);
     color: white;
     width: 4em;
     height: 3em;
@@ -39,10 +39,10 @@
 .buttonDelete:hover {
     background-color: rgb(115, 26, 1);
 }
-
+/* 
 .buttonsAppointments {
     overflow-y:scroll;
-}
+} */
 /* .searchAppointment{
     background-color:rgba(132, 172, 203, 0.299);
     margin-top: 2em;
@@ -50,7 +50,7 @@
 
 .InputSearch {
     text-align: center;
-    background-color: rgba(83, 215, 248, 0.244);
+    background-color: rgba(123, 219, 243, 0.244);
     width: 12em;
     height: 2em;
     border-radius: 2em;

@@ -4,7 +4,12 @@
 
 ### Tecnologías:
 
-![logos-tecnologias-utilizadas3](https://user-images.githubusercontent.com/113507322/205345377-539842e5-3691-4a3a-8919-5fe9a843dcc2.jpg)
++ REACT.
++ JAVASCRIPT.
++ REACT BOOTSTRAP.
++ REACT REDUX.
++ HTML.
++ CSS.
 
 ### Descripción general del proyecto 
 
@@ -58,9 +63,33 @@ Los Admin, contarán con una vista privada para poder llevar el control de la cl
 
 El Admin será capaz de ver todos los usuarios registrados en el sistema.
 
+### CITAS ADMIN
+
+!['citas'](./img/citas.png)
+
+En caso de que los doctores/admin deseen buscar todas sus citas, dispondrán de un panel de búsqueda que filtará por nombre y fecha.
+
+### PACIENTES
+
+!['patient'](./img/patient.png)
+
+Los pacientes contarán con una vista privada para solicitar la cita de su interés e incluso modificarla en caso de necesitarlo.
+
+### CITAS PACIENTES
+
+!['citapaciente'](./img/citapaciente.png)
+
+Podrán ver el historial de sus citas.
+
+### VISTA DETALLE DE LA CITA Y OPCIÓN DE MODIFICARLA
+
+!['detallecita'](./img/detallecita.png)
+
+Si hacen clic en el botón detalle de la cita, les mostrará el detalle de la misma con opción de modificarla.
+
 ### Agradecimientos:
 
-Agradezco a mis compañeros el tiempo dedicado a este proyecto.
+Agradezco a mis profesores y compañeros el tiempo dedicado a este proyecto.
 
 ### Autor:
 Jorge Luis Martin Lorenzo.

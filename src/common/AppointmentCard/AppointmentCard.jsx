@@ -69,7 +69,7 @@ export const AppointmentCard = () => {
               </Form.Label>
               <div className="d-flex justify-content-center buttonsAppointments"> {/* Use d-flex and justify-content-between to display buttons side by side */}
                 <button className="buttonUpdate" onClick={() => navigate(`/appointmentdetail/${appointment.id}`)}>Detalle</button>
-                <button className="buttonDelete">borrar</button>
+                {/* <button className="buttonDelete">borrar</button> */}
               </div>
             </Form>
           </Card.Body>
