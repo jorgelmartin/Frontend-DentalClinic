@@ -5,7 +5,7 @@ import './InputText.css';
 import { checkError } from '../../services/useful';
 
 export const InputText = ({ type, design, placeholder, name, state, errorState }) => {
-
+//INPUTHANDLER FUNCTION
     const inputHandler = ({ target }, state) => {
         const { name, value } = target;
         state((prevState) => ({
@@ -14,6 +14,7 @@ export const InputText = ({ type, design, placeholder, name, state, errorState }
         }));
     };
 
+    //CHECKERROR FUNCTION
     const inputCheck = ({ target }, state) => {
         let { name, value } = target
         let errorMessage = checkError(name, value)

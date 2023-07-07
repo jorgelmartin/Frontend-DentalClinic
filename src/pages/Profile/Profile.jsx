@@ -3,9 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import "./Profile.css";
 import { ProfileCard } from "../../common/ProfileCard/ProfileCard";
 
-
 export const Profile = () => {
-
     return (
         <div className="userContainer">
             <Container className="container-max-width">

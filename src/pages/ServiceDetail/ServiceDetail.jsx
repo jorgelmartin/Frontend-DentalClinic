@@ -4,8 +4,10 @@ import { useFetchProducts } from "../../../hooks/useFetchProdutcs";
 import "./ServiceDetail.css";
 
     export const ServiceDetail = () => {
+        //GET THE ID VALUE FROM THE URL
         let { id } = useParams();
         const parsedId = parseInt(id); 
+        //ASSIGN PRODUCTS
         const products = useFetchProducts();
         const [productDetail, setProductDetail] = useState(null);
     
@@ -18,7 +20,6 @@ import "./ServiceDetail.css";
                 setProductDetail(null);
             }
         }, [parsedId, products]);
-
 
         //SHOW THE DETAIL SERVICE
     return (

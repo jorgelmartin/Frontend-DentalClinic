@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 export const SelectHour = ({handleChange, value}) => {
+
+    //USER SELECTED HOUR FROM THE FATHER COMPONENT
     const [selectedHour, setSelectedHour] = useState(value);
 
    const hours = [
@@ -13,7 +15,9 @@ export const SelectHour = ({handleChange, value}) => {
 
     return (
         <>
-            <select className="inputAppointment" value={selectedHour} onChange={(e) => {handleChange(e.target.value); setSelectedHour(e.target.value)}}>
+            <select className="inputAppointment" value={selectedHour} onChange={(e) => {
+                handleChange(e.target.value); 
+                setSelectedHour(e.target.value)}}>
                 <option value="">Select Hour</option>
                 {hours.map((hour) => (
                     <option key={hour.id} value={hour.hour}>

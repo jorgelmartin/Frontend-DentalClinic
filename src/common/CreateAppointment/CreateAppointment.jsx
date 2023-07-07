@@ -16,10 +16,24 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
     const navigate = useNavigate();
     const datos = useSelector(userData);
     const token = datos?.credentials?.token;
-    const [appointmentData, setAppointmentData] = useState({patient_id: datos.data.userId, ...updateData});
 
+    //UPDATE DATA
+    const [appointmentData, setAppointmentData] = useState(
+        {
+            ...updateData,
+            patient_id: datos.data.userId
+        }
+    );
+
+    //CREATE AND UPDATE APPOINTMENT
     const createApp = () => {
-        isUpdate ? updateAppointment(token, appointmentData.id, appointmentData).then(() =>  navigate("/")) : createAppointment(appointmentData, token).then(() =>  navigate("/"));
+        if (isUpdate) {
+            updateAppointment(token, appointmentData.id, appointmentData)
+                .then(() => navigate("/appointment"));
+        } else {
+            createAppointment(appointmentData, token)
+                .then(() => navigate("/appointment"));
+        }
     };
 
     return (
@@ -33,8 +47,9 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
                                 <Card.Title className="text-center mb-3 display-5">Crea tu cita</Card.Title>
                                     <Form>
                                         <Form.Group as={Row}>
-                                            <Form.Label column xs={4} sm={5}>Denista:</Form.Label>
+                                            <Form.Label column xs={4} sm={5}>Dentista:</Form.Label>
                                             <Col xs={6} sm={6}>
+                                                
                                                 <SelectDoctors
                                                     className="dentistSelector"
                                                     name={"dentist_id"}

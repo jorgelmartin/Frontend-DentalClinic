@@ -5,10 +5,12 @@ import { addDays, isWeekend } from "date-fns";
 
 
 export const SelectDate = ({handleChange, value}) => {
+
+    //USER SELECTED DATE FROM THE FATHER COMPONENT
     const [selectedDate, setSelectedDate] = useState(value ? new Date(value): null);
 
     const handleDateChange = (date) => {
-        // Verificar si la fecha seleccionada es un fin de semana
+        // VERIFY IF IS WEEKEND
         if (!isWeekend(date)) {
             setSelectedDate(date);
             handleChange(date)

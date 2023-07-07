@@ -12,10 +12,13 @@ export const ProfileCard = () => {
     const [user, setUser] = useState({});
     const [editing, setEditing] = useState(false);
     const [body, setBody] = useState({});
- 
+
+    //GETTING TOKEN FROM REDUX
     const datos = useSelector(userData);
     const token = datos.credentials.token;
     
+
+    //UPDATE PROFILE
     const editHandler = (body, token) => {
         updateProfile(body, token)
             .then(() => {
@@ -26,6 +29,7 @@ export const ProfileCard = () => {
             });
     };
 
+    //GET USER PROFILE
     useEffect(() => {
         if (!editing) {
             getProfile(token)
@@ -223,7 +227,6 @@ export const ProfileCard = () => {
                             <Button style={{ backgroundColor: '#13326fba' }}
                                 onClick={() => {
                                     setEditing(true);
-
                                 }}
                             >
                                 Editar
@@ -233,6 +236,5 @@ export const ProfileCard = () => {
                 </Card.Body>
             </Card>
         </Container>
-
     );
 };

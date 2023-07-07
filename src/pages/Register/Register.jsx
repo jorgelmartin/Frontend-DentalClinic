@@ -9,34 +9,10 @@ import { registerMe } from "../../services/apiCalls";
 export const Register = () => {
 
     const navigate = useNavigate();
+    const [user, setUser] = useState({});
+    const [userError, setUserError] = useState({});
 
-    const [user, setUser] = useState({
-    });
-    const [token, setToken] = useState("");
-
-    const [userError, setUserError] = useState({
-    });
-
-    // const inputHandler = (e) => {
-
-    //     setCredentials((prevState) => ({
-    //         ...prevState,
-    //         [e.target.name]: e.target.value,
-    //     }));
-    // };
-
-    // const inputCheck = (e) => {
-
-    //     let mensajeError = checkError(e.target.name, e.target.value);
-
-    //     setCredentialsError((prevState) => ({
-    //         ...prevState,
-    //         [e.target.name + "Error"]: mensajeError,
-    //     }));
-    // };
-
-
-
+    //SENDING FORM REGISTER
     const submitHandler = (e, body) => {
         e.preventDefault();
         registerMe(body)
@@ -47,8 +23,6 @@ export const Register = () => {
                 setUserError({ credentials: error.response.data.message });
             });
     };
-
-
 
     return (
         <div className="registerDesign">

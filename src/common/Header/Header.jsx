@@ -1,27 +1,24 @@
 
 import React, { useEffect } from 'react';
 import "./Header.css";
-
-//Método de conexión en modo lectura y escritura a RDX.
 import { useSelector, useDispatch } from "react-redux";
 import { userData, logout } from "../../pages/userSlice";
-import { InputText } from '../InputText/InputText';
 import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
 
+    //GETTING CREDENTIALS FROM REDUX
     const datosCredencialesRedux = useSelector(userData);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    //Guardo los datos de REDUX en una constante para poder acceder a ellos en Header
-
+    
+    //
     useEffect(() => {
-
         if (!datosCredencialesRedux.credentials?.token) {
             navigate("/login");
         }
     }, []);
-
+    //LOGOUT
     const handleLogout = () => {
         dispatch(logout({ credentials: "" }));
         navigate("/home");
@@ -57,7 +54,6 @@ export const Header = () => {
                 </div>
             ) : (
                 <>
-                    {/* Render content if datosCredencialesRedux.data condition is not met */}
                 </>
             )}
         </div>

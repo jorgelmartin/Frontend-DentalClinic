@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+//GETTING SERVICES/PRODUCTS FROM THE API
 export const useFetchProducts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {

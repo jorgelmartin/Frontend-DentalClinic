@@ -6,37 +6,48 @@ import { useNavigate } from "react-router-dom";
 import { inputHandler } from "../../services/useful";
 
 export const AppointmentCard = () => {
+
   const [searchText, setSearchText] = useState("");
+
+  //GET THE APPOINTMENT FROM THE HOOK
   const appointments = useFetchAppointments();
 
+  //STATE TO GET THE FILTERED APPOINTMENTS
   const [filteredAppointments, setfilteredAppointments] = useState([]);
 
-  useEffect(() => {setfilteredAppointments(appointments)}, [appointments])
+  //UPDATE THE APPOINTMENTS WHEN CHANGE TH E STATE OF APPOINTMENTS
+  useEffect(() => {
+    setfilteredAppointments(appointments)
+  }, [appointments])
 
+    //MAKE THE SEARCH FILTERED
   useEffect(() => {
     const searchAppointment = (text) => {
       let filtered = appointments;
       
-      if(text && appointments) {
-        filtered = (appointments.filter((appointment) => appointment.dentist.name.includes(text) || appointment.patient.name.includes(text) || appointment.date.includes(text)))
+      if(text && appointments) 
+      {
+        filtered = (appointments.filter(
+          (appointment) => appointment.dentist.name.includes(text) || appointment.patient.name.includes(text) || appointment.date.includes(text)))
       }
-
       setfilteredAppointments(filtered);
     }
-    const timeOutId = setTimeout(() => searchAppointment(searchText.text), 500);
+    //ADD TIMEOUT
+    const timeOutId = setTimeout(() => 
+    searchAppointment(searchText.text), 500);
     return () => clearTimeout(timeOutId);
   }, [searchText, appointments]);
 
   const navigate = useNavigate();
   if (!filteredAppointments) {
-    return <div>Loading...</div>;
+    return <div>Cargando...</div>;
   }
 
-  return (<div className="searchAppointment">
+  return (
+  <div className="searchAppointment">
     <Container className="mt-5">
 
       {/* INPUT SEARCH */}
-      
       <input
           className="InputSearch"
           type={"text"}
@@ -44,7 +55,7 @@ export const AppointmentCard = () => {
           placeholder={"Buscar cita..."}
           onChange={(e) => inputHandler(e, setSearchText)}
       />
-      
+      {/* APPOINTMENT CARD */}
       {filteredAppointments.map((appointment) => (
         <Card key={appointment.id} className="acard mt-2" style={{ backgroundColor: '#3c709a61' }}>
           <Card.Body>
@@ -75,6 +86,7 @@ export const AppointmentCard = () => {
           </Card.Body>
         </Card>
       ))}
-    </Container></div>
+    </Container>
+  </div>
   );
 };

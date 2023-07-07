@@ -6,13 +6,16 @@ import { Button } from "react-bootstrap";
 import { CreateAppointment } from "../../common/CreateAppointment/CreateAppointment";
 
 export const AppointmentDetail = () => {
+    //GET THE ID VALUE FROM THE URL
     let { id } = useParams();
     const parsedId = parseInt(id);
+    //ASSIGN APPOINTMENTS
     const appointments = useFetchAppointments();
     const [appointmentDetail, setAppointmentDetail] = useState(null);
     const [editing, setEditing] = useState(false);
 
     useEffect(() => {
+        // FOUND THE APPOINTMENT WITH THE ID GET IT FROM THE ARRAY
         if (appointments && Array.isArray(appointments)) {
             const foundAppointment = appointments.find((item) => item.id === parsedId);
             if (foundAppointment) {

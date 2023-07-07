@@ -6,36 +6,29 @@ import { loginMe } from "../../services/apiCalls";
 import { Button, Card, Col, Container, Row, Form } from "react-bootstrap";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
-//RDX
-//Importo métodos de Redux
 import { useDispatch, useSelector } from "react-redux";
 import { login, userData } from "../userSlice";
 // import { inputHandler } from "../../services/useful";
 
 export const Login = () => {
 
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
+  const [user, setUser] = useState({});
   const [token, setToken] = useState("");
-  const [userError, setUserError] = useState({
-    credentials: "",
-  });
+  const [userError, setUserError] = useState({});
 
-  //Dispatch escritura
+  //DISPATCH WRITE MODE
   const dispatch = useDispatch();
 
-  //useSelector es para el modo de lectura
+  //USESELECTOR READING MODE
   const credentialsRdx = useSelector(userData);
 
-  //Instanciamos useNavigate dentro de la constante navigate
   const navigate = useNavigate();
 
   const [welcome, setWelcome] = useState("");
 
   const [userLogin, setuserLogin] = useState({});
 
+  //SENDING FORM LOGIN
   const submitHandler = (e, body) => {
     e.preventDefault();
     loginMe(body)
@@ -43,12 +36,11 @@ export const Login = () => {
         setToken(res.data.token);
         setuserLogin(res.data.user);
       })
-
       .catch((error) => {
         setUserError({ credentials: error.response.data.message });
       });
   };
-
+//USE DISPATCH 
   useEffect(() => {
     if (token) {
       let decoded = jwtDecode(token);

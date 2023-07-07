@@ -3,15 +3,8 @@ import { Button, Col , Container, Row } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 import "./Admin.css";
 
-
-
-
 export const Admin = () => {
     const navigate = useNavigate();
-
-    // const handleTabClick = (path) => {
-    //     navigate(path);
-    // };
 
     return (
         <div className="adminContainer">
