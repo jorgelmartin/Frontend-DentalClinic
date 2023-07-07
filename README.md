@@ -15,7 +15,7 @@
 
 Desarrollo y diseño FRONTEND de una aplicación funcional para una clínica dental.
 
-Los pacientes (role por defecto) una vez registrados podrán editar su perfil, crear la cita de interés, teniendo la oportunidad de escoger fecha, hora, servicio y dentista. También podrán ver el historial de sus citas, al igual que modificarla. El admin podrá ver todos los usuarios y citas en la aplicación.
+Los pacientes (role por defecto) una vez registrados podrán editar su perfil, crear la cita de interés, teniendo la oportunidad de escoger fecha, hora, servicio y dentista. También podrán ver el historial de sus citas, al igual que modificarla. El admin podrá ver todos las citas y usuarios registrados en la aplicación.
 
 ### REGISTRO
 
@@ -63,7 +63,7 @@ El Admin será capaz de ver todos los usuarios registrados en el sistema.
 
 !['citas'](./img/citas.png)
 
-En caso de que los doctores/admin deseen buscar todas sus citas, dispondrán de un panel de búsqueda que filtrará por nombre y fecha.
+En caso de que los doctores/admin deseen buscar todas sus citas, dispondrán de un panel de búsqueda.
 
 ### PACIENTES
 
@@ -85,7 +85,8 @@ Si hacen clic en el botón detalle de la cita, les mostrará el detalle de la mi
 
 ### Agradecimientos:
 
-Agradezco a mis profesores y compañeros el tiempo dedicado a este proyecto.
+Agradezco a todos mis profesores y compañeros el tiempo dedicado a este proyecto.
 
 ### Autor:
+
 Jorge Luis Martin Lorenzo.
