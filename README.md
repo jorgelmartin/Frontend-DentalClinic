@@ -13,11 +13,9 @@
 
 ### Descripción general del proyecto 
 
-Diseño y desarrollo FRONTEND de una aplicación funcional para una clínica dental.
+Desarrollo y diseño FRONTEND de una aplicación funcional para una clínica dental.
 
-Cuenta con 2 tipos de usuarios:
-
-Los pacientes (role por defecto) una vez registrados podrán editar su perfil, crear la cita de interés, teniendo la oportunidad de escoger fecha, hora, servicio y dentista. También podrán ver el historial de sus citas, al igual que modificarla. Se permitirá una cita por usuario para evitar spam. El admin podrá ver todos los usuarios y citas en la aplicación.
+Los pacientes (role por defecto) una vez registrados podrán editar su perfil, crear la cita de interés, teniendo la oportunidad de escoger fecha, hora, servicio y dentista. También podrán ver el historial de sus citas, al igual que modificarla. El admin podrá ver todos los usuarios y citas en la aplicación.
 
 ### REGISTRO
 
