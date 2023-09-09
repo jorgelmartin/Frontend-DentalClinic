@@ -1,22 +1,17 @@
-
-.homeDesign {
-
-    height: 100vh;
-    width: 100vw;
-    margin-top: 2em;
-
-    background-color:rgba(129, 162, 187, 0.611);
-
+.homeDesign{
+    /* height: 100%;
+    width: 100%; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* flex-wrap: wrap; */
-    flex-direction: column;
+
+  }
+
+.clinicTitle {
+    color: rgb(14, 46, 77);
+    background: linear-gradient(90deg, rgba(69, 149, 224, 0.496) 14%, rgba(159, 83, 185, 0.463) 74%);
+    border-radius: 0.5em;
+    font-size: 3em;
+    border: 0.1em solid #2e3c5a79;
 }
-
-/* .services {
-
-    display:flex;
-    flex-wrap: wrap;
-    margin-top: 1em;
-} */
