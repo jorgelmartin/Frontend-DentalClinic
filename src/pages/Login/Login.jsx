@@ -56,7 +56,6 @@ export const Login = () => {
     }
   }, [token, userLogin]);
 
-
   return (
     <div className="loginDesign">
       {/* {welcome !== "" ? (
@@ -65,14 +64,20 @@ export const Login = () => {
       {/* La utilidad de la siguiente linea es renderizar un hook at tiempo real en el DOM */}
       {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
       <Container className="d-flex justify-content-center align-items-center mt-4">
-        <Card style={{ backgroundColor: '#3c709a61' }}>
-          <Card.Title className="text-center mb-3 display-5">Iniciar sesión</Card.Title>
+        <Card style={{ backgroundColor: 'rgba(64, 139, 209, 0.607)', 
+        borderRadius:'10em',
+        boxShadow: 'rgba(0, 0, 0, 0.2) 0px 60px 40px -7px'
+        }}>
+          <Card.Title className="text-center mb-3 display-5" 
+          style={{textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)'
+          }}>
+            <strong>Iniciar sesión</strong></Card.Title>
           <Card.Body>
             <Row className="justify-content-center align-items-center">
               <Col xs={10} md={6}>
                 <Form as={Row}>
-                  <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email:</Form.Label>
+                  <Form.Group className="mb-3">
+                    <Form.Label><strong>Email:</strong></Form.Label>
                     <Col>
                       <InputText
                         type={"email"}
@@ -85,7 +90,7 @@ export const Login = () => {
                     </Col>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password:</Form.Label>
+                    <Form.Label><strong>Password:</strong></Form.Label>
                     <Col>
                       <InputText
                         type={"password"}
@@ -118,6 +123,5 @@ export const Login = () => {
         </Card>
       </Container>
     </div>
-
   );
 };
