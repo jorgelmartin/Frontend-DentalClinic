@@ -5,7 +5,7 @@ import { Card, Form, Button, Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { userData } from "../../pages/userSlice";
 import { inputHandler } from "../../services/useful";
-import { ClinicButton } from "../../common/clinicButton/clinicButton";
+import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
 
 export const Profile = () => {
     const [user, setUser] = useState({});

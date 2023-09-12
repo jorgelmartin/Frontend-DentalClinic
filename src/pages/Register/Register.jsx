@@ -4,7 +4,7 @@ import { InputText } from "../../common/InputText/InputText";
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { registerMe } from "../../services/apiCalls";
-import { ClinicButton } from "../../common/clinicButton/clinicButton";
+import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
 
 
 export const Register = () => {

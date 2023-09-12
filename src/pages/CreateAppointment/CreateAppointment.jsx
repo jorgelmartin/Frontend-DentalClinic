@@ -10,7 +10,7 @@ import { SelectHour } from "../../../hooks/useFetchSelectHour";
 import { userData } from "../userSlice";
 import { useSelector } from "react-redux";
 import { createAppointment, updateAppointment } from "../../services/apiCalls";
-import { ClinicButton } from "../../common/clinicButton/clinicButton";
+import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
 
 export const CreateAppointment = ({ isUpdate, updateData }) => {
     const [showModal, setShowModal] = useState(false);

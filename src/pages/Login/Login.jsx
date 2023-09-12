@@ -7,7 +7,7 @@ import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login, userData } from "../userSlice";
-import { ClinicButton } from "../../common/clinicButton/clinicButton";
+import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
 
 export const Login = () => {
 

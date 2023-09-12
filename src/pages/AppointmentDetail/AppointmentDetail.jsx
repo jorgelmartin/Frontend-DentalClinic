@@ -4,7 +4,7 @@ import { useFetchAppointments } from "../../../hooks/useFetchAppointments";
 import "./AppointmentDetail.css";
 import { Container } from "react-bootstrap";
 import { CreateAppointment } from "../CreateAppointment/CreateAppointment";
-import { ClinicButton } from "../../common/clinicButton/clinicButton";
+import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
 
 export const AppointmentDetail = () => {
     //GET THE ID VALUE FROM THE URL
