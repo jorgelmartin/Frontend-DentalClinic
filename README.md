@@ -1,6 +1,6 @@
 ## REACT - Frontend App - Clínica dental.
 
-!['home'](./img/home.png)
+!['home'](./img/home.jpeg)
 
 ### Tecnologías:
 
@@ -17,23 +17,17 @@ Desarrollo y diseño FRONTEND de una aplicación funcional para una clínica den
 
 Los pacientes (role por defecto) una vez registrados podrán editar su perfil, crear la cita de interés, teniendo la oportunidad de escoger fecha, hora, servicio y dentista. También podrán ver el historial de sus citas, al igual que modificarla. El admin podrá ver todos las citas y usuarios registrados en la aplicación.
 
-### REGISTRO
+### REGISTRO / LOGIN
 
-!['register'](./img/register.png)
+!['register'](./img/register.png)!['login'](./img/login.png)
 
-El primer paso será registrarse, para poder acceder a todos los beneficios de la app.
-
-### LOGIN
-
-!['login'](./img/login.png)
-
-Una vez registrados, se enviará a la página del login para que ingrese el email y contraseña.
+El primer paso será registrarse, para poder acceder a todos los beneficios de la app. Una vez registrados, se enviará a la página del login para que ingrese el email y contraseña.
 
 ### HOME
 
-!['home'](./img/home.png)
+!['home'](./img/home1.jpeg)
 
-La única página que estará disponible para todos será la del Home, para que puedan ver los servicios.
+La única página que estará disponible para todos será la del Home, para que puedan ver los servicios disponibles.
 
 ### VISTA DETALLE
 
