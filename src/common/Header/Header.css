@@ -5,41 +5,34 @@
     left: 0;
     height: 8vh;
     width: 100vw;
-
-    background-color: #598295;
-
+    background-color: #598295b4;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
 }
 .linksDesign {
-    /* margin-left: 5em; */
-    display: flex;
-    flex-direction: row;
     padding: 0.5em;
 }
 
-
 .linksDesignToken {
-    /* margin-left: 5em; */
     display: flex;
     flex-direction: row;
     padding: 0.5em;
 }
 
 .headerLink {
-    font-weight: bolder;
+    font-weight:bold; 
     font-size: large;
     margin: 0.2em;
-    /* color: white; */
+    color: rgb(37, 32, 86);
     transition: 0.5s;
     cursor: pointer;
-    margin-bottom: 0.4em;
+    margin-bottom: 0.2em;
     margin-right: 1em;
 }
 
 .headerLink:hover {
     transition: 0.5s;
-    color: darkgrey;
+    color: rgb(0, 0, 0);
 }

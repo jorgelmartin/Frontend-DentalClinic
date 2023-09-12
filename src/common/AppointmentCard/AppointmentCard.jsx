@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useFetchAppointments } from "../../../hooks/useFetchAppointments";
-import { Col, Row, Container, Form, Card, Button } from "react-bootstrap";
-import "./AppointmentCard.css"
+import "../../App.css";
 import { useNavigate } from "react-router-dom";
 import { inputHandler } from "../../services/useful";
+import { Container } from "react-bootstrap";
 
 export const AppointmentCard = () => {
 
@@ -20,21 +20,20 @@ export const AppointmentCard = () => {
     setfilteredAppointments(appointments)
   }, [appointments])
 
-    //MAKE THE SEARCH FILTERED
+  //MAKE THE SEARCH FILTERED
   useEffect(() => {
     const searchAppointment = (text) => {
       let filtered = appointments;
-      
-      if(text && appointments) 
-      {
+
+      if (text && appointments) {
         filtered = (appointments.filter(
           (appointment) => appointment.dentist.name.includes(text) || appointment.patient.name.includes(text) || appointment.date.includes(text)))
       }
       setfilteredAppointments(filtered);
     }
     //ADD TIMEOUT
-    const timeOutId = setTimeout(() => 
-    searchAppointment(searchText.text), 500);
+    const timeOutId = setTimeout(() =>
+      searchAppointment(searchText.text), 500);
     return () => clearTimeout(timeOutId);
   }, [searchText, appointments]);
 
@@ -44,49 +43,49 @@ export const AppointmentCard = () => {
   }
 
   return (
-  <div className="searchAppointment">
-    <Container className="mt-5">
-
+    <Container className="mt-5" style={{margin:'0', padding:'0'}}>
       {/* INPUT SEARCH */}
       <input
-          className="InputSearch"
-          type={"text"}
-          name={"text"}
-          placeholder={"Buscar cita..."}
-          onChange={(e) => inputHandler(e, setSearchText)}
+        className="InputSearch"
+        type={"text"}
+        name={"text"}
+        placeholder={"Buscar cita..."}
+        onChange={(e) => inputHandler(e, setSearchText)}
       />
-      {/* APPOINTMENT CARD */}
-      {filteredAppointments.map((appointment) => (
-        <Card key={appointment.id} className="acard mt-2" style={{ backgroundColor: '#3c709a61' }}>
-          <Card.Body>
-            <Form className="d-flex">
-              <Form.Label className="flex-grow-1">
-                Cita: <div className="ml-auto">{appointment.id}</div>
-              </Form.Label>
-              <Form.Label className="flex-grow-1">
-                Paciente: <div className="ml-auto">{appointment.patient.name} {appointment.patient.lastname}</div>
-              </Form.Label>
-              <Form.Label className="flex-grow-1">
-                Dentista: <div className="ml-auto">{appointment.dentist.name} {appointment.dentist.lastname}</div>
-              </Form.Label>
-              <Form.Label className="flex-grow-1">
-                Servicio: <div className="ml-auto">{appointment.Service.name}</div>
-              </Form.Label>
-              <Form.Label className="flex-grow-1">
-                Día: <div className="ml-auto">{appointment.date}</div>
-              </Form.Label>
-              <Form.Label className="flex-grow-1">
-                Hora: <div className="ml-auto">{appointment.hour}</div>
-              </Form.Label>
-              <div className="d-flex justify-content-center buttonsAppointments"> {/* Use d-flex and justify-content-between to display buttons side by side */}
-                <button className="buttonUpdate" onClick={() => navigate(`/appointmentdetail/${appointment.id}`)}>Detalle</button>
-                {/* <button className="buttonDelete">borrar</button> */}
+
+      {/* TABLE APPOINTMENTS */}
+      <div className="tableContainerCheck mt-4">
+        <div className="tableDataRow">
+          <div className="tableHeaderRequest"><strong>ID</strong></div>
+          <div className="tableHeaderRequest"><strong>Paciente</strong></div>
+          <div className="tableHeaderRequest"><strong>Dentista</strong></div>
+          <div className="tableHeaderRequest"><strong>Servicio</strong></div>
+          <div className="tableHeaderRequest"><strong>Día</strong></div>
+          <div className="tableHeaderRequest"><strong>Hora</strong></div>
+          <div className="tableHeaderRequest"><strong>Ver</strong></div>
+        </div>
+        {/* APPOINTMENT DATA */}
+        {filteredAppointments.map((appointment) => (
+          <div key={appointment.id}>
+            <div className="tableDataRow">
+              <div className="tableDataCheck">{appointment.id}</div>
+              <div className="tableDataCheck">{appointment.patient.name} {appointment.patient.lastname}</div>
+              <div className="tableDataCheck">{appointment?.dentist?.name} {appointment?.dentist?.lastname}</div>
+              <div className="tableDataCheck">{appointment.Service.name}</div>
+              <div className="tableDataCheck">{appointment.date}</div>
+              <div className="tableDataCheck">{appointment.hour}
               </div>
-            </Form>
-          </Card.Body>
-        </Card>
-      ))}
+              <div className="tableDataCheck">
+                <button
+                  className="buttonUpdate"
+                  onClick={() => navigate(`/appointmentdetail/${appointment.id}`
+                  )}>Detalle
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+        </div>
     </Container>
-  </div>
   );
 };

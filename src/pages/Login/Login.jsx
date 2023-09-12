@@ -8,6 +8,7 @@ import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login, userData } from "../userSlice";
+import { ClinicButton } from "../../common/clinicButton/clinicButton";
 // import { inputHandler } from "../../services/useful";
 
 export const Login = () => {
@@ -40,7 +41,7 @@ export const Login = () => {
         setUserError({ credentials: error.response.data.message });
       });
   };
-//USE DISPATCH 
+  //USE DISPATCH 
   useEffect(() => {
     if (token) {
       let decoded = jwtDecode(token);
@@ -64,13 +65,15 @@ export const Login = () => {
       {/* La utilidad de la siguiente linea es renderizar un hook at tiempo real en el DOM */}
       {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
       <Container className="d-flex justify-content-center align-items-center mt-4">
-        <Card style={{ backgroundColor: 'rgba(64, 139, 209, 0.607)', 
-        borderRadius:'10em',
-        boxShadow: 'rgba(0, 0, 0, 0.2) 0px 60px 40px -7px'
+        <Card style={{
+          backgroundColor: 'rgba(64, 139, 209, 0.607)',
+          borderRadius: '10em',
+          boxShadow: 'rgba(0, 0, 0, 0.2) 0em 3.5em 3em -0.5em'
         }}>
-          <Card.Title className="text-center mb-3 display-5" 
-          style={{textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)'
-          }}>
+          <Card.Title className="text-center mt-3 display-5"
+            style={{
+              textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)',
+            }}>
             <strong>Iniciar sesión</strong></Card.Title>
           <Card.Body>
             <Row className="justify-content-center align-items-center">
@@ -107,15 +110,15 @@ export const Login = () => {
                   ) : (
                     <div></div>
                   )}
-                  <Button
-                    style={{ backgroundColor: '#13326fba' }}
-                    type="submit"
+                  <ClinicButton
+                    // style={{ backgroundColor: '#13326fba' }}
+                    text={'Aceptar'}
                     onClick={(e) => {
                       submitHandler(e, user);
                     }}
-                  >
-                    Aceptar
-                  </Button>
+                  />
+
+
                 </Form>
               </Col>
             </Row>

@@ -58,7 +58,4 @@ export const Header = () => {
             )}
         </div>
     );
-
 };
-
-// why dont show Citas and Admin?

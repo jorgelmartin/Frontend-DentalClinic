@@ -4,6 +4,7 @@ import { InputText } from "../../common/InputText/InputText";
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { registerMe } from "../../services/apiCalls";
+import { ClinicButton } from "../../common/clinicButton/clinicButton";
 
 
 export const Register = () => {
@@ -27,13 +28,21 @@ export const Register = () => {
     return (
         <div className="registerDesign">
             <Container fluid className="d-flex justify-content-center align-items-center mt-4">
-                <Card className="registerCard" style={{ backgroundColor: '#3c709a61' }}>
+                <Card className="registerCard"
+                    style={{
+                        backgroundColor: 'rgba(64, 139, 209, 0.607)',
+                        borderRadius: '8.7em',
+                        boxShadow: 'rgba(0, 0, 0, 0.2) 0em 3.5em 3em -0.5em'
+                    }}>
                     <Card.Body >
-                        <Card.Title className="text-center mb-3 display-5">Registro</Card.Title>
+                        <Card.Title className="text-center mb-3 display-5"
+                            style={{
+                                textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)',
+                            }}>Registro</Card.Title>
                         <Form>
-                            <Form.Group as={Row} className="mb-2">
+                            <Form.Group as={Row} className="mb-2 mt-4">
                                 <Form.Label column xs={4} md={4} lg={4}>Nombre:</Form.Label>
-                                <Col> {/* Ajusta el tamaño de la columna para que ocupen el espacio deseado */}
+                                <Col>
                                     <InputText
                                         type={"text"}
                                         design={
@@ -156,11 +165,12 @@ export const Register = () => {
                                 <div></div>
                             )}
                             <div className="text-center">
-                                <Button onClick={(e) =>
-                                    submitHandler(e, user)
-                                } style={{ backgroundColor: '#13326fba' }} className="w-50 mt-4" type="submit">
-                                    Registrarme!
-                                </Button>
+                                <ClinicButton
+                                    onClick={(e) =>
+                                        submitHandler(e, user)
+                                    }
+                                    text={'Registrarme!'}
+                                />
                             </div>
                         </Form>
                     </Card.Body>

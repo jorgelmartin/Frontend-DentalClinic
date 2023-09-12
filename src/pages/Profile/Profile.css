@@ -1,4 +1,4 @@
-
+/* 
 .containerProfile {
     margin: 0;
     padding: 0;
@@ -7,17 +7,36 @@
     align-items: center;
     
 } 
-.userContainer {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+*/
+
+
+
+.profileData {
+    padding: 0.5rem;
+    padding-bottom: 0.5em;
+    border-radius: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 2em;
+    font-size: 1.3em;
+    background-color: #d2eeca4d; 
+    box-shadow: inset 0.01em 0.01em 0.4em 0.1em rgba(10, 32, 14, 0.41); 
+    border: 0.09em solid rgba(178, 137, 66, 0.706);
+}
+.saveButton{
+    background-color: #9f53b97d;
+    color: #ffffff;
+    padding: 0.6em 0.9em;
+    border: 0.01em solid rgb(151, 86, 192);
+    border-radius: 1em;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 1.3em;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: rgba(0, 0, 0, 0.17) 0em -2em 2em 0em inset, rgba(0, 0, 0, 0.15) 0em -3em 2.2em 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
-
-/* .appointments {
-    display: flex;
-    justify-content: center;
-    margin: 0.50em;
-} */
+.saveButton:hover{
+    box-shadow: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    /* transform: scale(0.96); */
+}

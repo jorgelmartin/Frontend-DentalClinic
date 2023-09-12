@@ -1,7 +1,5 @@
-
 import React from 'react';
 import './InputText.css';
-// import { inputHandler } from '../../services/useful';
 import { checkError } from '../../services/useful';
 
 export const InputText = ({ type, design, placeholder, name, state, errorState }) => {
@@ -18,18 +16,26 @@ export const InputText = ({ type, design, placeholder, name, state, errorState }
     const inputCheck = ({ target }, state) => {
         let { name, value } = target
         let errorMessage = checkError(name, value)
-
         state(prevState => ({
             ...prevState,
             [name + "Error"]: errorMessage
         }))
     }
 
+    //GETTING INPUT CLASS NORMAL AND ERROR
+    const getInputClass = () => {
+        let inputClass = 'normalInput';
+        if (design === 'errorInput') {
+            inputClass += ' errorInput';
+        }
+        return inputClass;
+    };
+
     return (
         <>
             <input
                 type={type}
-                className={design}
+                className={getInputClass()}
                 placeholder={placeholder}
                 name={name}
                 onChange={(e) => inputHandler(e, state)}

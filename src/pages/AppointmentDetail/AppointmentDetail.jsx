@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useFetchAppointments } from "../../../hooks/useFetchAppointments";
 import "./AppointmentDetail.css";
 import { Container } from "react-bootstrap";
-import { CreateAppointment } from "../../common/CreateAppointment/CreateAppointment";
+import { CreateAppointment } from "../CreateAppointment/CreateAppointment";
 import { ClinicButton } from "../../common/clinicButton/clinicButton";
 
 export const AppointmentDetail = () => {

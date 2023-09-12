@@ -6,11 +6,11 @@ import { Admin } from "../Admin/Admin";
 import { Profile } from "../Profile/Profile";
 import { Appointment } from "../Appointment/Appointment"
 import { Home } from "../Home/Home";
-import { UserCard } from "../../common/UserCard/UserCard";
 import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
-import { CreateAppointment } from "../../common/CreateAppointment/CreateAppointment";
+import { CreateAppointment } from "../CreateAppointment/CreateAppointment";
 import { ServiceDetail } from "../ServiceDetail/ServiceDetail";
 import { AppointmentDetail } from "../AppointmentDetail/AppointmentDetail";
+import { UserCard } from "../UserCard/UserCard";
 
 export const Body = () => {
     return (

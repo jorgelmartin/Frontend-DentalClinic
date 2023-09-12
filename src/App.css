@@ -1,11 +1,77 @@
+
 #root {
+  height: auto;
+  min-height: 100vh;
+  width: 100vw;
   margin: 0;
   padding: 0;
-  text-align: center;
-
+  background-color:rgba(129, 162, 187, 0.333);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow-x: hidden;
+  text-align: center;
+}
+.tableContainerCheck {
+  border: 0.1em solid #aca7a7;
+  border-radius: 0.2em;
+  overflow: auto;
+}
+
+.tableDataCheck {
+  flex: 1;
+  /* overflow: hidden; */
+  padding: 0.2em;
+  text-align: center;
+  border-right: 0.06em solid #aca7a7;
+  background-color: rgba(246, 215, 250, 0.2);
+}
+
+.tableHeaderRequest {
+  background-color: rgba(30, 54, 113, 0.445);
+  color: rgb(255, 255, 255);
+  flex: 1;
+  padding: 0.6em;
+  text-align: center;
+}
+
+.tableDataRow {
+  display: flex;
+  border-bottom: 0.06em solid #aca7a7;
+}
+
+.buttonUpdate {
+  background-color: rgba(209, 89, 179, 0.947);
+  color: rgb(0, 0, 0);
+  width: 4em;
+  height: 2em;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.buttonUpdate:hover {
+  background-color: rgb(3, 3, 140);
+  color: white;
+}
+.requestUser {
+  font-size: 2.7em;
+  font-weight: bold;
+  color: rgb(15, 0, 77);
+  margin-top: 1em;
+}
+.tableHeaderUsers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #f0f0f000; */
+  /* font-weight: bold; */
+  border-bottom: 0.06em solid #aca7a7;
+}
+
+.InputSearch {
+    text-align: center;
+    background-color: rgba(123, 219, 243, 0.244);
+    width: 12em;
+    height: 2em;
+    border-radius: 2em;
+    margin-top: 2em;
 }

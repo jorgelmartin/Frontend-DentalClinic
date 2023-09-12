@@ -36,9 +36,7 @@ export const userSlice = createSlice({
         },
       }
     }
-
   }
-
 });
 
 //exporto las ACCIONES.....

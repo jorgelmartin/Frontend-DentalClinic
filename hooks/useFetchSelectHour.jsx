@@ -18,7 +18,7 @@ export const SelectHour = ({handleChange, value}) => {
             <select className="inputAppointment" value={selectedHour} onChange={(e) => {
                 handleChange(e.target.value); 
                 setSelectedHour(e.target.value)}}>
-                <option value="">Select Hour</option>
+                <option value="">SELECT HOUR</option>
                 {hours.map((hour) => (
                     <option key={hour.id} value={hour.hour}>
                         {hour.hour}
