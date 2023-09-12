@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { InputText } from "../../common/InputText/InputText";
-// import { checkError, inputHandler } from "../../services/useful";
 import { loginMe } from "../../services/apiCalls";
-import { Button, Card, Col, Container, Row, Form } from "react-bootstrap";
+import { Card, Col, Container, Row, Form } from "react-bootstrap";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login, userData } from "../userSlice";
 import { ClinicButton } from "../../common/clinicButton/clinicButton";
-// import { inputHandler } from "../../services/useful";
 
 export const Login = () => {
 
