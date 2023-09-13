@@ -22,7 +22,7 @@
     font-size: 1.2em; 
     font-weight: bold; 
     color: #333;
-    background-color: #f0f0f0; 
+    /* background-color: #9f53b94e;  */
     box-shadow: rgb(38, 57, 77) 0em 1.25em 1.875em -0.625em;
     transition: transform 0.3s ease, font-size 0.2s ease, background-color 0.3s ease;
 }
