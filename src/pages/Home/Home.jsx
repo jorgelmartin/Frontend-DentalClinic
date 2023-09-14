@@ -20,9 +20,11 @@ export const Home = () => {
             <div className="productCardContainer">
             {products.map((product) => (
                 <div key={product.id} className="productCardDesign">
-                    <img className="productImgDesign" src={product.image} alt={product.name} onClick={() => navigate(`/servicedetail/${product.id}`)} />
+                    <img className="productImgDesign" 
+                    src={product.image} 
+                    alt={product.name} 
+                    onClick={() => navigate(`/servicedetail/${product.id}`)}/>
                     <h1>{product.name}</h1>
-                    
                 </div>
             ))}
         </div>

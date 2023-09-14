@@ -19,6 +19,7 @@ export const Profile = () => {
     //UPDATE PROFILE
     const editHandler = (body, token) => {
         updateProfile(body, token)
+        console.log(body, " token")
             .then(() => {
                 setEditing(false);
             })
