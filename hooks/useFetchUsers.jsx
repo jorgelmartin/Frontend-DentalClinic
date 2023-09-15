@@ -5,7 +5,7 @@ export const useFetchUsers = () => {
     const [users, setUsers] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:4000/user/getAllUsers')
+        fetch('https://backend-dentalclinic-production.up.railway.app/user/getAllUsers')
             .then(res => res.json())
             .then(res => {
                 console.log("Response from API:", res);

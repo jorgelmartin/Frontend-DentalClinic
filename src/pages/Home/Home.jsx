@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 export const Home = () => {
 
     const products = useFetchProducts();
+
+    console.log(products," propro");
     const navigate = useNavigate();
     return (
         <Container className="mt-5">

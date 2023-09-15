@@ -8,7 +8,7 @@ export const SelectServices = ({handleChange, value}) => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:4000/service/getAll")
+        fetch("https://backend-dentalclinic-production.up.railway.app/service/getAll")
             .then((res) => res.json())
             .then((res) => {
                 setServices(res.data);
