@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 
-const URL = "https://backend-dentalclinic-production.up.railway.app";
+const URL = "https://backend-dental-clinic.vercel.app";
 
 //LOGIN 
 export const loginMe = async (credentials) => {

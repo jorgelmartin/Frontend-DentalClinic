@@ -8,7 +8,7 @@ export const SelectDoctors = ({handleChange, value}) => {
     const [doctors, setDoctors] = useState([]);
 
     useEffect(() => {
-        fetch("https://backend-dentalclinic-production.up.railway.app/user/getAllUsers")
+        fetch("https://backend-dental-clinic.vercel.app/user/getAllUsers")
             .then((res) => res.json())
             .then((res) => {
                 const filteredDoctors = res.data.filter((user) => user.role_id === 2);

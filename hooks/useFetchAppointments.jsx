@@ -12,7 +12,7 @@ export const useFetchAppointments = () => {
                 Authorization: `Bearer ${datosCredencialesRedux.credentials?.token}`,
             },
         }
-        fetch('https://backend-dentalclinic-production.up.railway.app/appointment/getAll', config)
+        fetch('https://backend-dental-clinic.vercel.app/appointment/getAll', config)
             .then(res => res.json())
             .then(res => {
                 setAppointments(res.data);
