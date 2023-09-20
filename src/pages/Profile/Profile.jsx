@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { getProfile, updateProfile } from "../../services/apiCalls";
-import "./Profile.css";
 import { Card, Form, Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { userData } from "../../pages/userSlice";
@@ -53,15 +52,17 @@ export const Profile = () => {
             <Card style={{
                 backgroundColor: '#9f53b97d',
                 borderRadius: '5em',
-                boxShadow: 'rgba(0, 0, 0, 0.2) 0em 3.5em 3em -0.5em',
+                boxShadow: 'rgba(14, 30, 37, 0.12) 0em 0.125em 0.25em 0em, rgba(14, 30, 37, 0.32) 0em 0.125em 1em 0em',
                 minWidth: '20.4em',
                 maxWidth: '26m'
             }}>
                 <Card.Body>
                     <Card.Title className="text-center mb-3 display-5"
                         style={{
-                            textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)',
-                        }}>Perfil
+                            color:'white',
+                            textShadow: '0.05em 0.05em 0.08em rgba(0, 0, 0)',
+                        }}>
+                            <strong>Perfil</strong>
                     </Card.Title>
                     <Form>
                         <Form.Group>

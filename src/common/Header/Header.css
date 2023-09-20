@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 8vh;
+    height: 7vh;
     width: 100vw;
     background-color: #598295b4;
     display: flex;
@@ -28,7 +28,7 @@
     color: rgb(37, 32, 86);
     transition: 0.5s;
     cursor: pointer;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.1em;
     margin-right: 1em;
 }
 

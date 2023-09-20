@@ -64,7 +64,7 @@ export const Login = () => {
         <Card style={{
           backgroundColor: 'rgba(64, 139, 209, 0.607)',
           borderRadius: '10em',
-          boxShadow: 'rgba(0, 0, 0, 0.2) 0em 3.5em 3em -0.5em'
+          boxShadow: 'rgba(0, 0, 0, 0.19) 0em 0.625em 1.25em, rgba(0, 0, 0, 0.23) 0em 0.375em 0.375em'
         }}>
           <Card.Title className="text-center mt-3 display-5"
             style={{

@@ -40,7 +40,7 @@ export const Register = () => {
                     style={{
                         backgroundColor: 'rgba(64, 139, 209, 0.607)',
                         borderRadius: '8.7em',
-                        boxShadow: 'rgba(0, 0, 0, 0.2) 0em 3.5em 3em -0.5em'
+                        boxShadow: 'rgba(14, 30, 37, 0.12) 0em 0.125em 0.25em 0em, rgba(14, 30, 37, 0.32) 0em 0.125em 1em 0em'
                     }}>
                     <Card.Body >
                         <Card.Title className="text-center mb-3 display-5"

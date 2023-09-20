@@ -56,7 +56,7 @@
 .requestUser {
   font-size: 2.7em;
   font-weight: bold;
-  color: rgb(71, 176, 211);
+  color: rgba(234, 48, 206, 0.555);
   margin-top: 1em;
   text-shadow: 0.04em 0.05em 0.06em rgb(0, 0, 0);
 }
@@ -65,8 +65,6 @@
   flex: 1;
   justify-content: center;
   align-items: center;
-  /* background-color: #f0f0f000; */
-  /* font-weight: bold; */
   border-bottom: 0.06em solid #aca7a7;
 }
 

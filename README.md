@@ -43,7 +43,7 @@ Cuenta con una página para ver y editar datos de usuario en caso de necesitarlo
 
 ### ADMIN
 
-!['admin'](./img/admin.png)
+!['admin'](./img/admin.jpeg)
 
 Los Admin, contarán con una vista privada para poder llevar el control de la clínica.
 

@@ -15,8 +15,8 @@ export const Home = () => {
 
     
     return (
-        <Container className="mt-3">
-            <div className="clinicTitle mt-5"
+        <Container className="mt-4">
+            <div className="clinicTitle mt-4"
                 style={{
                     textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)'
                 }}>SMILE - everyday
