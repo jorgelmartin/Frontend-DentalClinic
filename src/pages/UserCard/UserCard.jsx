@@ -17,7 +17,6 @@ export const UserCard = () => {
       <div className="tableContainerCheck">
         <div className="tableHeaderUsers">
           <div className="tableHeaderRequest"><strong>Nombre</strong></div>
-          <div className="tableHeaderRequest"><strong>Apellidos</strong></div>
           <div className="tableHeaderRequest"><strong>Email</strong></div>
           <div className="tableHeaderRequest"><strong>DNI/NIE</strong></div>
           <div className="tableHeaderRequest"><strong>Dirección</strong></div>
@@ -25,8 +24,7 @@ export const UserCard = () => {
         </div>
         {users.map((user) => (
           <div className="tableDataRow" key={user.id}>
-            <div className="tableDataCheck">{user.name}</div>
-            <div className="tableDataCheck">{user.lastname}</div>
+            <div className="tableDataCheck">{user.name} {user.lastname}</div>
             <div className="tableDataCheck">{user.email}</div>
             <div className="tableDataCheck">{user.dni}</div>
             <div className="tableDataCheck">{user.address}</div>

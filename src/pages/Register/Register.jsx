@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import "./Register.css";
 import { InputText } from "../../common/InputText/InputText";
-import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
+import { Form, Card, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { registerMe } from "../../services/apiCalls";
 import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
-
+import { WarningModal } from "../../common/WarningModal/WarningModal";
 
 export const Register = () => {
 
     const navigate = useNavigate();
     const [user, setUser] = useState({});
     const [userError, setUserError] = useState({});
+    const [showModal, setShowModal] = useState(false);
 
     //SENDING FORM REGISTER
     const submitHandler = (e, body) => {
@@ -23,6 +24,13 @@ export const Register = () => {
             .catch((error) => {
                 setUserError({ credentials: error.response.data.message });
             });
+    };
+
+    const areAllFieldsFilled = () => {
+        if (!user.name || !user.lastname || !user.email || !user.password || !user.dni || !user.address || !user.phone) {
+            return false;
+        }
+        return true;
     };
 
     return (
@@ -37,8 +45,10 @@ export const Register = () => {
                     <Card.Body >
                         <Card.Title className="text-center mb-3 display-5"
                             style={{
-                                textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)',
-                            }}>Registro</Card.Title>
+                                textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)'
+                            }}>
+                            <strong>Registro</strong>
+                        </Card.Title>
                         <Form>
                             <Form.Group as={Row} className="mb-2 mt-4">
                                 <Form.Label column xs={4} md={4} lg={4}>Nombre:</Form.Label>
@@ -46,15 +56,13 @@ export const Register = () => {
                                     <InputText
                                         type={"text"}
                                         design={
-                                            userError.nameError === ""
-                                                ? "normalInputRegister"
-                                                : "normalInputRegister errorInput"
-                                        }
+                                            userError.nameError ? "errorInput" : ""}
                                         placeholder={"Ingrese su nombre..."}
                                         name={"name"}
                                         state={setUser}
                                         errorState={setUserError}
                                     />
+                                    <div className="fontError">{userError.nameError}</div>
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
@@ -63,15 +71,13 @@ export const Register = () => {
                                     <InputText
                                         type={"text"}
                                         design={
-                                            userError.lastnameError === ""
-                                                ? "normalInputRegister"
-                                                : "normalInputRegister errorInput"
-                                        }
+                                            userError.lastnameError ? "errorInput" : ""}
                                         placeholder={"Ingrese su apellido..."}
                                         name={"lastname"}
                                         state={setUser}
                                         errorState={setUserError}
                                     />
+                                    <div className="fontError">{userError.lastnameError}</div>
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
@@ -80,15 +86,13 @@ export const Register = () => {
                                     <InputText
                                         type={"email"}
                                         design={
-                                            userError.emailError === ""
-                                                ? "normalInputRegister"
-                                                : "normalInputRegister errorInput"
-                                        }
+                                            userError.emailError ? "errorInput" : ""}
                                         placeholder={"Ingrese su email..."}
                                         name={"email"}
                                         state={setUser}
                                         errorState={setUserError}
                                     />
+                                    <div className="fontError">{userError.emailError}</div>
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
@@ -96,16 +100,13 @@ export const Register = () => {
                                 <Col>
                                     <InputText
                                         type={"password"}
-                                        design={
-                                            userError.passwordError === ""
-                                                ? "normalInputRegister"
-                                                : "normalInputRegister errorInput"
-                                        }
+                                        design={userError.passwordError ? "errorInput" : ""}
                                         placeholder={"Ingrese su contraseña..."}
                                         name={"password"}
                                         state={setUser}
                                         errorState={setUserError}
                                     />
+                                    <div className="fontError">{userError.passwordError}</div>
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
@@ -114,15 +115,13 @@ export const Register = () => {
                                     <InputText
                                         type={"text"}
                                         design={
-                                            userError.dniError === ""
-                                                ? "normalInputRegister"
-                                                : "normalInputRegister errorInput"
-                                        }
-                                        placeholder={"Ingrese su dirección..."}
-                                        name={"address"}
+                                            userError.dniError ? "errorInput" : ""}
+                                        placeholder={"Ingrese su dni/nie..."}
+                                        name={"dni"}
                                         state={setUser}
                                         errorState={setUserError}
                                     />
+                                    <div className="fontError">{userError.dniError}</div>
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
@@ -131,15 +130,13 @@ export const Register = () => {
                                     <InputText
                                         type={"text"}
                                         design={
-                                            userError.addressError === ""
-                                                ? "normalInputRegister"
-                                                : "normalInputRegister errorInput"
-                                        }
-                                        placeholder={"Ingrese su dni..."}
-                                        name={"dni"}
+                                            userError.addressError ? "errorInput" : ""}
+                                        placeholder={"Ingrese su dirección..."}
+                                        name={"address"}
                                         state={setUser}
                                         errorState={setUserError}
                                     />
+                                    <div className="fontError">{userError.addressError}</div>
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-2">
@@ -148,15 +145,13 @@ export const Register = () => {
                                     <InputText
                                         type={"text"}
                                         design={
-                                            userError.phoneError === ""
-                                                ? "normalInputRegister"
-                                                : "normalInputRegister errorInput"
-                                        }
+                                            userError.phoneError ? "errorInput" : ""}
                                         placeholder={"Ingrese su teléfono..."}
                                         name={"phone"}
                                         state={setUser}
                                         errorState={setUserError}
                                     />
+                                    <div className="fontError">{userError.phoneError}</div>
                                 </Col>
                             </Form.Group>
                             {userError?.credentials ? (
@@ -166,12 +161,18 @@ export const Register = () => {
                             )}
                             <div className="text-center">
                                 <ClinicButton
-                                    onClick={(e) =>
-                                        submitHandler(e, user)
-                                    }
+                                    onClick={(e) => {
+                                        if (areAllFieldsFilled() && !showModal) {
+                                            submitHandler(e, user);
+                                        } else {
+                                            e.preventDefault();
+                                            setShowModal(true); 
+                                        }
+                                    }}
                                     text={'Registrarme!'}
                                 />
                             </div>
+                            <WarningModal show={showModal} onHide={() => setShowModal(false)} />
                         </Form>
                     </Card.Body>
                 </Card>

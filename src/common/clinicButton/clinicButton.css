@@ -5,6 +5,7 @@
     border: 0.01em solid rgb(151, 86, 192);
     border-radius: 1em;
     font-size: 1em;
+    max-width: 11em;
     cursor: pointer;
     margin-top: 1.3em;
     transition: transform 0.2s ease, box-shadow 0.3s ease;

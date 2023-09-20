@@ -38,7 +38,7 @@ export const ServiceDetail = () => {
                     {/* <button>Pedir cita</button> */}
                 </>
             ) : (
-                <p>Producto no encontrado</p>
+                <p>Cargando...</p>
             )}
         </div>
     );

@@ -56,25 +56,24 @@ export const AppointmentCard = () => {
       {/* TABLE APPOINTMENTS */}
       <div className="tableContainerCheck mt-4">
         <div className="tableDataRow">
-          <div className="tableHeaderRequest"><strong>ID</strong></div>
+          {/* <div className="tableHeaderRequest"><strong>ID</strong></div> */}
           <div className="tableHeaderRequest"><strong>Paciente</strong></div>
           <div className="tableHeaderRequest"><strong>Dentista</strong></div>
           <div className="tableHeaderRequest"><strong>Servicio</strong></div>
           <div className="tableHeaderRequest"><strong>Día</strong></div>
-          <div className="tableHeaderRequest"><strong>Hora</strong></div>
+          {/* <div className="tableHeaderRequest"><strong>Hora</strong></div> */}
           <div className="tableHeaderRequest"><strong>Ver</strong></div>
         </div>
         {/* APPOINTMENT DATA */}
         {filteredAppointments.map((appointment) => (
           <div key={appointment.id}>
             <div className="tableDataRow">
-              <div className="tableDataCheck">{appointment.id}</div>
+              {/* <div className="tableDataCheck">{appointment.id}</div> */}
               <div className="tableDataCheck">{appointment.patient.name} {appointment.patient.lastname}</div>
               <div className="tableDataCheck">{appointment?.dentist?.name} {appointment?.dentist?.lastname}</div>
-              <div className="tableDataCheck">{appointment.Service.name}</div>
+              <div className="tableDataCheck">{appointment?.Service?.name}</div>
               <div className="tableDataCheck">{appointment.date}</div>
-              <div className="tableDataCheck">{appointment.hour}
-              </div>
+              {/* <div className="tableDataCheck">{appointment.hour}</div>  */}
               <div className="tableDataCheck">
                 <button
                   className="buttonUpdate"

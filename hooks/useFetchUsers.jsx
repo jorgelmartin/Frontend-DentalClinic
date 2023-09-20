@@ -8,7 +8,6 @@ export const useFetchUsers = () => {
         fetch('https://backend-dental-clinic.vercel.app/user/getAllUsers')
             .then(res => res.json())
             .then(res => {
-                console.log("Response from API:", res);
                 setUsers(res.data);
             })
             .catch(error => console.log("Error fetching users:", error))

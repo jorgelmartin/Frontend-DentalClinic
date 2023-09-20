@@ -5,8 +5,8 @@ import { loginMe } from "../../services/apiCalls";
 import { Card, Col, Container, Row, Form } from "react-bootstrap";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { login, userData } from "../userSlice";
+import { useDispatch } from "react-redux";
+import { login } from "../userSlice";
 import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
 
 export const Login = () => {
@@ -14,16 +14,14 @@ export const Login = () => {
   const [user, setUser] = useState({});
   const [token, setToken] = useState("");
   const [userError, setUserError] = useState({});
+  const navigate = useNavigate();
 
   //DISPATCH WRITE MODE
   const dispatch = useDispatch();
 
   //USESELECTOR READING MODE
-  const credentialsRdx = useSelector(userData);
-
-  const navigate = useNavigate();
-
-  const [welcome, setWelcome] = useState("");
+  // const credentialsRdx = useSelector(userData);
+  // const [welcome, setWelcome] = useState("");
 
   const [userLogin, setuserLogin] = useState({});
 
@@ -76,7 +74,7 @@ export const Login = () => {
           <Card.Body>
             <Row className="justify-content-center align-items-center">
               <Col xs={10} md={6}>
-                <Form as={Row}>
+                <Form as={Row} className="d-flex justify-content-center">
                   <Form.Group className="mb-3">
                     <Form.Label><strong>Email:</strong></Form.Label>
                     <Col>
@@ -88,6 +86,7 @@ export const Login = () => {
                         state={setUser}
                         errorState={setUserError}
                       />
+                      <div>{userError.emailError}</div>
                     </Col>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -101,6 +100,7 @@ export const Login = () => {
                         state={setUser}
                         errorState={setUserError}
                       />
+                      <div>{userError.passwordError}</div>
                     </Col>
                   </Form.Group>
                   {userError?.credentials ? (
@@ -115,8 +115,6 @@ export const Login = () => {
                       submitHandler(e, user);
                     }}
                   />
-
-
                 </Form>
               </Col>
             </Row>

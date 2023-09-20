@@ -6,11 +6,12 @@ export const SelectHour = ({handleChange, value}) => {
     const [selectedHour, setSelectedHour] = useState(value);
 
    const hours = [
-    {"id": 1,"hour":"09:30:00"},
-    {"id": 2,"hour":"10:30:00"},
-    {"id": 3,"hour":"11:00:00"},
-    {"id": 4,"hour":"16:00:00"},
-    {"id": 5,"hour":"17:00:00"}
+    {"id": 1,"hour":"09:00:00"},
+    {"id": 2,"hour":"09:30:00"},
+    {"id": 3,"hour":"10:30:00"},
+    {"id": 4,"hour":"12:00:00"},
+    {"id": 5,"hour":"14:30:00"},
+    {"id": 6,"hour":"16:00:00"}
    ]
 
     return (

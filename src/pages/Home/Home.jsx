@@ -6,20 +6,23 @@ import { useNavigate } from "react-router-dom";
 
 //SHOW SERVICES AT HOME PAGE
 export const Home = () => {
-
     const products = useFetchProducts();
-
-    console.log(products," propro");
     const navigate = useNavigate();
+
+    if (!products) {
+        return <div>Cargando...</div>;
+    }
+
+    
     return (
-        <Container className="mt-5">
-            <div className="clinicTitle mt-3"
+        <Container className="mt-3">
+            <div className="clinicTitle mt-5"
                 style={{
                     textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)'
                 }}>SMILE - everyday
             </div>
             {/* MAPPING SERVICES AT HOME PAGE */}
-            <div className="productCardContainer">
+            <div className="productCardContainer mt-2">
             {products.map((product) => (
                 <div key={product.id} className="productCardDesign">
                     <img className="productImgDesign" 

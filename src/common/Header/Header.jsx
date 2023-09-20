@@ -12,20 +12,12 @@ export const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
-    //
-    useEffect(() => {
-        if (!datosCredencialesRedux.credentials?.token) {
-            navigate("/login");
-        }
-    }, []);
     //LOGOUT
     const handleLogout = () => {
         dispatch(logout({ credentials: "" }));
         navigate("/home");
     };
-
-
-
+    
     return (
         <div className='headerDesign'>
             <div className='linksDesign'>

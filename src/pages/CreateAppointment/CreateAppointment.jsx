@@ -11,6 +11,7 @@ import { userData } from "../userSlice";
 import { useSelector } from "react-redux";
 import { createAppointment, updateAppointment } from "../../services/apiCalls";
 import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
+import { WarningModal } from "../../common/WarningModal/WarningModal";
 
 export const CreateAppointment = ({ isUpdate, updateData }) => {
     const [showModal, setShowModal] = useState(false);
@@ -28,15 +29,15 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
 
     //CREATE AND UPDATE APPOINTMENT
     const createApp = () => {
-        // Verificar si todos los campos requeridos están llenos
+        // VERIFY IF THE USER PUT ALL THE DATA
         if (
             !appointmentData.dentist_id ||
             !appointmentData.service_id ||
             !appointmentData.date ||
             !appointmentData.hour
         ) {
-            setShowModal(true); // Mostrar el modal si falta algún campo
-            return; // Detener la creación de la cita si falta algún campo
+            setShowModal(true); // SHOW MODAL IF SOME DATA IS MISSING
+            return; 
         }
         if (isUpdate) {
             updateAppointment(token, appointmentData.id, appointmentData)
@@ -60,12 +61,7 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
                 minWidth: '20.4em',
                 maxWidth: '26m'
             }} >
-                <Card.Body
-                    style={{
-                        // maxWidth: '35em',
-                        // minWidth: '20em',
-                        // justifyContent: 'center', 
-                    }}>
+                <Card.Body>
                     <Card.Title className="text-center mb-3 display-5">Crea tu cita</Card.Title>
                     <Form>
                         <Form.Group as={Row}>
@@ -147,20 +143,7 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
             </Card>
 
             {/* SHOW MODAL TO VERIFY THE APPOINTMENT IS COMPLETE BEFORE CREATE ONE */}
-            <Modal show={showModal} onHide={() => setShowModal(false)}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Campos Incompletos</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    Por favor, complete todos los campos antes de continuar.
-                </Modal.Body>
-                <Modal.Footer>
-                    <ClinicButton
-                        onClick={() => setShowModal(false)}
-                        text={'Cerrar'}
-                    />
-                </Modal.Footer>
-            </Modal>
+            <WarningModal show={showModal} onHide={() => setShowModal(false)} />
         </Container>
     )
 };

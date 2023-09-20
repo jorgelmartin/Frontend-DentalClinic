@@ -9,3 +9,7 @@
 .registerCard{
     width: 26em;
 }
+.fontError{
+    font-size: 0.7em;
+    color: red;
+}
