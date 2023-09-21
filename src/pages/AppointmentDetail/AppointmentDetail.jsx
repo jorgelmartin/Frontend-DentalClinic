@@ -15,6 +15,8 @@ export const AppointmentDetail = () => {
     const [appointmentDetail, setAppointmentDetail] = useState(null);
     const [editing, setEditing] = useState(false);
 
+
+
     useEffect(() => {
         // FOUND THE APPOINTMENT WITH THE ID GET IT FROM THE ARRAY
         if (appointments && Array.isArray(appointments)) {
@@ -28,43 +30,63 @@ export const AppointmentDetail = () => {
     }, [parsedId, appointments]);
 
     return (
-        <Container className="d-flex justify-content-center mt-5">
+        <Container className="d-flex justify-content-center align-items-center mt-5">
             {appointmentDetail && !editing ? (
                 <div className="detailAppointment">
-                    <strong
-                        style={{
-                            fontSize: '2em',
-                            color: 'white',
-                            width: '8em',
-                            backgroundColor: 'rgba(209, 89, 179, 0.947)',
-                            borderRadius: '2em',
-                            border: '0.05em solid blue',
-                            textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)',
-                            boxShadow: 'rgba(0, 0, 0, 0.17) 0em -2em 2em 0em inset, rgba(0, 0, 0, 0.15) 0em -3em 2.2em 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px'
-                        }}
-                    >Detalle de cita
-                    </strong>
+
+                    {/* APPOINTMENT DETAIL TITLE */}
+                    <div className="d-flex align-items-center justify-content-center">
+                        <strong
+                            style={{
+                                fontSize: '2em',
+                                color: 'white',
+                                width: '8em',
+                                padding:'0.2em',
+                                backgroundColor: 'rgba(158, 27, 219, 0.725)',
+                                borderRadius: '2em',
+                                border: '0.03em solid rgb(64, 139, 209)',
+                                textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)',
+                                boxShadow: 'rgba(0, 0, 0, 0.15) 0em -3em 2.2em 0 inset,rgba(0, 0, 0, 0.1) 0em -4.95em 2.5em 0em inset, inset rgba(0, 0, 0, 0.06) 0em 0.2em 0.1em, rgba(0, 0, 0, 0.09) 0em 0.4em 0.2em inset, rgba(0, 0, 0, 0.09) 0em 1.6em 0.8em inset, inset rgba(0, 0, 0, 0.09) 0em 3.2em 1.6em'
+                            }}
+                        >Detalle de cita
+                        </strong></div>
 
                     {/* DATA APPOINTMENT */}
-                    <div className="tableHeader mt-3">Nº Cita</div>
-                    <h5>{appointmentDetail.id}</h5>
-                    <div className="tableHeader">Paciente</div>
-                    <h5>{appointmentDetail.patient.name} {appointmentDetail.patient.lastname}</h5>
-                    <div className="tableHeader">Servicio</div>
-                    <h5>{appointmentDetail.Service.name}</h5>
-                    <div className="tableHeader">Dentista</div>
-                    <h5>{appointmentDetail.dentist.name} {appointmentDetail.dentist.lastname}</h5>
-                    <div className="tableHeader">Día</div>
-                    <h5>{appointmentDetail.date}</h5>
-                    <div className="tableHeader">Hora</div>
-                    <h5>{appointmentDetail.hour}</h5>
-
-                    <ClinicButton
-                        text={'Editar'}
-                        onClick={() => {
-                            setEditing(!editing);
-                        }}
-                    />
+                    <div className="appointmentDetails">
+                        <div className="tableHeader">Nº Cita</div>
+                        <strong> <div>{appointmentDetail.id}</div></strong>
+                    </div>
+                    <div className="appointmentDetails">
+                        <div className="tableHeader">Paciente</div>
+                        <strong> <div>{appointmentDetail.patient.name} {appointmentDetail.patient.lastname}</div></strong>
+                    </div>
+                    <div className="appointmentDetails">
+                        <div className="tableHeader">Servicio</div>
+                        <strong>  <div>{appointmentDetail.Service.name}</div></strong>
+                    </div>
+                    <div className="appointmentDetails">
+                        <div className="tableHeader">Precio</div>
+                        <strong> <div>{appointmentDetail.Service.price}</div></strong>
+                    </div>
+                    <div className="appointmentDetails">
+                        <div className="tableHeader">Dentista</div>
+                        <strong> <div>{appointmentDetail.dentist.name} {appointmentDetail.dentist.lastname}</div></strong>
+                    </div>
+                    <div className="appointmentDetails">
+                        <div className="tableHeader">Día</div>
+                        <strong> <div>{appointmentDetail.date}</div></strong>
+                    </div>
+                    <div className="appointmentDetails">
+                        <div className="tableHeader">Hora</div>
+                        <strong> <div>{appointmentDetail.hour}</div></strong>
+                    </div>
+                    <div className="d-flex align-items-center justify-content-center">
+                        <ClinicButton
+                            text={'Editar'}
+                            onClick={() => {
+                                setEditing(!editing);
+                            }}
+                        /></div>
                 </div>
             ) : (
                 <CreateAppointment isUpdate={true} updateData={appointmentDetail} />

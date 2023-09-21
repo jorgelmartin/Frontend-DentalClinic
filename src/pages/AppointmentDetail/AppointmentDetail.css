@@ -1,24 +1,34 @@
 
 .detailAppointment {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    border: 0.3em solid rgb(119, 173, 223);
-    /* height: 16em;*/
+    border: 0.1em solid rgba(158, 27, 219, 0.725);
     box-shadow: rgba(0, 0, 0, 0.2) 0em 3.5em 3em -0.5em;
-    width: 18em; 
     border-radius: 2em;
-    background-color: rgba(64, 139, 209, 0.406);
-    font-size: medium;
+    background-color: rgba(64, 139, 209, 0.233);
     padding: 0.4em;
+    text-align: center;
     
 }
 .tableHeader{
-    font-size: 1.3em;
-    width: 6em;
-    height: 1.4em;
+    text-align: center;
+    font-size: 1em;
+    min-width: 6em;
+    height: 2em;
     background-color: rgba(47, 75, 189, 0.87);
     color: white;
-    border-radius: 2em;
-}
+    box-shadow: rgba(50, 50, 93, 0.25) 0em 1.5em 3em -0.75em inset, rgba(0, 0, 0, 0.3) 0em 0.9em 1.8em -0.9em inset;
+    border-radius: 0.5em;
+    /* width: 6em;  */
+    margin-right: 0.3em; 
+  }
+  
+  
+.appointmentDetails {
+    display: flex;
+    border: 0.1em solid rgba(103, 9, 147, 0.947);
+    margin-top: 1em;
+    padding: 0.1em;
+    border-radius: 0.5em;
+    box-shadow: rgba(193, 26, 222, 0.516) 0em 0.9em 1.8em -0.9em inset;
+  }
