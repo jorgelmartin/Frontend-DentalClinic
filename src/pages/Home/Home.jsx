@@ -24,6 +24,7 @@ export const Home = () => {
             {/* MAPPING SERVICES AT HOME PAGE */}
             <div className="productCardContainer mt-2">
             {products.map((product) => (
+                
                 <div key={product.id} className="productCardDesign">
                     <img className="productImgDesign" 
                     src={product.image} 

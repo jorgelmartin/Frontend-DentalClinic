@@ -4,10 +4,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import { addDays, isWeekend } from "date-fns";
 
 
-export const SelectDate = ({handleChange, value}) => {
+export const SelectDate = ({ handleChange, value }) => {
 
     //USER SELECTED DATE FROM THE FATHER COMPONENT
-    const [selectedDate, setSelectedDate] = useState(value ? new Date(value): null);
+    const [selectedDate, setSelectedDate] = useState(value ? new Date(value) : null);
 
     const handleDateChange = (date) => {
         // VERIFY IF IS WEEKEND
@@ -19,13 +19,13 @@ export const SelectDate = ({handleChange, value}) => {
 
     return (
         <>
-            <DatePicker className="inputAppointment"
+            <DatePicker
+                id="dateSelect"
+                className="inputAppointment"
                 selected={selectedDate}
                 onChange={handleDateChange}
                 dateFormat="dd/MM/yyyy"
                 placeholderText="SELECT DATE"
-                showMonthDropdown
-                showYearDropdown
                 dropdownMode="select"
                 isClearable
             />

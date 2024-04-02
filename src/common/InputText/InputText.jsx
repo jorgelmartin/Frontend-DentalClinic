@@ -1,9 +1,10 @@
 import React from 'react';
 import './InputText.css';
 import { checkError } from '../../services/useful';
+import { Form } from 'react-bootstrap';
 
-export const InputText = ({ type, design, placeholder, name, state, errorState }) => {
-//INPUTHANDLER FUNCTION
+export const InputText = ({ type, design, placeholder, name, state, errorState, autoCompleteValue }) => {
+    //INPUTHANDLER FUNCTION
     const inputHandler = ({ target }, state) => {
         const { name, value } = target;
         state((prevState) => ({
@@ -33,13 +34,15 @@ export const InputText = ({ type, design, placeholder, name, state, errorState }
 
     return (
         <>
-            <input
+            <Form.Control
+                id={name}
+                name={name}
                 type={type}
                 className={getInputClass()}
                 placeholder={placeholder}
-                name={name}
                 onChange={(e) => inputHandler(e, state)}
                 onBlur={(e) => inputCheck(e, errorState)}
+                autoComplete={autoCompleteValue}
             />
         </>
     )

@@ -76,7 +76,7 @@ export const Login = () => {
               <Col xs={10} md={6}>
                 <Form as={Row} className="d-flex justify-content-center">
                   <Form.Group className="mb-3">
-                    <Form.Label><strong>Email:</strong></Form.Label>
+                    <Form.Label htmlFor="email" ><strong>Email:</strong></Form.Label>
                     <Col>
                       <InputText
                         type={"email"}
@@ -85,12 +85,13 @@ export const Login = () => {
                         placeholder={"Enter email"}
                         state={setUser}
                         errorState={setUserError}
+                        autoCompleteValue={"email"}
                       />
                       <div>{userError.emailError}</div>
                     </Col>
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label><strong>Password:</strong></Form.Label>
+                  <Form.Group className="mb-3">
+                    <Form.Label htmlFor="password"><strong>Password:</strong></Form.Label>
                     <Col>
                       <InputText
                         type={"password"}
@@ -99,6 +100,7 @@ export const Login = () => {
                         placeholder={"Password"}
                         state={setUser}
                         errorState={setUserError}
+                        autoCompleteValue={"current-password"}
                       />
                       <div>{userError.passwordError}</div>
                     </Col>

@@ -16,7 +16,11 @@ export const SelectHour = ({handleChange, value}) => {
 
     return (
         <>
-            <select className="inputAppointment" value={selectedHour} onChange={(e) => {
+            <select 
+            id={"hourSelect"}
+            className={"inputAppointment" }
+            value={selectedHour} 
+            onChange={(e) => {
                 handleChange(e.target.value); 
                 setSelectedHour(e.target.value)}}>
                 <option value="">SELECT HOUR</option>

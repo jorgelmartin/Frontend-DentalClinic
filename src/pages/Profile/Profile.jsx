@@ -59,24 +59,26 @@ export const Profile = () => {
                 <Card.Body>
                     <Card.Title className="text-center mb-3 display-5"
                         style={{
-                            color:'white',
+                            color: 'white',
                             textShadow: '0.05em 0.05em 0.08em rgba(0, 0, 0)',
                         }}>
-                            <strong>Perfil</strong>
+                        <strong>Perfil</strong>
                     </Card.Title>
                     <Form>
                         <Form.Group>
                             <Row>
                                 <Col>
-                                    <strong><Form.Label>Nombre</Form.Label></strong>
+                                    <Form.Label htmlFor="name"><strong>Nombre</strong></Form.Label>
                                 </Col>
                                 {editing ? (
                                     <Col>
                                         <input
+                                            id={"name"}
                                             type={"text"}
                                             name={"name"}
                                             placeholder={user.name}
                                             onChange={(e) => inputHandler(e, setBody)}
+                                            autoComplete={"name"}
                                         />
                                     </Col>
                                 ) : (
@@ -89,15 +91,17 @@ export const Profile = () => {
                         <Form.Group>
                             <Row>
                                 <Col>
-                                    <strong><Form.Label>Apellido</Form.Label></strong>
+                                    <Form.Label htmlFor="lastname"><strong>Apellido</strong></Form.Label>
                                 </Col>
                                 {editing ? (
                                     <Col>
                                         <input
+                                            id={"lastname"}
                                             type={"text"}
                                             name={"lastname"}
                                             placeholder={user.lastname}
                                             onChange={(e) => inputHandler(e, setBody)}
+                                            autoComplete={"family-name"}
                                         />
                                     </Col>
                                 ) : (
@@ -110,15 +114,17 @@ export const Profile = () => {
                         <Form.Group>
                             <Row>
                                 <Col>
-                                    <strong><Form.Label>Email</Form.Label></strong>
+                                    <Form.Label htmlFor="email"><strong>Email</strong></Form.Label>
                                 </Col>
                                 {editing ? (
                                     <Col>
                                         <input
+                                            id={"email"}
                                             type={"text"}
                                             name={"email"}
                                             placeholder={user.email}
                                             onChange={(e) => inputHandler(e, setBody)}
+                                            autoComplete={"email"}
                                         />
                                     </Col>
                                 ) : (
@@ -132,14 +138,16 @@ export const Profile = () => {
                             <Form.Group>
                                 <Row>
                                     <Col>
-                                        <strong><Form.Label>Contraseña</Form.Label></strong>
+                                        <Form.Label htmlFor="password"><strong>Contraseña</strong></Form.Label>
                                     </Col>
                                     <Col>
                                         <input
+                                            id={"password"}
                                             type={"password"}
                                             name={"password"}
                                             placeholder={user.password}
                                             onChange={(e) => inputHandler(e, setBody)}
+                                            autoComplete={"current-password"}
                                         />
                                     </Col>
                                 </Row>
@@ -148,15 +156,17 @@ export const Profile = () => {
                         <Form.Group>
                             <Row>
                                 <Col>
-                                    <strong><Form.Label>DNI/NIE</Form.Label></strong>
+                                    <Form.Label htmlFor="dni"><strong>DNI/NIE</strong></Form.Label>
                                 </Col>
                                 {editing ? (
                                     <Col>
                                         <input
+                                            id={"dni"}
                                             type={"text"}
                                             name={"dni"}
                                             placeholder={user.dni}
                                             onChange={(e) => inputHandler(e, setBody)}
+                                            autoComplete={"dni"}
                                         />
                                     </Col>
                                 ) : (
@@ -169,15 +179,17 @@ export const Profile = () => {
                         <Form.Group>
                             <Row>
                                 <Col>
-                                    <strong><Form.Label>Dirección</Form.Label></strong>
+                                    <Form.Label htmlFor="address"><strong>Dirección</strong></Form.Label>
                                 </Col>
                                 {editing ? (
                                     <Col>
                                         <input
+                                            id={"address"}
                                             type={"text"}
                                             name={"address"}
                                             placeholder={user.address}
                                             onChange={(e) => inputHandler(e, setBody)}
+                                            autoComplete={"address"}
                                         />
                                     </Col>
                                 ) : (
@@ -190,15 +202,17 @@ export const Profile = () => {
                         <Form.Group>
                             <Row>
                                 <Col>
-                                    <strong><Form.Label>Teléfono</Form.Label></strong>
+                                    <Form.Label htmlFor="phone"><strong>Teléfono</strong></Form.Label>
                                 </Col>
                                 {editing ? (
                                     <Col>
                                         <input
+                                            id={"phone"}
                                             type={"text"}
                                             name={"phone"}
                                             placeholder={user.phone}
                                             onChange={(e) => inputHandler(e, setBody)}
+                                            autoComplete={"phone"}
                                         />
                                     </Col>
                                 ) : (

@@ -18,7 +18,11 @@ export const SelectServices = ({handleChange, value}) => {
 
     return (
         <>
-            <select className="inputAppointment" value={selectedService} onChange={(e) => {
+            <select 
+            id={"serviceSelect"}
+            className={"inputAppointment" }
+            value={selectedService} 
+            onChange={(e) => {
                 handleChange(e.target.value); 
                 setSelectedService(e.target.value)}}>
                 <option value="">SELECT SERVICE</option>

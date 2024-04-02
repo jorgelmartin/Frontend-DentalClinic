@@ -1,16 +1,16 @@
-.homeDesign{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+.homeDesign {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .clinicTitle {
-    color: rgb(37, 97, 153);
-    background: linear-gradient(90deg, rgba(69, 149, 224, 0.496) 14%, rgba(159, 83, 185, 0.463) 74%);
-    border-radius: 0.5em;
-    font-size: 3em;
-    border: 0.1em solid #2e3c5a79;
+  color: rgb(37, 97, 153);
+  background: linear-gradient(90deg, rgba(69, 149, 224, 0.496) 14%, rgba(159, 83, 185, 0.463) 74%);
+  border-radius: 0.5em;
+  font-size: 3em;
+  border: 0.1em solid #2e3c5a79;
 }
 
 .productCardContainer {
@@ -29,7 +29,15 @@
   border: 0.1em solid #2e3c5a79;
   padding: 1em;
   border-radius: 2em;
-  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  box-shadow:
+    rgba(0, 0, 0, 0.17) 0em -1.4375em 1.5625em 0em inset,
+    rgba(0, 0, 0, 0.15) 0em -2.25em 1.875em 0em inset,
+    rgba(0, 0, 0, 0.1) 0em -4.9375em 2.5em 0em inset,
+    rgba(0, 0, 0, 0.06) 0em 0.125em 0.0625em,
+    rgba(0, 0, 0, 0.09) 0em 0.25em 0.125em,
+    rgba(0, 0, 0, 0.09) 0em 0.5em 0.25em,
+    rgba(0, 0, 0, 0.09) 0em 1em 0.5em,
+    rgba(0, 0, 0, 0.09) 0em 2em 1em;
 }
 
 .productCardDesign img {
@@ -37,9 +45,16 @@
   height: 12em;
   border: 0.08em solid #00000079;
   width: 13em;
-  /* object-fit: contain; */
   border-radius: 2em;
-  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  box-shadow:
+    rgba(0, 0, 0, 0.17) 0em -1.4375em 1.5625em 0em inset,
+    rgba(0, 0, 0, 0.15) 0em -2.25em 1.875em 0em inset,
+    rgba(0, 0, 0, 0.1) 0em -4.9375em 2.5em 0em inset,
+    rgba(0, 0, 0, 0.06) 0em 0.125em 0.0625em,
+    rgba(0, 0, 0, 0.09) 0em 0.25em 0.125em,
+    rgba(0, 0, 0, 0.09) 0em 0.5em 0.25em,
+    rgba(0, 0, 0, 0.09) 0em 1em 0.5em,
+    rgba(0, 0, 0, 0.09) 0em 2em 1em;
 }
 
 .productCardDesign h1 {
@@ -48,11 +63,11 @@
 }
 
 .productCardDesign:hover {
-  /* background: rgb(69,150,224); */
-/* background: linear-gradient(90deg, rgba(69,150,224,1) 14%, rgba(159,83,185,1) 74%); */
   transition: 0.3s;
   color: rgb(0, 0, 0);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0em 1.875em 3.75em -0.75em inset,
+    rgba(0, 0, 0, 0.3) 0em 1.125em 2.25em -1.125em inset;
 }
 
 .pictureDesign {

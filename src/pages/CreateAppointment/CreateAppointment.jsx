@@ -58,15 +58,15 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
                 backgroundColor: '#9f53b97d',
                 borderRadius: '5em',
                 boxShadow: 'rgba(0, 0, 0, 0.2) 0em 3.5em 3em -0.5em',
-                minWidth: '20.4em',
+                minWidth: '20em',
                 maxWidth: '26m'
             }} >
                 <Card.Body>
-                    <Card.Title className="text-center mb-3 display-5">Crea tu cita</Card.Title>
+                    <Card.Title className="text-center mb-3 display-5"><strong>Crea tu cita</strong></Card.Title>
                     <Form>
                         <Form.Group as={Row}>
-                            {/* <Form.Label column xs={12} sm={5}>Dentista:</Form.Label> */}
-                            <Col xs={12} sm={12}>
+                            <Form.Label htmlFor="doctorSelect"></Form.Label>
+                            <Col>
 
                                 <SelectDoctors
                                     className="dentistSelector"
@@ -84,8 +84,9 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
                             </Col>
                         </Form.Group>
                         <Form.Group as={Row}>
-                            {/* <Form.Label column xs={12} sm={5}>Servicio:</Form.Label> */}
-                            <Col xs={12} sm={12}>
+                            <Form.Label htmlFor="serviceSelect"></Form.Label>
+                            <Col >
+
                                 <SelectServices
                                     className="serviceSelector"
                                     name={"service_id"}
@@ -101,8 +102,8 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
                             </Col>
                         </Form.Group>
                         <Form.Group as={Row}>
-                            {/* <Form.Label column xs={12} sm={5}>Día:</Form.Label> */}
-                            <Col xs={12} sm={12}>
+                            <Form.Label htmlFor="dateSelect"></Form.Label>
+                            <Col>
                                 <SelectDate
                                     className="dateSelector"
                                     name={"date_id"}
@@ -118,8 +119,8 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
                             </Col>
                         </Form.Group>
                         <Form.Group as={Row}>
-                            {/* <Form.Label column xs={12} sm={5}>Hora:</Form.Label> */}
-                            <Col xs={12} sm={12}>
+                            <Form.Label htmlFor="hourSelect"></Form.Label>
+                            <Col>
                                 <SelectHour
                                     className="hourSelector"
                                     name={"hour_id"}
