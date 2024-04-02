@@ -5,8 +5,8 @@ import { Card, Col, Container, Row, Form } from "react-bootstrap";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginMe } from "../../services/apiCalls";
 import { login } from "../userSlice";
+import { loginMe } from "../../services/apiCasslls";
 import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
 
 export const Login = () => {

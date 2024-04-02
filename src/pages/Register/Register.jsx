@@ -3,9 +3,9 @@ import "./Register.css";
 import { InputText } from "../../common/InputText/InputText";
 import { Form, Card, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-import { registerMe } from "../../services/apiCalls";
-import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
 import { WarningModal } from "../../common/WarningModal/WarningModal";
+import { registerMe } from "../../services/apiCasslls";
+import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
 
 export const Register = () => {
 

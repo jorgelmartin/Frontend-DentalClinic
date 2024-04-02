@@ -1,7 +1,7 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./CreateAppointment.css";
-import { Col, Row, Container, Form, Card, Button, Modal } from "react-bootstrap";
+import { Col, Row, Container, Form, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { SelectServices } from "../../../hooks/useFetchSelectServices";
 import { SelectDoctors } from "../../../hooks/useFetchSelectDoctors";
@@ -9,7 +9,7 @@ import { SelectDate } from "../../../hooks/useFetchSelectDate";
 import { SelectHour } from "../../../hooks/useFetchSelectHour";
 import { userData } from "../userSlice";
 import { useSelector } from "react-redux";
-import { createAppointment, updateAppointment } from "../../services/apiCalls";
+import { createAppointment, updateAppointment } from "../../services/apiCasslls";
 import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
 import { WarningModal } from "../../common/WarningModal/WarningModal";
 
