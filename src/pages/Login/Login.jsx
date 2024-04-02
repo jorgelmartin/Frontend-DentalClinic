@@ -6,7 +6,7 @@ import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../userSlice";
-import { loginMe } from "../../services/apiCasslls";
+import { loginMe } from "../../services/apiCalls";
 import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
 
 export const Login = () => {

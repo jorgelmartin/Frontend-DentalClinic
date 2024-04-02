@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import "./Header.css";
 import { useSelector, useDispatch } from "react-redux";
 import { userData, logout } from "../../pages/userSlice";

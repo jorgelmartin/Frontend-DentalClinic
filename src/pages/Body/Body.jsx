@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Login } from "../Login/Login";
 import { Register } from "../Register/Register";
 import { Admin } from "../Admin/Admin";
 import { Profile } from "../Profile/Profile";
@@ -11,6 +10,7 @@ import { CreateAppointment } from "../CreateAppointment/CreateAppointment";
 import { ServiceDetail } from "../ServiceDetail/ServiceDetail";
 import { AppointmentDetail } from "../AppointmentDetail/AppointmentDetail";
 import { UserCard } from "../UserCard/UserCard";
+import { Login } from "../Login/Login";
 
 export const Body = () => {
     return (

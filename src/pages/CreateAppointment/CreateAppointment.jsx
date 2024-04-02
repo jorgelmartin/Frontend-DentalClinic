@@ -9,7 +9,7 @@ import { SelectDate } from "../../../hooks/useFetchSelectDate";
 import { SelectHour } from "../../../hooks/useFetchSelectHour";
 import { userData } from "../userSlice";
 import { useSelector } from "react-redux";
-import { createAppointment, updateAppointment } from "../../services/apiCasslls";
+import { createAppointment, updateAppointment } from "../../services/apiCalls";
 import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
 import { WarningModal } from "../../common/WarningModal/WarningModal";
 
