@@ -49,6 +49,8 @@ export const Register = () => {
                             }}>
                             <strong>Registro</strong>
                         </Card.Title>
+
+                        {/* NAME */}
                         <Form>
                             <Form.Group as={Row} className="mb-2 mt-4">
                                 <Form.Label htmlFor="name" column xs={4} md={4} lg={4}>Nombre:</Form.Label>
@@ -66,6 +68,8 @@ export const Register = () => {
                                     <div className="fontError">{userError.nameError}</div>
                                 </Col>
                             </Form.Group>
+
+                            {/* LASTNAME */}
                             <Form.Group as={Row} className="mb-2">
                                 <Form.Label htmlFor="lastname" column xs={4} md={4} lg={4}>Apellido:</Form.Label>
                                 <Col>
@@ -82,6 +86,8 @@ export const Register = () => {
                                     <div className="fontError">{userError.lastnameError}</div>
                                 </Col>
                             </Form.Group>
+
+                            {/* EMAIL */}
                             <Form.Group as={Row} className="mb-2">
                                 <Form.Label htmlFor="email" column xs={4} md={4} lg={4}>Email:</Form.Label>
                                 <Col>
@@ -97,6 +103,8 @@ export const Register = () => {
                                     <div className="fontError">{userError.emailError}</div>
                                 </Col>
                             </Form.Group>
+
+                            {/* PASSWORD */}
                             <Form.Group as={Row} className="mb-2">
                                 <Form.Label htmlFor="password" column xs={4} md={4} lg={4}>Contraseña:</Form.Label>
                                 <Col>
@@ -112,6 +120,8 @@ export const Register = () => {
                                     <div className="fontError">{userError.passwordError}</div>
                                 </Col>
                             </Form.Group>
+
+                            {/* DNI */}
                             <Form.Group as={Row} className="mb-2">
                                 <Form.Label htmlFor="dni" column xs={4} md={4} lg={4}>DNI/NIE:</Form.Label>
                                 <Col>
@@ -128,6 +138,8 @@ export const Register = () => {
                                     <div className="fontError">{userError.dniError}</div>
                                 </Col>
                             </Form.Group>
+
+                            {/* ADDRESS */}
                             <Form.Group as={Row} className="mb-2">
                                 <Form.Label htmlFor="address" column xs={4} md={4} lg={4}>Dirección:</Form.Label>
                                 <Col>
@@ -144,6 +156,8 @@ export const Register = () => {
                                     <div className="fontError">{userError.addressError}</div>
                                 </Col>
                             </Form.Group>
+
+                            {/* PHONE */}
                             <Form.Group as={Row} className="mb-2">
                                 <Form.Label htmlFor="phone" column xs={4} md={4} lg={4}>Teléfono:</Form.Label>
                                 <Col>

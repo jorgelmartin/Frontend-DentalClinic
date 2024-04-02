@@ -5,9 +5,9 @@ const URL = "https://backend-dental-clinic.vercel.app";
 
 //LOGIN 
 export const loginMe = async (credentials) => {
-    return await axios.post(`${URL}/auth/login`, credentials);
-    return res.data
-}
+  let res = await axios.post(`${URL}/auth/login`, credentials);
+  return res.data;
+};
 
 //REGISTER
 export const registerMe = async (credentials) => {

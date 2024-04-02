@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { InputText } from "../../common/InputText/InputText";
-import { loginMe } from "../../services/apiCalls";
 import { Card, Col, Container, Row, Form } from "react-bootstrap";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { loginMe } from "../../services/apiCalls";
 import { login } from "../userSlice";
 import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
 
@@ -30,13 +30,14 @@ export const Login = () => {
     e.preventDefault();
     loginMe(body)
       .then((res) => {
-        setToken(res.data.token);
-        setuserLogin(res.data.user);
+        setToken(res.token);
+        setuserLogin(res.user);
       })
       .catch((error) => {
         setUserError({ credentials: error.response.data.message });
       });
   };
+
   //USE DISPATCH 
   useEffect(() => {
     if (token) {
@@ -54,6 +55,8 @@ export const Login = () => {
   }, [token, userLogin]);
 
   return (
+
+    // LOGIN CONTAINER
     <div className="loginDesign">
       {/* {welcome !== "" ? (
         <div>{welcome}</div>
@@ -70,11 +73,15 @@ export const Login = () => {
             style={{
               textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)',
             }}>
+
             <strong>Iniciar sesión</strong></Card.Title>
+
+          {/* NAME */}
           <Card.Body>
             <Row className="justify-content-center align-items-center">
               <Col xs={10} md={6}>
                 <Form as={Row} className="d-flex justify-content-center">
+
                   <Form.Group className="mb-3">
                     <Form.Label htmlFor="email" ><strong>Email:</strong></Form.Label>
                     <Col>
@@ -90,6 +97,8 @@ export const Login = () => {
                       <div>{userError.emailError}</div>
                     </Col>
                   </Form.Group>
+
+                  {/* PASSWORD */}
                   <Form.Group className="mb-3">
                     <Form.Label htmlFor="password"><strong>Password:</strong></Form.Label>
                     <Col>
@@ -105,13 +114,14 @@ export const Login = () => {
                       <div>{userError.passwordError}</div>
                     </Col>
                   </Form.Group>
-                  {userError?.credentials ? (
+
+                  {/* CREDENTIALS ERROR */}
+                  {userError.credentials ? (
                     <div>{userError.credentials}</div>
                   ) : (
                     <div></div>
                   )}
                   <ClinicButton
-                    // style={{ backgroundColor: '#13326fba' }}
                     text={'Aceptar'}
                     onClick={(e) => {
                       submitHandler(e, user);
