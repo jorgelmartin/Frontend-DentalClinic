@@ -6,6 +6,7 @@ import "../../App.css";
 export const Admin = () => {
     const navigate = useNavigate();
 
+    //ADMIN PAGE
     return (
         <div className="adminContainer">
             <Container> 

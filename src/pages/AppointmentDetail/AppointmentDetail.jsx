@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFetchAppointments } from "../../../hooks/useFetchAppointments";
 import "./AppointmentDetail.css";
 import { Container } from "react-bootstrap";
 import { CreateAppointment } from "../CreateAppointment/CreateAppointment";
-import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
+import { AppButton } from "../../common/AppButton/AppButton";
 
 export const AppointmentDetail = () => {
     //GET THE ID VALUE FROM THE URL
@@ -81,7 +81,7 @@ export const AppointmentDetail = () => {
                         <strong> <div>{appointmentDetail.hour}</div></strong>
                     </div>
                     <div className="d-flex align-items-center justify-content-center">
-                        <ClinicButton
+                        <AppButton
                             text={'Editar'}
                             onClick={() => {
                                 setEditing(!editing);

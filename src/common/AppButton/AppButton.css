@@ -1,4 +1,4 @@
-.ClinicButton {
+.AppButton {
     background-color: #4848b3fd;
     color: #ffffff;
     padding: 0.6em 0.9em;
@@ -21,7 +21,7 @@
         rgba(0, 0, 0, 0.09) 0em 2em 1em;
 }
 
-.ClinicButton:hover {
+.AppButton:hover {
     box-shadow:
         rgba(50, 50, 93, 0.25) 0em 1.875em 3.75em -0.75em inset,
         rgba(0, 0, 0, 0.3) 0em 1.125em 2.25em -1.125em inset;

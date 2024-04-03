@@ -5,7 +5,7 @@ import { Form, Card, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { WarningModal } from "../../common/WarningModal/WarningModal";
 import { registerMe } from "../../services/apiCalls";
-import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
+import { AppButton } from "../../common/AppButton/AppButton";
 
 export const Register = () => {
 
@@ -180,7 +180,7 @@ export const Register = () => {
                                 <div></div>
                             )}
                             <div className="text-center">
-                                <ClinicButton
+                                <AppButton
                                     onClick={(e) => {
                                         if (areAllFieldsFilled() && !showModal) {
                                             submitHandler(e, user);

@@ -1,6 +1,7 @@
 import Modal from 'react-bootstrap/Modal';
-import { ClinicButton } from '../ClinicButton/ClinicButton';
+import { AppButton } from '../AppButton/AppButton';
 
+// MODAL
 export const WarningModal = ({ show, onHide }) => {
     return (
         <Modal show={show} onHide={onHide}>
@@ -11,7 +12,7 @@ export const WarningModal = ({ show, onHide }) => {
                     Por favor, complete todos los campos antes de continuar.
                 </Modal.Body>
                 <Modal.Footer>
-                    <ClinicButton
+                    <AppButton
                         onClick={onHide}
                         text={'Cerrar'}
                     />

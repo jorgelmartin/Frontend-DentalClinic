@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../userSlice";
 import { loginMe } from "../../services/apiCalls";
-import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
+import { AppButton } from "../../common/AppButton/AppButton";
 
 export const Login = () => {
 
@@ -63,17 +63,19 @@ export const Login = () => {
       ) : ( */}
       {/* La utilidad de la siguiente linea es renderizar un hook at tiempo real en el DOM */}
       {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
-      <Container className="d-flex justify-content-center align-items-center mt-4">
-        <Card style={{
-          backgroundColor: 'rgba(64, 139, 209, 0.607)',
-          borderRadius: '10em',
-          boxShadow: 'rgba(0, 0, 0, 0.19) 0em 0.625em 1.25em, rgba(0, 0, 0, 0.23) 0em 0.375em 0.375em'
-        }}>
-          <Card.Title className="text-center mt-3 display-5"
+      <Container
+        className="d-flex justify-content-center align-items-center mt-4">
+        <Card
+          style={{
+            backgroundColor: 'rgba(64, 139, 209, 0.607)',
+            borderRadius: '10em',
+            boxShadow: 'rgba(0, 0, 0, 0.19) 0em 0.625em 1.25em, rgba(0, 0, 0, 0.23) 0em 0.375em 0.375em'
+          }}>
+          <Card.Title
+            className="text-center mt-3 display-5"
             style={{
               textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)',
             }}>
-
             <strong>Iniciar sesión</strong></Card.Title>
 
           {/* NAME */}
@@ -121,7 +123,7 @@ export const Login = () => {
                   ) : (
                     <div></div>
                   )}
-                  <ClinicButton
+                  <AppButton
                     text={'Aceptar'}
                     onClick={(e) => {
                       submitHandler(e, user);

@@ -4,7 +4,7 @@ import { Card, Form, Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { userData } from "../../pages/userSlice";
 import { inputHandler } from "../../services/useful";
-import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
+import { AppButton } from "../../common/AppButton/AppButton";
 
 export const Profile = () => {
     //GETTING TOKEN FROM REDUX
@@ -43,7 +43,7 @@ export const Profile = () => {
                     console.error('Error al obtener el perfil:', error);
                 });
         }
-    }, [editing]);
+    }, [editing, token]);
 
     //Para ignorar el autocomplete
     {/* eslint-disable-next-line jsx-a11y/autocomplete-ignore */ }
@@ -223,7 +223,7 @@ export const Profile = () => {
                             </Row>
                         </Form.Group>
                     </Form>
-                    <ClinicButton
+                    <AppButton
                         onClick={() => {
                             editHandler();
                         }}

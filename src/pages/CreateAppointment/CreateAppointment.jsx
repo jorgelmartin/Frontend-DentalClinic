@@ -10,8 +10,8 @@ import { SelectHour } from "../../../hooks/useFetchSelectHour";
 import { userData } from "../userSlice";
 import { useSelector } from "react-redux";
 import { createAppointment, updateAppointment } from "../../services/apiCalls";
-import { ClinicButton } from "../../common/ClinicButton/ClinicButton";
 import { WarningModal } from "../../common/WarningModal/WarningModal";
+import { AppButton } from "../../common/AppButton/AppButton";
 
 export const CreateAppointment = ({ isUpdate, updateData }) => {
     const [showModal, setShowModal] = useState(false);
@@ -136,7 +136,7 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
                             </Col>
                         </Form.Group>
                     </Form>
-                    <ClinicButton
+                    <AppButton
                         onClick={createApp}
                         text={'Aceptar!'}
                     />

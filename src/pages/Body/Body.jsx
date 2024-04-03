@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Login } from "../Login/Login";
 import { Register } from "../Register/Register";
@@ -10,6 +10,7 @@ import { AppointmentCard } from "../../common/AppointmentCard/AppointmentCard";
 import { CreateAppointment } from "../CreateAppointment/CreateAppointment";
 import { ServiceDetail } from "../ServiceDetail/ServiceDetail";
 import { AppointmentDetail } from "../AppointmentDetail/AppointmentDetail";
+import { Home } from "../Home/Home";
 
 export const Body = () => {
     return (
