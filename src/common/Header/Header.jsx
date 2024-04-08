@@ -11,13 +11,13 @@ export const Header = () => {
     const datosCredencialesRedux = useSelector(userData);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    
+
     //LOGOUT
     const handleLogout = () => {
         dispatch(logout({ credentials: "" }));
         navigate("/home");
     };
-    
+
     return (
         <div className='headerDesign'>
             <div className='linksDesign'>
@@ -38,6 +38,7 @@ export const Header = () => {
                             <div className="headerLink" onClick={handleLogout}>Salir</div>
                         </>
                     ) : (
+                        // IF THERE IS NO TOKEN SHOW THIS
                         <>
                             <div className="headerLink" onClick={() => navigate("/login")}>Entrar</div>
                             <div className="headerLink" onClick={() => navigate("/register")}>Regístrate</div>
