@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { addDays, isWeekend } from "date-fns";
-
+import { isWeekend } from "date-fns";
 
 export const SelectDate = ({ handleChange, value }) => {
 

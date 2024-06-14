@@ -9,7 +9,7 @@ export const ServiceDetail = () => {
     const parsedId = parseInt(id);
     //ASSIGN PRODUCTS
     const products = useFetchProducts();
-    const [productDetail, setProductDetail] = useState(null);
+    const [productDetail, setProductDetail] = useState('');
 
     useEffect(() => {
         // FOUND THE PRODUCT WITH THE ID GET IT FROM THE ARRAY
@@ -32,7 +32,6 @@ export const ServiceDetail = () => {
                         {productDetail.name}
                     </h2>
                     <img src={productDetail.image} alt="" className="img-fluid imageDetail" />
-                    {/* <h5>Duración: {productDetail.duration}</h5> */}
                     <h5 className="mt-3">Precio: {productDetail.price}</h5>
                     <p>{productDetail.description}</p>
                     {/* <button>Pedir cita</button> */}

@@ -30,11 +30,8 @@ export const checkError = (name, value) => {
             if (value.length < 6) {
                 return "El password debe de tener 6 caracteres";
             }
-            if (!/[A-Z]/.test(value)) {
-                return "El password debe contener al menos una letra mayúscula";
-            }
-            // if (!/\d/.test(value)) {
-            //     return "El password debe contener al menos un número";
+            // if (!/[A-Z]/.test(value)) {
+            //     return "El password debe contener al menos una letra mayúscula";
             // }
             return "";
 
@@ -44,7 +41,7 @@ export const checkError = (name, value) => {
                 return "El nombre debe contener solo letras";
             }
             if (value.length > 40) {
-                return "El nombre no pueden tener más de 30 caracteres";
+                return "El nombre no pueden tener más de 40 caracteres";
             }
             return "";
 
@@ -83,5 +80,5 @@ export const checkError = (name, value) => {
         default:
             console.log("Unknown format");
     }
-    return null;
+    return '';
 }

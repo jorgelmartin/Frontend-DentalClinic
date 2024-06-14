@@ -1,33 +1,25 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useFetchAppointments } from "../../../hooks/useFetchAppointments";
+import { useFetchAppointmentById } from "../../../hooks/useFetchAppointmentById";
 import "./AppointmentDetail.css";
 import { Container } from "react-bootstrap";
 import { CreateAppointment } from "../CreateAppointment/CreateAppointment";
 import { AppButton } from "../../common/AppButton/AppButton";
 
 export const AppointmentDetail = () => {
-    //GET THE ID VALUE FROM THE URL
     let { id } = useParams();
     const parsedId = parseInt(id);
-    //ASSIGN APPOINTMENTS
-    const appointments = useFetchAppointments();
-    const [appointmentDetail, setAppointmentDetail] = useState(null);
+    const appointment = useFetchAppointmentById(parsedId);
+    const [appointmentDetail, setAppointmentDetail] = useState('');
     const [editing, setEditing] = useState(false);
 
-
-
     useEffect(() => {
-        // FOUND THE APPOINTMENT WITH THE ID GET IT FROM THE ARRAY
-        if (appointments && Array.isArray(appointments)) {
-            const foundAppointment = appointments.find((item) => item.id === parsedId);
-            if (foundAppointment) {
-                setAppointmentDetail(foundAppointment);
-            } else {
-                setAppointmentDetail(null);
-            }
+        if (appointment) {
+            setAppointmentDetail(appointment);
+        } else {
+            setAppointmentDetail('');
         }
-    }, [parsedId, appointments]);
+    }, [appointment]);
 
     return (
         <Container className="d-flex justify-content-center align-items-center mt-5">

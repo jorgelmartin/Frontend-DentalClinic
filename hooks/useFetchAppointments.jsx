@@ -1,24 +1,28 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { userData } from "../src/pages/userSlice";
 
-export const useFetchAppointments = () => {
-    const [appointments, setAppointments] = useState(null);
-    const datosCredencialesRedux = useSelector(userData);
+export const useFetchAppointments = (page, perPage) => {
+    const [appointments, setAppointments] = useState([]);
+    const [pagination, setPagination] = useState({}); 
+    const token = useSelector((state) => state.user.credentials.token);
 
     useEffect(() => {
         let config = {
             headers: {
-                Authorization: `Bearer ${datosCredencialesRedux.credentials?.token}`,
+                Authorization: `Bearer ${token}`,
             },
-        }
-        fetch('https://backend-dental-clinic.vercel.app/appointment/getAll', config)
+        };
+        fetch(`https://backend-dental-clinic.vercel.app/appointment/getAll?page=${page}&per_page=${perPage}`, config)
             .then(res => res.json())
             .then(res => {
                 setAppointments(res.data);
+                setPagination({
+                    currentPage: res.pagination.currentPage,
+                    totalPages: res.pagination.totalPages,
+                });
             })
-            .catch(error => console.log("Error fetching appointments:", error))
-    }, []);
+            .catch(error => console.log("Error fetching appointments:", error));
+    }, [page, perPage, token]);
 
-    return appointments;
+    return { appointments, pagination };
 };

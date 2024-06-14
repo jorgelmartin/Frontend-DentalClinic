@@ -1,18 +1,23 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export const SelectDoctors = ({ handleChange, value }) => {
 
-    //USER SELECTED DOCTORS FROM THE FATHER COMPONENT
+    // SELECTED DOCTORS
+    const token = useSelector((state) => state.user.credentials.token);
     const [selectedDoctor, setSelectedDoctor] = useState(value);
-
     const [doctors, setDoctors] = useState([]);
 
     useEffect(() => {
-        fetch("https://backend-dental-clinic.vercel.app/user/getAllUsers")
+        let config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+        fetch("https://backend-dental-clinic.vercel.app/user/getDentists", config)
             .then((res) => res.json())
             .then((res) => {
-                const filteredDoctors = res.data.filter((user) => user.role_id === 2);
-                setDoctors(filteredDoctors);
+                setDoctors(res.data);
             })
             .catch((error) => console.log(error));
     }, []);

@@ -1,35 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-export const SelectHour = ({handleChange, value}) => {
-
-    //USER SELECTED HOUR FROM THE FATHER COMPONENT
+export const SelectHour = ({ handleChange, value }) => {
+    const [hours, setHours] = useState([]);
     const [selectedHour, setSelectedHour] = useState(value);
+    const token = useSelector((state) => state.user.credentials.token);
 
-   const hours = [
-    {"id": 1,"hour":"09:00:00"},
-    {"id": 2,"hour":"09:30:00"},
-    {"id": 3,"hour":"10:30:00"},
-    {"id": 4,"hour":"12:00:00"},
-    {"id": 5,"hour":"14:30:00"},
-    {"id": 6,"hour":"16:00:00"}
-   ]
+    useEffect(() => {
+        let config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        fetch("https://backend-dental-clinic.vercel.app/appointment/getHours", config)
+            .then((res) => res.json())
+            .then((res) => {
+                setHours(res.data);
+
+            })
+            .catch((error) => console.log(error));
+    }, []);
 
     return (
-        <>
-            <select 
+        <select
             id={"hourSelect"}
-            className={"inputAppointment" }
-            value={selectedHour} 
+            className={"inputAppointment"}
+            value={selectedHour}
             onChange={(e) => {
-                handleChange(e.target.value); 
-                setSelectedHour(e.target.value)}}>
-                <option value="">SELECT HOUR</option>
-                {hours.map((hour) => (
-                    <option key={hour.id} value={hour.hour}>
-                        {hour.hour}
-                    </option>
-                ))}
-            </select>
-        </>
+                handleChange(e.target.value);
+                setSelectedHour(e.target.value);
+            }}>
+            <option value="">SELECT HOUR</option>
+            {hours.map((hour) => (
+                <option key={hour.id} value={hour.hour}>
+                    {hour.hour}
+                </option>
+            ))}
+        </select>
     );
 };
