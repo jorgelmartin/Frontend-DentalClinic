@@ -41,10 +41,10 @@ export const CreateAppointment = ({ isUpdate, updateData }) => {
         }
         if (isUpdate) {
             updateAppointment(token, appointmentData.id, appointmentData)
-                .then(() => navigate("/home"));
+                .then(() => navigate("/appointmentcard"));
         } else {
             createAppointment(appointmentData, token)
-                .then(() => navigate("/home"));
+                .then(() => navigate("/appointmentcard"));
         }
     };
 

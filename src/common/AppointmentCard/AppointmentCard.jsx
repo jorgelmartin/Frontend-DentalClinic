@@ -1,58 +1,35 @@
-import React, { useState, useEffect } from "react";
-import { useFetchAppointments } from "../../../hooks/useFetchAppointments";
+import React, { useEffect, useState } from "react";
+import { useFetchSearchAppointments } from "../../../hooks/useFetchSearchAppointments";
 import "../../App.css";
 import { useNavigate } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
 import { InputSearch } from "../InputSearch/InputSearch";
+import { usePagination } from "../../../hooks/usePagination";
 
 export const AppointmentCard = () => {
-  const [searchText, setSearchText] = useState("");
   const navigate = useNavigate();
-  const [currentPage, setCurrentPage] = useState(1);
   const perPage = 6;
-  const { appointments, pagination } = useFetchAppointments(currentPage, perPage);
-  const [filteredAppointments, setFilteredAppointments] = useState([]);
+  const { currentPage, nextPage, prevPage, goToPage } = usePagination();
+  const [searchQuery, setSearchQuery] = useState("");
+  const { appointments, pagination } = useFetchSearchAppointments(currentPage, perPage, searchQuery);
 
-  //GO TO FIRST PAGE WHEN SEARCH START
+  //SEARCH
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
+  //EACH TIME USER SEARCH, GO TO PAGE 1
   useEffect(() => {
-    setCurrentPage(1);
-  }, [searchText]);
+    goToPage(1);
+  }, [searchQuery]);
 
-  const handleSearch = (text) => {
-    if (text) {
-      setSearchText(text.toLowerCase());
-      const filtered = appointments.filter(
-        (appointment) =>
-          appointment.dentist.name.toLowerCase().includes(text.toLowerCase()) ||
-          appointment.patient.name.toLowerCase().includes(text.toLowerCase()) ||
-          appointment.date.toLowerCase().includes(text.toLowerCase()) ||
-          appointment.Service.name.toLowerCase().includes(text.toLowerCase()) ||
-          appointment.id.toString().includes(text.toLowerCase())
-      );
-      setFilteredAppointments(filtered);
-    } else {
-      setFilteredAppointments(appointments);
-    };
-  };
 
-  const handleNextPage = () => {
-    if (pagination.currentPage < pagination.totalPages) {
-      setCurrentPage((prevPage) => prevPage + 1);
-    }
-  };
-
-  const handlePrevPage = () => {
-    if (pagination.currentPage > 1) {
-      setCurrentPage((prevPage) => prevPage - 1);
-    }
-  };
-
-  if (!filteredAppointments) {
+  if (!appointments) {
     return <div>Cargando...</div>;
   }
-
   return (
     <Container className="mt-5" style={{ margin: "0", padding: "0" }}>
+
       {/* INPUT SEARCH */}
       <InputSearch onSearch={handleSearch} />
 
@@ -77,7 +54,7 @@ export const AppointmentCard = () => {
         </div>
 
         {/* APPOINTMENT DATA */}
-        {filteredAppointments.map((appointment) => (
+        {appointments.map((appointment) => (
           <div key={appointment.id}>
             <div className="tableDataRow">
               <div className="tableDataCheck">
@@ -111,21 +88,19 @@ export const AppointmentCard = () => {
         }}
       >
         <Button
-          style={{ background: "#5a1a6fde" }}
-          onClick={handlePrevPage}
-          disabled={pagination.currentPage === 1}
+          style={{ background: '#5a1a6fde' }}
+          onClick={prevPage}
+          disabled={currentPage === 1}
         >
           Anterior
         </Button>
 
-        <div>
-          {pagination.currentPage} de {pagination.totalPages}
-        </div>
+        {`${currentPage} de ${pagination?.totalPages || 1}`}
 
         <Button
-          style={{ background: "#5a1a6fde" }}
-          onClick={handleNextPage}
-          disabled={pagination.currentPage === pagination.totalPages}
+          style={{ background: '#5a1a6fde' }}
+          onClick={nextPage}
+          disabled={currentPage === (pagination?.totalPages || 1)}
         >
           Siguiente
         </Button>

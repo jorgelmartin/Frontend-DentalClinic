@@ -16,10 +16,7 @@ export const useFetchAppointments = (page, perPage) => {
             .then(res => res.json())
             .then(res => {
                 setAppointments(res.data);
-                setPagination({
-                    currentPage: res.pagination.currentPage,
-                    totalPages: res.pagination.totalPages,
-                });
+                setPagination(res.pagination);
             })
             .catch(error => console.log("Error fetching appointments:", error));
     }, [page, perPage, token]);

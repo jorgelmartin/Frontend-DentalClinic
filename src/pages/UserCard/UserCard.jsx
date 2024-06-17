@@ -1,33 +1,37 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFetchUsers } from "../../../hooks/useFetchUsers";
 import { Button, Container } from "react-bootstrap";
 import "../../App.css";
+import { InputSearch } from "../../common/InputSearch/InputSearch";
+import { usePagination } from "../../../hooks/usePagination";
 
 export const UserCard = () => {
-  const [currentPage, setCurrentPage] = useState(1);
   const perPage = 6;
+  const { currentPage, nextPage, prevPage, goToPage } = usePagination();
 
-  const { users, pagination } = useFetchUsers(currentPage, perPage);
+  const [searchQuery, setSearchQuery] = useState("");
+  const { users, pagination } = useFetchUsers(currentPage, perPage, searchQuery);
+
+  //SEARCH
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
+  //EACH TIME USER SEARCH, GO TO PAGE 1
+  useEffect(() => {
+    goToPage(1);
+  }, [searchQuery]);
 
   if (!users) {
-    return <div>Loading...</div>;
+    return <div>Cargando...</div>;
   }
-
-  const handleNextPage = () => {
-    if (pagination.page < pagination.totalPages) {
-      setCurrentPage(prevPage => prevPage + 1);
-    }
-  };
-
-  const handlePrevPage = () => {
-    if (pagination.page > 1) {
-      setCurrentPage(prevPage => prevPage - 1);
-    }
-  };
 
   return (
     <Container className="mt-5" style={{ width: '100%', height: '100%' }}>
+
+      <InputSearch onSearch={handleSearch} />
+
       <div className="requestUser">Usuarios</div>
       <div className="tableContainerCheck">
         <div className="tableHeaderUsers">
@@ -58,18 +62,20 @@ export const UserCard = () => {
         }}>
         <Button
           style={{ background: '#5a1a6fde' }}
-          onClick={handlePrevPage}
-          disabled={pagination.page === 1}
-        >Anterior
+          onClick={prevPage}
+          disabled={currentPage === 1}
+        >
+          Anterior
         </Button>
 
-        <div>{pagination.page} de {pagination.totalPages}</div>
+        {`${currentPage} de ${pagination?.totalPages || 1}`}
 
         <Button
           style={{ background: '#5a1a6fde' }}
-          onClick={handleNextPage}
-          disabled={pagination.page === pagination.totalPages}
-        >Siguiente
+          onClick={nextPage}
+          disabled={currentPage === (pagination?.totalPages || 1)}
+        >
+          Siguiente
         </Button>
       </div>
     </Container>
