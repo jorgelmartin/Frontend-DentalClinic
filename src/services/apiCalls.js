@@ -23,7 +23,7 @@ export const getProfile = async (token) => {
     },
   };
   let res = await axios.get(`${URL}/user/getUser`, config);
-  return res.data;
+  return res.data.data;
 };
 
 //UPDATE PROFILE
@@ -48,15 +48,12 @@ export const createAppointment = async (body, token) => {
   }
 
 //UPDATE APPOINTMENT
-export const updateAppointment = async (token, id, bodyApp) => {
+export const updateAppointment = async (token, id, body) => {
   let config = {
       headers: {
           Authorization: `Bearer ${token}`,
       },
   }
-  let res = await axios.put(`${URL}/appointment/update/${id}`, bodyApp, config)
-  return res
+  let res = await axios.put(`${URL}/appointment/update/${id}`, body, config)
+  return res;
 }
-
-
-

@@ -2,15 +2,12 @@ import React, { useState, useEffect } from "react";
 import { getProfile, updateProfile } from "../../services/apiCalls";
 import { Card, Form, Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux/es/hooks/useSelector";
-import { userData } from "../../pages/userSlice";
 import { inputHandler } from "../../services/useful";
 import { AppButton } from "../../common/AppButton/AppButton";
 
 export const Profile = () => {
     //GETTING TOKEN FROM REDUX
-    const datos = useSelector(userData);
-    const token = datos.credentials.token;
-
+    const token = useSelector((state) => state.user.credentials.token);
     const [user, setUser] = useState({});
     const [editing, setEditing] = useState(false);
     const [body, setBody] = useState({});
@@ -18,7 +15,6 @@ export const Profile = () => {
     //UPDATE PROFILE
     const editHandler = () => {
         if (editing) {
-            // Si estamos en modo de edición, guardar los cambios
             updateProfile(body, token)
                 .then(() => {
                     setEditing(false);
@@ -27,7 +23,6 @@ export const Profile = () => {
                     console.error('Error al actualizar el perfil:', error);
                 });
         } else {
-            // Si no estamos en modo de edición, cambiar a modo de edición
             setEditing(true);
         }
     };

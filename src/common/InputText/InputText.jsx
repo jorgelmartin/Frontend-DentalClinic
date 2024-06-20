@@ -1,17 +1,9 @@
 import React from 'react';
 import './InputText.css';
-import { checkError } from '../../services/useful';
+import { checkError, inputHandler } from '../../services/useful';
 import { Form } from 'react-bootstrap';
 
 export const InputText = ({ type, design, placeholder, name, state, errorState, autoCompleteValue }) => {
-    //INPUTHANDLER FUNCTION
-    const inputHandler = ({ target }, state) => {
-        const { name, value } = target;
-        state((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
-    };
 
     //CHECKERROR FUNCTION
     const inputCheck = ({ target }, state) => {

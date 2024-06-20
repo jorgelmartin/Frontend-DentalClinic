@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFetchAppointmentById } from "../../../hooks/useFetchAppointmentById";
-import "./AppointmentDetail.css";
+import "./../../App.css";
 import { Container } from "react-bootstrap";
 import { CreateAppointment } from "../CreateAppointment/CreateAppointment";
 import { AppButton } from "../../common/AppButton/AppButton";
@@ -10,70 +10,53 @@ export const AppointmentDetail = () => {
     let { id } = useParams();
     const parsedId = parseInt(id);
     const appointment = useFetchAppointmentById(parsedId);
-    const [appointmentDetail, setAppointmentDetail] = useState('');
     const [editing, setEditing] = useState(false);
-
-    useEffect(() => {
-        if (appointment) {
-            setAppointmentDetail(appointment);
-        } else {
-            setAppointmentDetail('');
-        }
-    }, [appointment]);
 
     return (
         <Container className="d-flex justify-content-center align-items-center mt-5">
 
             {!editing ? (
-                appointmentDetail && (
-                    <div className="detailAppointment">
+                appointment && (
+                    <div className="dataDetailContainer">
 
                         {/* APPOINTMENT DETAIL TITLE */}
                         <div className="d-flex align-items-center justify-content-center">
-                            <strong
-                                style={{
-                                    fontSize: '2em',
-                                    color: 'white',
-                                    width: '8em',
-                                    padding: '0.2em',
-                                    backgroundColor: 'rgba(158, 27, 219, 0.725)',
-                                    borderRadius: '2em',
-                                    border: '0.03em solid rgb(64, 139, 209)',
-                                    textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)',
-                                    boxShadow: 'rgba(0, 0, 0, 0.15) 0em -3em 2.2em 0 inset,rgba(0, 0, 0, 0.1) 0em -4.95em 2.5em 0em inset, inset rgba(0, 0, 0, 0.06) 0em 0.2em 0.1em, rgba(0, 0, 0, 0.09) 0em 0.4em 0.2em inset, rgba(0, 0, 0, 0.09) 0em 1.6em 0.8em inset, inset rgba(0, 0, 0, 0.09) 0em 3.2em 1.6em'
-                                }}
-                            >Detalle de cita
-                            </strong></div>
+                            <div className="dataStyleTitle">
+                                Detalle de cita
+                            </div>
+                        </div>
 
                         {/* DATA APPOINTMENT */}
-                        <div className="appointmentDetails">
-                            <div className="tableHeader">Nº Cita</div>
-                            <strong> <div>{appointmentDetail.id}</div></strong>
+                        <div className="dataDataDetail">
+                            <div className="dataDetailHeader">Nº Cita</div>
+                            <strong> <div>{appointment.id}</div></strong>
                         </div>
-                        <div className="appointmentDetails">
-                            <div className="tableHeader">Paciente</div>
-                            <strong> <div>{appointmentDetail.patient.name} {appointmentDetail.patient.lastname}</div></strong>
+                        <div className="dataDataDetail">
+                            <div className="dataDetailHeader">Paciente</div>
+                            <strong> <div>{appointment.patient.name} {appointment.patient.lastname}</div></strong>
                         </div>
-                        <div className="appointmentDetails">
-                            <div className="tableHeader">Servicio</div>
-                            <strong>  <div>{appointmentDetail.Service.name}</div></strong>
+                        <div className="dataDataDetail">
+                            <div className="dataDetailHeader">Servicio</div>
+                            <strong>  <div>{appointment.Service.name}</div></strong>
                         </div>
-                        <div className="appointmentDetails">
-                            <div className="tableHeader">Precio</div>
-                            <strong> <div>{appointmentDetail.Service.price}</div></strong>
+                        <div className="dataDataDetail">
+                            <div className="dataDetailHeader">Precio</div>
+                            <strong> <div>{appointment.Service.price}</div></strong>
                         </div>
-                        <div className="appointmentDetails">
-                            <div className="tableHeader">Dentista</div>
-                            <strong> <div>{appointmentDetail.dentist.name} {appointmentDetail.dentist.lastname}</div></strong>
+                        <div className="dataDataDetail">
+                            <div className="dataDetailHeader">Dentista</div>
+                            <strong> <div>{appointment.dentist.name} {appointment.dentist.lastname}</div></strong>
                         </div>
-                        <div className="appointmentDetails">
-                            <div className="tableHeader">Día</div>
-                            <strong> <div>{appointmentDetail.date}</div></strong>
+                        <div className="dataDataDetail">
+                            <div className="dataDetailHeader">Día</div>
+                            <strong> <div>{appointment.date}</div></strong>
                         </div>
-                        <div className="appointmentDetails">
-                            <div className="tableHeader">Hora</div>
-                            <strong> <div>{appointmentDetail.hour}</div></strong>
+                        <div className="dataDataDetail">
+                            <div className="dataDetailHeader">Hora</div>
+                            <strong> <div>{appointment.hour}</div></strong>
                         </div>
+
+                        {/* EDIT BUTTON */}
                         <div className="d-flex align-items-center justify-content-center">
                             <AppButton
                                 text={'Editar'}
@@ -86,7 +69,7 @@ export const AppointmentDetail = () => {
                 )
             ) : (
                 // IF CLICK IN EDIT USE CREATEAPPOINTMENT COMPONENT FOR EDIT THE ACTUAL APPOINTMENT
-                <CreateAppointment isUpdate={true} updateData={appointmentDetail} />
+                <CreateAppointment isUpdate={true} updateData={appointment} />
             )}
         </Container>
     );

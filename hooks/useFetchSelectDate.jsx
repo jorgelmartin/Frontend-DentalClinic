@@ -6,7 +6,7 @@ import { isWeekend } from "date-fns";
 export const SelectDate = ({ handleChange, value }) => {
 
     //USER SELECTED DATE FROM THE FATHER COMPONENT
-    const [selectedDate, setSelectedDate] = useState(value ? new Date(value) : null);
+    const [selectedDate, setSelectedDate] = useState(value ? new Date(value) : '');
 
     const handleDateChange = (date) => {
         // VERIFY IF IS WEEKEND
