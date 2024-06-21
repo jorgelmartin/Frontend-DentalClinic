@@ -1,16 +1,10 @@
-.homeDesign {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .clinicTitle {
   color: rgb(37, 97, 153);
   background: linear-gradient(90deg, rgba(69, 149, 224, 0.496) 14%, rgba(159, 83, 185, 0.463) 74%);
   border-radius: 0.5em;
   font-size: 3em;
   border: 0.1em solid #2e3c5a79;
+  text-shadow: 0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5);
 }
 
 .productCardContainer {
@@ -38,9 +32,10 @@
     rgba(0, 0, 0, 0.09) 0em 0.5em 0.25em,
     rgba(0, 0, 0, 0.09) 0em 1em 0.5em,
     rgba(0, 0, 0, 0.09) 0em 2em 1em;
+  transition: box-shadow 0.3s;
 }
 
-.productCardDesign img {
+.productImgDesign {
   width: 100%;
   height: 12em;
   border: 0.08em solid #00000079;
@@ -63,14 +58,8 @@
 }
 
 .productCardDesign:hover {
-  transition: 0.3s;
   color: rgb(0, 0, 0);
   box-shadow:
     rgba(50, 50, 93, 0.25) 0em 1.875em 3.75em -0.75em inset,
     rgba(0, 0, 0, 0.3) 0em 1.125em 2.25em -1.125em inset;
-}
-
-.pictureDesign {
-  height: 6em;
-  width: 5em;
 }

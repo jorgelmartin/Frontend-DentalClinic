@@ -7,29 +7,31 @@ export const PatientMenu = () => {
     const navigate = useNavigate();
 
     return (
-        <Container className='mt-5 d-flex justify-content-center'>
-            <Row>
-                <Col className="d-flex justify-content-center g-1" >
-                    <div className="menuCard" >
-                        <div
-                            className="menuCardTitle"
-                            onClick={() => navigate("/createappointment")}
-                        >
-                            PEDIR CITA
+        <Container>
+            <div className="menuContainer">
+                <Row>
+                    <Col>
+                        <div className="menuCard" >
+                            <div
+                                className="menuCardTitle"
+                                onClick={() => navigate("/createappointment")}
+                            >
+                                PEDIR CITA
+                            </div>
                         </div>
-                    </div>
-                </Col>
-                <Col className="d-flex justify-content-center g-1" >
-                    <div className="menuCard">
-                        <div
-                            className="menuCardTitle"
-                            onClick={() => navigate("/appointments")}
-                        >
-                            MIS CITAS
+                    </Col>
+                    <Col>
+                        <div className="menuCard">
+                            <div
+                                className="menuCardTitle"
+                                onClick={() => navigate("/appointments")}
+                            >
+                                MIS CITAS
+                            </div>
                         </div>
-                    </div>
-                </Col>
-            </Row>
+                    </Col>
+                </Row>
+            </div>
         </Container>
     );
 }

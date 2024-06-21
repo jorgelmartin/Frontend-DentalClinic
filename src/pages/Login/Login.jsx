@@ -91,7 +91,7 @@ export const Login = () => {
                         type={"email"}
                         design={userError.emailError ? "errorInput" : ""}
                         name={"email"}
-                        placeholder={"Enter email"}
+                        placeholder={"user@user.com/admin@dentist.com"}
                         state={setUser}
                         errorState={setUserError}
                         autoCompleteValue={"email"}
@@ -108,7 +108,7 @@ export const Login = () => {
                         type={"password"}
                         design={userError.passwordError ? "errorInput" : ""}
                         name={"password"}
-                        placeholder={"Password"}
+                        placeholder={"Hola1234"}
                         state={setUser}
                         errorState={setUserError}
                         autoCompleteValue={"current-password"}

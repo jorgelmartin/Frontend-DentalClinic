@@ -8,33 +8,29 @@ export const Admin = () => {
 
     //ADMIN PAGE
     return (
-        <div className="adminContainer">
-            <Container>
+        <Container>
+            <div className="menuContainer">
                 <Row>
-                    <Col className="d-flex justify-content-center g-1">
-                        <div className="menuCard"  >
-                            <div
-                                // style={{ backgroundColor: "#13326fba" }}
-                                className="menuCardTitle"
-                                onClick={() => navigate("/users")}
-                            >
+                    <Col>
+                        <div
+                            className="menuCard"
+                            onClick={() => navigate("/users")}>
+                            <div className="menuCardTitle">
                                 USUARIOS
                             </div>
                         </div>
                     </Col>
-                    <Col className="d-flex justify-content-center g-1">
-                        <div className="menuCard" >
-                            <div
-                                // style={{ backgroundColor: "#13326fba" }}
-                                className="menuCardTitle"
-                                onClick={() => navigate("/appointments")}
-                            >
+                    <Col>
+                        <div
+                            className="menuCard"
+                            onClick={() => navigate("/appointments")}>
+                            <div className="menuCardTitle">
                                 CITAS
                             </div>
                         </div>
                     </Col>
                 </Row>
-            </Container>
-        </div>
+            </div>
+        </Container>
     );
 };

@@ -19,6 +19,14 @@ Desarrollo y diseño FRONTEND de una aplicación funcional para una clínica den
 
 Los pacientes (role por defecto) una vez registrados podrán editar su perfil, crear la cita de interés, teniendo la oportunidad de escoger fecha, hora, servicio y dentista. También podrán ver el historial de sus citas, al igual que modificarla. El admin podrá ver todos las citas y usuarios registrados en la aplicación.
 
+##### Puedes registrarte para una experiencia mas completa, o puedes acceder con estas credenciales: 
+
+Usuario:
+user@user.com - Hola1234
+
+Administrador:
+admin@dentist.com - Hola1234
+
 ### REGISTRO / LOGIN
 
 !['register'](./src/assets/img/register.png)!['login'](./src/assets/img/login.png)
@@ -45,15 +53,21 @@ Cuenta con una página para ver y editar datos de usuario en caso de necesitarlo
 
 ### ADMIN
 
-!['admin'](./src/assets/img/admin.jpeg)
+!['admin'](./src/assets/img/adminMenu.png)
 
-Los Admin, contarán con una vista privada para poder llevar el control de la clínica.
+Los Admin, contarán con un espacio privado para poder llevar el control de la clínica.
 
 ### USUARIOS
 
 !['users'](./src/assets/img/users.png)
 
 El Admin será capaz de ver todos los usuarios registrados en el sistema.
+
+### DETALLE USUARIO
+
+!['users'](./src/assets/img/userDetail.png)
+
+Tendrá la posibilidad de ver el detalle de cada usuario para ver todos los datos faltantes de la lista.
 
 ### CITAS ADMIN
 

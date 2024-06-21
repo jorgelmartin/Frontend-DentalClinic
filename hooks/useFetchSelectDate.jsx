@@ -8,11 +8,11 @@ export const SelectDate = ({ handleChange, value }) => {
     //USER SELECTED DATE FROM THE FATHER COMPONENT
     const [selectedDate, setSelectedDate] = useState(value ? new Date(value) : '');
 
+    // VERIFY IF IS WEEKEND
     const handleDateChange = (date) => {
-        // VERIFY IF IS WEEKEND
         if (!isWeekend(date)) {
             setSelectedDate(date);
-            handleChange(date)
+            handleChange(date);
         }
     };
 
@@ -27,6 +27,8 @@ export const SelectDate = ({ handleChange, value }) => {
                 placeholderText="SELECT DATE"
                 dropdownMode="select"
                 isClearable
+                minDate={new Date()}
+                filterDate={(date) => !isWeekend(date)}
             />
         </>
     );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useFetchProducts } from "../../../hooks/useFetchProdutcs";
+import { useFetchServices } from "../../../hooks/useFetchServices";
 import "./ServiceDetail.css";
 
 export const ServiceDetail = () => {
@@ -8,32 +8,32 @@ export const ServiceDetail = () => {
     let { id } = useParams();
     const parsedId = parseInt(id);
     //ASSIGN PRODUCTS
-    const products = useFetchProducts();
-    const [productDetail, setProductDetail] = useState('');
+    const services = useFetchServices();
+    const [serviceDetail, setServiceDetail] = useState('');
 
     useEffect(() => {
         // FOUND THE PRODUCT WITH THE ID GET IT FROM THE ARRAY
-        const foundProduct = products.find((item) => item.id === parsedId);
-        if (foundProduct) {
-            setProductDetail(foundProduct);
+        const foundService = services.find((item) => item.id === parsedId);
+        if (foundService) {
+            setServiceDetail(foundService);
         } else {
-            setProductDetail(null);
+            setServiceDetail('');
         }
-    }, [parsedId, products]);
+    }, [parsedId, services]);
 
     //SHOW THE DETAIL SERVICE
     return (
         <div className="DetailService">
-            {productDetail ? (
+            {serviceDetail ? (
                 <>
                     <h2 style={{
                         textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)'
                     }}>
-                        {productDetail.name}
+                        {serviceDetail.name}
                     </h2>
-                    <img src={productDetail.image} alt="" className="img-fluid imageDetail" />
-                    <h5 className="mt-3">Precio: {productDetail.price}</h5>
-                    <p>{productDetail.description}</p>
+                    <img src={serviceDetail.image} alt="" className="img-fluid imageDetail" />
+                    <h5 className="mt-3">Precio: {serviceDetail.price}</h5>
+                    <p>{serviceDetail.description}</p>
                     {/* <button>Pedir cita</button> */}
                 </>
             ) : (

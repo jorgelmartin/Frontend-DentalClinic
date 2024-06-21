@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+
 //GET ALL USERS
 export const useFetchUsers = (currentPage, perPage, searchQuery) => {
     const token = useSelector((state) => state.user.credentials.token);

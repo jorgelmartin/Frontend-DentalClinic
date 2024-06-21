@@ -13,11 +13,9 @@ export const useFetchAppointmentById = (id) => {
         };
 
         fetch(`https://backend-dental-clinic.vercel.app/appointment/getAppointmentById/${id}`, config)
-            .then(response => {
-                return response.json();
-            })
-            .then(data => {
-                setAppointment(data.data); 
+            .then((res) => res.json())
+            .then((res) => {
+                setAppointment(res.data); 
             })
             .catch(error => {
                 console.error('Error fetching appointment:', error);

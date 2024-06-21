@@ -10,7 +10,7 @@ export const Appointments = () => {
   const navigate = useNavigate();
   const perPage = 6;
   const { currentPage, nextPage, prevPage, goToPage } = usePagination();
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const { appointments, pagination } = useFetchSearchAppointments(currentPage, perPage, searchQuery);
 
   //SEARCH
@@ -27,9 +27,12 @@ export const Appointments = () => {
   if (!appointments) {
     return <div>Cargando...</div>;
   }
-  return (
-    <Container>
 
+  return (
+    <Container className="containerData">
+      <div className="containerDataScroll">
+
+        {/* TITLE */}
       <div className="dataTitle">Citas</div>
 
       {/* INPUT SEARCH */}
@@ -53,7 +56,7 @@ export const Appointments = () => {
                 {appointment.patient.name} {appointment.patient.lastname}
               </div>
               <div className="tableDataData">
-                {appointment?.dentist?.name} {appointment?.dentist?.lastname}
+                {appointment.dentist.name} {appointment.dentist.lastname}
               </div>
               <div className="tableDataData">{appointment?.Service?.name}</div>
               <div className="tableDataData">{appointment.date}</div>
@@ -98,6 +101,7 @@ export const Appointments = () => {
           </Button>
         </div>
       ) : ''}
+      </div>
     </Container>
   );
 };

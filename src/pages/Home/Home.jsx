@@ -1,39 +1,35 @@
 import React from "react";
 import "./Home.css";
 import { Container } from "react-bootstrap";
-import { useFetchProducts } from '../../../hooks/useFetchProdutcs';
+import { useFetchServices } from '../../../hooks/useFetchServices';
 import { useNavigate } from "react-router-dom";
 
 //SHOW SERVICES AT HOME PAGE
 export const Home = () => {
-    const products = useFetchProducts();
+    const services = useFetchServices();
     const navigate = useNavigate();
 
-    if (!products) {
+    if (!services) {
         return <div>Cargando...</div>;
     }
 
-    
     return (
-        <Container className="mt-4">
-            <div className="clinicTitle mt-4"
-                style={{
-                    textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)'
-                }}>SMILE - everyday
+        <Container className="mt-5">
+            <div className="clinicTitle">SMILE - everyday
             </div>
             {/* MAPPING SERVICES AT HOME PAGE */}
             <div className="productCardContainer mt-2">
-            {products.map((product) => (
-                
-                <div key={product.id} className="productCardDesign">
-                    <img className="productImgDesign" 
-                    src={product.image} 
-                    alt={product.name} 
-                    onClick={() => navigate(`/servicedetail/${product.id}`)}/>
-                    <h1>{product.name}</h1>
-                </div>
-            ))}
-        </div>
+                {services.map((service) => (
+
+                    <div key={service.id} className="productCardDesign">
+                        <img className="productImgDesign"
+                            src={service.image}
+                            alt={service.name}
+                            onClick={() => navigate(`/servicedetail/${service.id}`)} />
+                        <h1>{service.name}</h1>
+                    </div>
+                ))}
+            </div>
         </Container>
     );
 };   

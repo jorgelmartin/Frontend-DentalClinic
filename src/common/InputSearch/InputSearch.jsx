@@ -18,7 +18,7 @@ export const InputSearch = ({ onSearch }) => {
 
     return (
         <input
-            className="InputSearch"
+            className="inputSearch"
             type="text"
             name="text"
             placeholder="Buscar..."
