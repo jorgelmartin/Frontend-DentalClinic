@@ -31,7 +31,11 @@ export const ServiceDetail = () => {
                     }}>
                         {serviceDetail.name}
                     </h2>
-                    <img src={serviceDetail.image} alt="" className="img-fluid imageDetail" />
+                    <img 
+                    src={`https://backend-dental-clinic.vercel.app/${serviceDetail.image}`}
+                    alt={serviceDetail.name}
+                    className="img-fluid imageDetail" 
+                    />
                     <h5 className="mt-3">Precio: {serviceDetail.price}</h5>
                     <p>{serviceDetail.description}</p>
                     {/* <button>Pedir cita</button> */}
