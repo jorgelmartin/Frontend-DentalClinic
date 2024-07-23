@@ -5,6 +5,7 @@
   font-size: 3em;
   border: 0.1em solid #2e3c5a79;
   text-shadow: 0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5);
+  margin-top: 1em;
 }
 
 .productCardContainer {
@@ -62,4 +63,122 @@
   box-shadow:
     rgba(50, 50, 93, 0.25) 0em 1.875em 3.75em -0.75em inset,
     rgba(0, 0, 0, 0.3) 0em 1.125em 2.25em -1.125em inset;
+}
+
+/* LOADER */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: not-allowed;  
+  scale: 0.7;
+}
+
+.central {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  box-shadow: 0.5em 0.7em 1em rgba(210, 125, 238, 0.827),
+    -0.5em 0.5em 1em rgb(0, 132, 255),
+    0.5em -0.5em 1em rgb(212, 0, 255),
+    -0.5em -0.5em 1em rgb(4, 160, 191);
+}
+
+.externalShadow {
+  width: 17em;
+  height: 17em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 1em 1em 3em rgb(53, 92, 234),
+    -1em 1em 3em rgb(230, 0, 255),
+    1em -1em 3em rgb(94, 170, 250),
+    -1em -1em 3em rgb(190, 87, 211);
+  z-index: 999;
+  animation: rotate 3s linear infinite;
+  background-color: #2d2d2d;
+}
+
+.intern {
+  position: absolute;
+  color: white;
+  z-index: 9999;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.intern::before {
+  content: "100%";
+  animation: percent 3s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes percent {
+  0% {
+    content: '0%';
+  }
+
+  25% {
+    content: '25%';
+  }
+
+  33% {
+    content: '33%';
+  }
+
+  42% {
+    content: '42%';
+  }
+
+  51% {
+    content: '51%';
+  }
+
+  67% {
+    content: '67%';
+  }
+
+  74% {
+    content: '74%';
+  }
+
+  75% {
+    content: '75%';
+  }
+
+  86% {
+    content: '86%';
+  }
+
+  95% {
+    content: '95%';
+  }
+
+  98% {
+    content: '98%';
+  }
+
+  99% {
+    content: '99%';
+  }
 }
