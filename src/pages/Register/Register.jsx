@@ -36,17 +36,9 @@ export const Register = () => {
     return (
         <div className="registerDesign">
             <Container fluid className="d-flex justify-content-center align-items-center mt-4">
-                <Card className="registerCard"
-                    style={{
-                        backgroundColor: 'rgba(64, 139, 209, 0.607)',
-                        borderRadius: '8.7em',
-                        boxShadow: 'rgba(14, 30, 37, 0.12) 0em 0.125em 0.25em 0em, rgba(14, 30, 37, 0.32) 0em 0.125em 1em 0em'
-                    }}>
+                <Card className="registerCard">
                     <Card.Body >
-                        <Card.Title className="text-center mb-3 display-5"
-                            style={{
-                                textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)'
-                            }}>
+                        <Card.Title className="custom-card-title">
                             <strong>Registro</strong>
                         </Card.Title>
 
@@ -57,8 +49,7 @@ export const Register = () => {
                                 <Col>
                                     <InputText
                                         type={"text"}
-                                        design={
-                                            userError.nameError ? "errorInput" : ""}
+                                        design={userError.nameError ? "errorInput" : ""}
                                         placeholder={"Ingrese su nombre..."}
                                         name={"name"}
                                         state={setUser}
@@ -75,8 +66,7 @@ export const Register = () => {
                                 <Col>
                                     <InputText
                                         type={"text"}
-                                        design={
-                                            userError.lastnameError ? "errorInput" : ""}
+                                        design={userError.lastnameError ? "errorInput" : ""}
                                         placeholder={"Ingrese su apellido..."}
                                         name={"lastname"}
                                         state={setUser}
@@ -127,8 +117,7 @@ export const Register = () => {
                                 <Col>
                                     <InputText
                                         type={"text"}
-                                        design={
-                                            userError.dniError ? "errorInput" : ""}
+                                        design={userError.dniError ? "errorInput" : ""}
                                         placeholder={"Ingrese su dni/nie..."}
                                         name={"dni"}
                                         state={setUser}
@@ -145,8 +134,7 @@ export const Register = () => {
                                 <Col>
                                     <InputText
                                         type={"text"}
-                                        design={
-                                            userError.addressError ? "errorInput" : ""}
+                                        design={userError.addressError ? "errorInput" : ""}
                                         placeholder={"Ingrese su dirección..."}
                                         name={"address"}
                                         state={setUser}
@@ -163,8 +151,7 @@ export const Register = () => {
                                 <Col>
                                     <InputText
                                         type={"text"}
-                                        design={
-                                            userError.phoneError ? "errorInput" : ""}
+                                        design={userError.phoneError ? "errorInput" : ""}
                                         placeholder={"Ingrese su teléfono..."}
                                         name={"phone"}
                                         state={setUser}

@@ -71,8 +71,9 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  cursor: not-allowed;  
+  cursor: not-allowed;
   scale: 0.7;
+
 }
 
 .central {
@@ -83,7 +84,8 @@
   width: 10em;
   height: 10em;
   border-radius: 50%;
-  box-shadow: 0.5em 0.7em 1em rgba(210, 125, 238, 0.827),
+  box-shadow:
+    0.5em 0.7em 1em rgba(210, 125, 238, 0.827),
     -0.5em 0.5em 1em rgb(0, 132, 255),
     0.5em -0.5em 1em rgb(212, 0, 255),
     -0.5em -0.5em 1em rgb(4, 160, 191);
@@ -97,17 +99,19 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  box-shadow: 1em 1em 3em rgb(53, 92, 234),
-    -1em 1em 3em rgb(230, 0, 255),
+  box-shadow:
+    1em 1em 3em rgb(53, 92, 234),
+    -1em 0.9em 3em rgb(230, 0, 255),
     1em -1em 3em rgb(94, 170, 250),
     -1em -1em 3em rgb(190, 87, 211);
   z-index: 999;
   animation: rotate 3s linear infinite;
-  background-color: #2d2d2d;
+  background-color: #2d2d2de7;
 }
 
 .intern {
   position: absolute;
+  text-shadow: 0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5);
   color: white;
   z-index: 9999;
   font-size: 2em;
@@ -116,7 +120,7 @@
 
 .intern::before {
   content: "100%";
-  animation: percent 3s ease-in-out infinite;
+  animation: percent 3.3s ease-in-out infinite;
 }
 
 @keyframes rotate {
