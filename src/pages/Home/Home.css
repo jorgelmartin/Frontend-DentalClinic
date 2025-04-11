@@ -73,7 +73,6 @@
   position: relative;
   cursor: not-allowed;
   scale: 0.7;
-
 }
 
 .central {
@@ -120,7 +119,7 @@
 
 .intern::before {
   content: "100%";
-  animation: percent 3.3s ease-in-out infinite;
+  animation: percent 3.2s ease-in-out infinite;
 }
 
 @keyframes rotate {

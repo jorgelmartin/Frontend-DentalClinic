@@ -4,9 +4,8 @@ import { Container } from "react-bootstrap";
 import { useFetchServices } from '../../../hooks/useFetchServices';
 import { useNavigate } from "react-router-dom";
 
-//SHOW SERVICES AT HOME PAGE
 export const Home = () => {
-    const services = useFetchServices();
+    const { services, error } = useFetchServices(); 
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
 
@@ -17,7 +16,7 @@ export const Home = () => {
             const timer = setTimeout(() => {
                 setLoading(false);
                 sessionStorage.setItem('hasShownLoader', 'true');
-            }, 3000);
+            }, 3200);
 
             return () => clearTimeout(timer);
         } else {
@@ -31,6 +30,12 @@ export const Home = () => {
 
     return (
         <Container>
+            {/* ALERT RATE LIMIT */}
+            {error && (
+                <div className="alert alert-warning" role="alert">
+                    {error}
+                </div>
+            )}
 
             {/* LOADER */}
             {loading ? (
@@ -64,4 +69,4 @@ export const Home = () => {
             )}
         </Container>
     );
-};   
+};
