@@ -1,22 +1,21 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-// GET ALL APPOINTMENTS
-export const useFetchSearchAppointments = (currentPage, perPage, searchQuery) => {
+export const useFetchAccessLogs = (currentPage, perPage, searchQuery) => {
     const token = useSelector((state) => state.user.credentials.token);
+    const [accessLogs, setAccessLogs] = useState([]);
     const [pagination, setPagination] = useState({});
-    const [appointments, setAppointments] = useState([]);
 
     useEffect(() => {
-        let config = {
+
+        const config = {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         };
 
-        let apiUrl = `https://backend-dental-clinic.vercel.app/appointment/searchAppointments?page=${currentPage}&per_page=${perPage}`;
+        let apiUrl = `https://backend-dental-clinic.vercel.app/accesslog/searchAccessLogs?page=${currentPage}&per_page=${perPage}`;
 
-        // Add search query if present
         if (searchQuery) {
             apiUrl += `&query=${encodeURIComponent(searchQuery)}`;
         }
@@ -24,11 +23,11 @@ export const useFetchSearchAppointments = (currentPage, perPage, searchQuery) =>
         fetch(apiUrl, config)
             .then(res => res.json())
             .then(res => {
-                setAppointments(res.data);
-                setPagination(res.pagination);
+                    setAccessLogs(res.data);
+                    setPagination(res.pagination);
             })
-            .catch(error => console.log("Error fetching appointments:", error));
+            .catch(error => console.log("Error fetching accessLogs:", error))
     }, [currentPage, perPage, searchQuery]);
 
-    return { appointments, pagination };
+    return { accessLogs, pagination };
 };

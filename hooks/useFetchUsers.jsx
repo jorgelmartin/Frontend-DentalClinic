@@ -14,7 +14,7 @@ export const useFetchUsers = (currentPage, perPage, searchQuery) => {
             },
         };
 
-        let apiUrl = `https://backend-dental-clinic.vercel.app/user/getAllUsers?page=${currentPage}&perPage=${perPage}`;
+        let apiUrl = `https://backend-dental-clinic.vercel.app/user/searchUsers?page=${currentPage}&perPage=${perPage}`;
 
         // Add search query if present
         if (searchQuery) {

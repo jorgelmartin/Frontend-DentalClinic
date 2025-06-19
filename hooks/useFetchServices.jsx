@@ -5,11 +5,14 @@ export const useFetchServices = () => {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        fetch('https://backend-dental-clinic.vercel.app/service/getAll')
-            .then(res => res.json()) 
-            .then(data => {
-                if (!data.data) { 
-                    throw new Error(data.message || 'Error fetching services');
+        fetch("https://backend-dental-clinic.vercel.app/service/getAll")
+            .then((res) => {
+                const isJson = res.headers.get("content-type")?.includes("application/json");
+                return isJson ? res.json() : res.text().then(text => ({ message: text }));
+            })
+            .then((data) => {
+                if (!data.data) {
+                    throw new Error(data?.message || "Error fetching services");
                 }
                 setServices(data.data);
             })

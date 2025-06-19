@@ -10,7 +10,7 @@ import { ServiceDetail } from "../ServiceDetail/ServiceDetail";
 import { AppointmentDetail } from "../AppointmentDetail/AppointmentDetail";
 import { Home } from "../Home/Home";
 import { UserDetail } from "../UserDetail/UserDetail";
-import { Menu } from "../Menu/Menu";
+import { AccessLogs } from "../AccessLogs/AccessLogs";
 
 export const Body = () => {
     return (
@@ -22,8 +22,8 @@ export const Body = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<Profile />} />
-                <Route path="/menu" element={<Menu />} />
                 <Route path="/users" element={<Users />} />
+                <Route path="/accesslogs" element={<AccessLogs />} />
                 <Route path="/appointments" element={<Appointments />} />
                 <Route path="/createappointment" element={<CreateAppointment/>} />
                 <Route path="/servicedetail/:id" element={<ServiceDetail/>} />

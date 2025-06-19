@@ -10,6 +10,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
+    z-index: 10;
 }
 .linksDesign {
     padding: 0.5em;
@@ -24,15 +25,25 @@
 .headerLink {
     font-weight:bold; 
     font-size: large;
-    margin: 0.2em;
     color: rgb(37, 32, 86);
+    margin: 0.2em;
     transition: 0.5s;
     cursor: pointer;
-    margin-bottom: 0.1em;
-    margin-right: 1em;
+    margin-top: 0.4em;
+    /* margin-bottom: 0.1em; */
+    /* margin-right: 1em; */
 }
 
 .headerLink:hover {
     transition: 0.5s;
     color: rgb(0, 0, 0);
+}
+
+.dropdownStyle{
+    /* margin-right: 0.7em; */
+    background-color: transparent;
+    color: rgb(37, 32, 86);
+    font-weight:bold; 
+    font-size: large;
+    border: transparent;
 }

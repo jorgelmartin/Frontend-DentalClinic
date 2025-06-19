@@ -8,7 +8,7 @@ export const ServiceDetail = () => {
     let { id } = useParams();
     const parsedId = parseInt(id);
     //ASSIGN PRODUCTS
-    const services = useFetchServices();
+    const { services } = useFetchServices();
     const [serviceDetail, setServiceDetail] = useState('');
 
     useEffect(() => {

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-export const useFetchAppointments = (page, perPage) => {
-    const [appointments, setAppointments] = useState([]);
-    const [pagination, setPagination] = useState({}); 
+// GET ALL APPOINTMENTS
+export const useFetchAppointments = (currentPage, perPage, searchQuery) => {
     const token = useSelector((state) => state.user.credentials.token);
+    const [pagination, setPagination] = useState({});
+    const [appointments, setAppointments] = useState([]);
 
     useEffect(() => {
         let config = {
@@ -12,14 +13,22 @@ export const useFetchAppointments = (page, perPage) => {
                 Authorization: `Bearer ${token}`,
             },
         };
-        fetch(`https://backend-dental-clinic.vercel.app/appointment/getAll?page=${page}&per_page=${perPage}`, config)
+
+        let apiUrl = `https://backend-dental-clinic.vercel.app/appointment/searchAppointments?page=${currentPage}&per_page=${perPage}`;
+
+        // Add search query if present
+        if (searchQuery) {
+            apiUrl += `&query=${encodeURIComponent(searchQuery)}`;
+        }
+
+        fetch(apiUrl, config)
             .then(res => res.json())
             .then(res => {
                 setAppointments(res.data);
                 setPagination(res.pagination);
             })
             .catch(error => console.log("Error fetching appointments:", error));
-    }, [page, perPage, token]);
+    }, [currentPage, perPage, searchQuery]);
 
     return { appointments, pagination };
 };

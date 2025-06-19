@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useFetchSearchAppointments } from "../../../hooks/useFetchSearchAppointments";
+import { useFetchAppointments } from "../../../hooks/useFetchAppointments";
 import "../../App.css";
 import { useNavigate } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
@@ -11,7 +11,7 @@ export const Appointments = () => {
   const perPage = 6;
   const { currentPage, nextPage, prevPage, goToPage } = usePagination();
   const [searchQuery, setSearchQuery] = useState('');
-  const { appointments, pagination } = useFetchSearchAppointments(currentPage, perPage, searchQuery);
+  const { appointments, pagination } = useFetchAppointments(currentPage, perPage, searchQuery);
 
   //SEARCH
   const handleSearch = (query) => {
